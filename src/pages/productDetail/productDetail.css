@@ -207,4 +207,43 @@
   width: 70%;
   margin: 50px auto;
 }
+
+.ProductRelate {
+  width: 100%;
+}
+
+.ProductRelate .ProductRelateList {
+  width: 85%;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.ProductRelateTitle {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.ProductRelateTitle p {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+@media screen and (max-width: 992px) {
+  .ProductDetailBody {
+    width: 90%;
+    margin: 50px auto;
+    display: block;
+  }
+  .ProductMainContent {
+    width: 100%;
+  }
+  .ProductFullDetail {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=productDetail.css.map */

@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger,faHotdog,faBreadSlice,faGlassCheers,faPizzaSlice,faTh,faThList } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Rate,Radio,Space,Input } from 'antd';
-// import {SwapRightOutlined} from '@ant-design/icons'
 import Footer from '../../components/footer/footer.js'
 import Header from '../../components/header/header.js'
 import './productpage.css'

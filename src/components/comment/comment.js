@@ -6,10 +6,9 @@ import './comment.css'
 
 
 const OlderComment=(props)=>{
-    console.log(props.moment)
     return(
         <div className="CommentBox">
-                <div ClassName="UserAvatar">
+                <div className="UserAvatar">
                     <Avatar src={props.userAvatar} size={50}/><p>{props.userName}</p>
                     </div>
                 <div className="CommentContent">
@@ -45,6 +44,8 @@ const Comment=()=>{
             let newComment=[...listComments];
             newComment.push(userComment);
             setListComments(()=>newComment);
+            commentRef.current.value="";
+            setRating(0);
         }
     }
 
@@ -66,15 +67,15 @@ const Comment=()=>{
             }
             </div>
             <div className="CommentBox">
-                <div ClassName="UserAvatar"><Avatar icon={<UserOutlined />} size={50}/></div>
+                <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={50}/></div>
                 <div className="CommentContent">
                     <div className="UserRate">
-                        <Rate allowClear={false}  onChange={(value=>setRating(()=>value))}/>
+                        <Rate allowClear={false} value={rating}  onChange={(value=>setRating(()=>value))}/>
                         <p>(Please choose an one)</p>
                     </div>
                     <div className="UserComment">
                         <textarea ref={commentRef} className="comment" placeholder="Type your comment here..."></textarea>
-                        <div class="PostCommentBtn" onClick={postComment}><p>Post Comment</p></div>
+                        <div className="PostCommentBtn" onClick={postComment}><p>Post Comment</p></div>
                     </div>
                 </div>
 

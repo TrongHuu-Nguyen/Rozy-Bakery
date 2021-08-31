@@ -5,19 +5,41 @@ import { Image,Rate,Radio,Tabs } from 'antd';
 import {HeartOutlined,ShoppingCartOutlined} from '@ant-design/icons'
 import './productDetail.css'
 import Comment from '../../components/comment/comment';
+import CardItem from '../../components/cardItem/cardItem'
+import ProductData from '../productPage/fakedata.js'
+import _ from 'lodash'
+import Footer from '../../components/footer/footer.js'
+import Header from '../../components/header/header.js'
+import TopBar from '../../components/topBar/topBar.js'
 
 const { TabPane } = Tabs;
 
 const ProductDetail =()=>{
     const [visible, setVisible] = React.useState(false);
     const [value, setValue] = React.useState(1);
-
+    const [count,setCount]=React.useState(0);
+    const relativeItem = _.sampleSize(ProductData,5);
+    
+    const descrease=()=>{
+        setCount(count-1);
+        setValue(count-1);
+        if(count<=0){
+            setCount(0)
+            setValue(0);
+        }
+    }
+    const inscrease=()=>{
+        setCount(count+1);
+        setValue(count+1);
+    }
     const onChange = e => {
-        console.log('radio checked', e.target.value);
         setValue(e.target.value);
+        setCount(e.target.value);
     };
     return(
         <div className="ProductDetail">
+            <TopBar/>
+            <Header title="Product Detail"/>
             <div className="ProductDetailBody">
                     <div className="ProductMainContent">
                         <div className="ProductImages">
@@ -45,15 +67,15 @@ const ProductDetail =()=>{
                         <h3>Choose your options</h3>
                         <div className="DiscountOption">
                         <Radio.Group onChange={onChange} value={value}>
-                            <Radio value={1} style={{fontSize:"16px",fontWeight:"500"}}>Buy 2 get 10 percent off</Radio ><br/>
-                            <Radio value={2} style={{fontSize:"16px",fontWeight:"500"}}>Buy 3 get 15 percent off</Radio><br/>
-                            <Radio value={3} style={{fontSize:"16px",fontWeight:"500"}}>Buy 4 get 20 percent off</Radio><br/>
-                            <Radio value={4} style={{fontSize:"16px",fontWeight:"500"}}>Buy 5 or up to get 25 percent off</Radio><br/>
+                            <Radio value={2} style={{fontSize:"16px",fontWeight:"500"}}>Buy 2 get 10 percent off</Radio ><br/>
+                            <Radio value={3} style={{fontSize:"16px",fontWeight:"500"}}>Buy 3 get 15 percent off</Radio><br/>
+                            <Radio value={4} style={{fontSize:"16px",fontWeight:"500"}}>Buy 4 get 20 percent off</Radio><br/>
+                            <Radio value={5} style={{fontSize:"16px",fontWeight:"500"}}>Buy 5 or up to get 25 percent off</Radio><br/>
                         </Radio.Group>
                         </div>
                         <div className="AddCart">
                             <div className="Increase-Decrease">
-                                <div className="DecreaseButton FakeBtn"><p>-</p></div><p>0</p><div className="IncreaseButton FakeBtn"><p>+</p></div>
+                                <div className="DecreaseButton FakeBtn" onClick={descrease}><p>-</p></div><p>{count}</p><div className="IncreaseButton FakeBtn" onClick={inscrease}><p>+</p></div>
                             </div>
                             <div className="AddCardButton">
                                 <ShoppingCartOutlined/><p> ADD TO CART</p>
@@ -79,17 +101,36 @@ const ProductDetail =()=>{
             <div className="ProductFullDescription">
                 <Tabs defaultActiveKey="1" centered>
                     <TabPane tab="Description" key="1">
-                    This is Description
+                    <p>Item Description</p>
                     </TabPane>
                     <TabPane tab="Reviews" key="2">
                     <Comment/>
                     </TabPane>
                 </Tabs>
             </div>
-
-
-
-            <div className="ProductRelate"></div>
+            <div className="ProductRelate">
+                <div className="ProductRelateTitle">
+                    <p>Related Products</p>
+                </div>
+                
+                <div className="ProductRelateList">
+                {relativeItem.map((item)=>{
+                   return(
+                    <CardItem
+                    displayStyle={"CardItemContentGrid"}
+                    title={item.title}
+                    key={item.id}
+                    src={item.src}
+                    alt={item.alt}
+                    price={item.price}
+                    rate={item.rate}
+                    description={item.description}
+                    />
+                   )
+                })}
+                </div>
+            </div>
+            <Footer/>
             </div>
     )
 }

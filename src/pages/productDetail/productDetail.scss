@@ -138,3 +138,35 @@
     width:70%;
     margin:50px auto;
 }
+.ProductRelate{
+        width:100%;
+    .ProductRelateList{
+        width:85%;
+        margin:50px auto;
+        display:flex;
+        flex-wrap:wrap;
+    }
+}
+.ProductRelateTitle {
+        width: 300px;
+        margin:20px auto;
+
+    p{
+        font-size: 32px;
+        font-weight: bold;
+        margin:20px auto;
+    }
+}
+@media screen and (max-width: 992px){
+    .ProductDetailBody{
+        width:90%;
+        margin:50px auto;
+        display:block;
+    }
+    .ProductMainContent{
+        width:100%;
+    }
+    .ProductFullDetail{
+        width:100%;
+    }
+}
