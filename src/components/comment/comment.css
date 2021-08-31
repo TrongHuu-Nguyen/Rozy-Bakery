@@ -1,0 +1,105 @@
+.CommentTable {
+  width: 100%;
+}
+
+.ListComments {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CommentBox {
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.UserAvatar {
+  width: 60px;
+}
+
+.CommentContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 10px;
+}
+
+.UserRate {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.UserRate p {
+  display: block;
+  margin: 8px 20px;
+}
+
+.UserComment {
+  width: 100%;
+}
+
+.UserComment textarea {
+  width: 100%;
+  height: 80px;
+  outline: none;
+  resize: none;
+  text-indent: 20px;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  background-color: #f7f7f7;
+}
+
+.PostCommentBtn {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 5px #b7b7b7;
+          box-shadow: 5px 5px 5px #b7b7b7;
+  margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  background-color: #FF514E;
+  border-radius: 17px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.PostCommentBtn p {
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+.PostCommentBtn:active {
+  background-color: #C33D3B;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+/*# sourceMappingURL=comment.css.map */

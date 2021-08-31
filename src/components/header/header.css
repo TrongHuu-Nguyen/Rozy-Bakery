@@ -1,0 +1,41 @@
+.PageHeader {
+  height: 325px;
+  width: 100%;
+  background-image: url(../../asset/banner.10879cd6.jpg);
+  background-size: cover;
+  background-position: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.HeaderTitle {
+  width: 300px;
+  text-align: center;
+}
+
+.HeaderTitle h2 {
+  color: white;
+}
+
+.BreadCum span {
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.BreadCum span:hover {
+  color: #FF514E;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+/*# sourceMappingURL=header.css.map */

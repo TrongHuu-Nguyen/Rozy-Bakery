@@ -1,0 +1,116 @@
+.Footer{
+    width:100%;
+    height:350px;
+    background-color:#212121;
+    border:1px solid;
+}
+.FooterContent{
+    display:flex;
+    justify-content:space-around;
+    width:90%;
+    margin: 50px auto;
+}
+.WorkSchedule{
+    width:33%;
+    span{
+        color:white;
+        font-weight:500;
+        font-size: 16px;
+    }
+}
+.WorkScheduleItem{
+    width: 100%;
+    height:32px;
+    display:flex;
+    justify-content:space-around;
+    div{
+        width:33%;
+        text-align:left; 
+    }
+    span{
+        width:33%;
+        text-align:center; 
+    }
+}
+.Day{
+    color:white;
+    font-weight:500;
+    font-size: 16px;
+}
+.Time{
+    color:#FBB40D;
+    font-weight:500;
+    font-size: 16px;
+}
+.Address{
+    width:33%;
+    h2{
+        color:white;
+        font-size: 24px;
+    }
+    div{
+        display:flex;
+        font-size:16px;
+        p{
+            color:white;
+            transition: 0.6s;
+        }
+        p:hover{
+            color:#FBB40D;
+            cursor: pointer;
+            transition: 0.6s;
+        }
+    }
+}
+.GgMap{
+    width:33%;
+}
+
+@media screen and (max-width: 992px){
+    .FooterContent{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .WorkSchedule{
+        width:50%;
+
+        }
+
+    .Address{
+        width: 48%; 
+        margin-left:2%;
+    }
+    .GgMap{
+        width:90%;
+        margin-top:20px;
+    }
+    .Footer{
+        height:576px;
+    }
+}
+@media screen and (max-width: 576px){
+    .Day{
+        font-size: 12px;
+    }
+    .Time{
+        font-size: 12px;
+    }
+    .WorkSchedule{
+        width:55%;
+
+        }
+    .Address{
+        width: 43%; 
+        margin-left:2%;
+        h2{
+            font-size: 16px;
+        }
+        div{
+            font-size:12px;    
+        }
+    }
+    .GgMap{
+        width:100%;
+        margin-top:20px;
+    }
+}

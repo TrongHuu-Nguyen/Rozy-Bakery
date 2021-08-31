@@ -1,0 +1,28 @@
+.PageHeader{
+    height:325px;
+    width:100%;
+    background-image:url(../../asset/banner.10879cd6.jpg);
+    background-size: cover;
+    background-position: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.HeaderTitle{
+    width:300px;
+    text-align: center;
+    h2{
+        color:white;
+    }
+}
+.BreadCum span{
+    cursor:pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition:0.6s;
+}
+.BreadCum span:hover{
+    color:#FF514E;
+    transition:0.6s;
+}

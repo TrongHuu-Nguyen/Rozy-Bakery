@@ -1,0 +1,140 @@
+.ProductDetail{
+    width: 100vw;
+    max-width:1366px;
+    margin:0 auto;
+}
+.ProductDetailBody{
+    width:85%;
+    margin:50px auto;
+    display:flex;
+    justify-content:space-between;
+}
+.ProductMainContent{
+    width:43%;
+}
+.ProductImages{
+    width:100%;
+    overflow:hidden;
+}
+.ProductFullDetail{
+    width:55%;
+    h1{
+        font-weight: bold;
+    }
+    h2{
+        font-weight: bold;
+        font-size:24px;
+        color:#FF514E;
+    }
+    h3{
+        font-weight: bold;
+        font-size:24px;
+    }
+    p{
+        font-size:16px;
+    }
+}
+.ProductRate-Comment{
+    display:flex;
+    align-items:baseline;
+
+}
+.DiscountOption{
+    font-size: 16px;
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.AddCart{
+    display:flex;
+    height:60px;
+    width:100%;
+    margin:0 auto;
+    border-bottom: 1px solid #d9d9d9;
+}
+.Increase-Decrease{
+    width:100px;
+    justify-content: space-between;
+    align-items: baseline;
+    display:flex;
+   
+    p{
+        line-height:16px;
+    }
+}
+.AddCardButton {
+    user-select: none;
+    cursor: pointer;
+    display:flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    margin:0 30px;
+    font-weight: 500;
+    font-size: 16px;
+    color:white;
+    width: 100%;
+    height:35px;
+    background-color:#FF514E;
+    border-radius:17px;
+    overflow:hidden;
+    transition:0.1s;
+    box-shadow: 5px 5px 5px #b7b7b7;
+    p{
+        display:inline-block;
+        margin:10px 20px;
+        
+    }
+}
+.AddCardButton:active{
+    background-color:#C33D3B;
+    transition:0.1s;
+}
+
+
+.FakeBtn{
+    user-select: none;
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background-color:#f7f7f7;
+    transition:0.1s;
+    p{
+        display:inline-block;
+        margin:0 auto;
+    }
+}
+.FakeBtn:active{
+    background-color:#b7b7b7;
+    transition:0.2s;
+}
+.ShipPolicy{
+    display:flex;
+    height:30px;
+    border-left: 3px solid #FF514E;
+    align-items:center;
+    margin-top:10px;
+    p{
+        display:inline-block;
+        margin:5px 0;
+        margin-left: 5px;
+        font-size: 16px;
+    }
+}
+.PolicyIcon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:50px;
+    height:30px;
+}
+.ProductFullDescription{
+    width:70%;
+    margin:50px auto;
+}
