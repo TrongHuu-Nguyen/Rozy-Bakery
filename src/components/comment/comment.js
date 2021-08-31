@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import React from 'react';
 import './comment.css'
+import ProductData from '../../pages/productPage/fakedata.js'
 
 
 const OlderComment=(props)=>{
@@ -25,11 +26,12 @@ const OlderComment=(props)=>{
 };
 
 
-const Comment=()=>{
-    const [listComments,setListComments] = React.useState([]);
+const Comment=(props)=>{
+    
     const [rating,setRating] = React.useState(0);
     const commentRef=React.useRef("");
-
+    const index = ProductData.map(item=>item.id).indexOf(props.itemId);
+    const [listComments,setListComments] = React.useState(ProductData[index].comments);
     const postComment=()=>{
         if(commentRef.current.value.trim()){
             const currentMoment=moment();
@@ -44,6 +46,7 @@ const Comment=()=>{
             let newComment=[...listComments];
             newComment.push(userComment);
             setListComments(()=>newComment);
+            ProductData[index].comments=newComment;
             commentRef.current.value="";
             setRating(0);
         }

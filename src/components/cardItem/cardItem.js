@@ -1,13 +1,16 @@
 import { Rate } from 'antd';
+import {Link} from "react-router-dom"
 import {HeartOutlined,ShoppingCartOutlined} from '@ant-design/icons'
 import './cardItem.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const CardItem=(props)=>{
-    const{src,alt,title,description,rate,price,displayStyle}=props;
+    const{src,alt,title,description,rate,price,displayStyle,id}=props;
+    
     return(
             <div className={displayStyle} >
+                
                 <div className="ProductImage">
                     <div className="Cart-Wish">
                         <div className="Wish"><HeartOutlined style={{fontSize:"18px"}}/></div>
@@ -22,7 +25,7 @@ const CardItem=(props)=>{
                 </div>
                 <div className="CardItemInfo">
                     <div className="ProductTitle">
-                        <p>{title}</p>
+                        <Link to={`/product-detail?name=${title}&id=${id}`}><p>{title}</p></Link>
                     </div>
                     <div className="ProductDescription">
                         <p>{description}</p>

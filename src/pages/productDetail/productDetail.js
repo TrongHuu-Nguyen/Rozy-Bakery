@@ -11,15 +11,25 @@ import _ from 'lodash'
 import Footer from '../../components/footer/footer.js'
 import Header from '../../components/header/header.js'
 import TopBar from '../../components/topBar/topBar.js'
+import {useLocation} from "react-router-dom"
 
 const { TabPane } = Tabs;
+
 
 const ProductDetail =()=>{
     const [visible, setVisible] = React.useState(false);
     const [value, setValue] = React.useState(1);
     const [count,setCount]=React.useState(0);
-    const relativeItem = _.sampleSize(ProductData,5);
     
+    const location=useLocation();
+    const queryItem = new URLSearchParams(location.search);
+    const itemId=queryItem.get("id");
+    const itemTitle=queryItem.get("name");
+    const queryProduct=ProductData.filter(item=>item.id===itemId);
+    const currentItem=queryProduct[0];
+    let commentNumb=currentItem.comments.length;
+    const relativeItems=ProductData.filter(item=>item.type===currentItem.type)
+    const relativeItem = _.sampleSize(relativeItems,5);
     const descrease=()=>{
         setCount(count-1);
         setValue(count-1);
@@ -39,31 +49,31 @@ const ProductDetail =()=>{
     return(
         <div className="ProductDetail">
             <TopBar/>
-            <Header title="Product Detail"/>
+            <Header title={itemTitle}/>
             <div className="ProductDetailBody">
                     <div className="ProductMainContent">
                         <div className="ProductImages">
                             <Image
                                 preview={{ visible: false }}
                                 
-                                src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+                                src={currentItem.src}
                                 onClick={() => setVisible(true)}
                             />
                             <div style={{ display: 'none' }}>
                             <Image.PreviewGroup preview={{ visible, onVisibleChange: vis => setVisible(vis) }}>
-                            <Image src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp" />
-                            <Image src="https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp" />
+                            <Image src={currentItem.src} />
+                            <Image src={currentItem.src} />
                             <Image src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp" />
                             </Image.PreviewGroup>
                             </div>
                         </div>
                     </div>
                     <div className="ProductFullDetail">
-                        <h1>Product Title</h1>
+                        <h1>{currentItem.title}</h1>
                         <div className="ProductRate-Comment">
-                        <Rate disabled defaultValue={5} />&nbsp;&nbsp;&nbsp;&nbsp;<p> 5 Customer Reviews </p>
+                        <Rate disabled defaultValue={5} />&nbsp;&nbsp;&nbsp;&nbsp;<p> {commentNumb} Customer Reviews </p>
                         </div>
-                        <h2>$Price</h2>
+                        <h2>${currentItem.price}</h2>
                         <h3>Choose your options</h3>
                         <div className="DiscountOption">
                         <Radio.Group onChange={onChange} value={value}>
@@ -101,10 +111,10 @@ const ProductDetail =()=>{
             <div className="ProductFullDescription">
                 <Tabs defaultActiveKey="1" centered>
                     <TabPane tab="Description" key="1">
-                    <p>Item Description</p>
+                    <p>{currentItem.description}</p>
                     </TabPane>
                     <TabPane tab="Reviews" key="2">
-                    <Comment/>
+                    <Comment itemId={itemId}/>
                     </TabPane>
                 </Tabs>
             </div>
@@ -116,16 +126,17 @@ const ProductDetail =()=>{
                 <div className="ProductRelateList">
                 {relativeItem.map((item)=>{
                    return(
-                    <CardItem
-                    displayStyle={"CardItemContentGrid"}
-                    title={item.title}
-                    key={item.id}
-                    src={item.src}
-                    alt={item.alt}
-                    price={item.price}
-                    rate={item.rate}
-                    description={item.description}
-                    />
+                        <CardItem
+                        displayStyle={"CardItemContentGrid"}
+                        title={item.title}
+                        key={item.id}
+                        id={item.id}
+                        src={item.src}
+                        alt={item.alt}
+                        price={item.price}
+                        rate={item.rate}
+                        description={item.description}
+                        />
                    )
                 })}
                 </div>

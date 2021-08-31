@@ -9,6 +9,7 @@ const ProductData=[
         description:"This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal !",
         rate:5,
         price:"79",
+        comments:[]
     },
     {
         type:"bread",
@@ -19,6 +20,7 @@ const ProductData=[
         description:"This is a food",
         rate:4,
         price:"149",
+        comments:[]
     },
     {
         type:"burger",
@@ -29,6 +31,7 @@ const ProductData=[
         description:"This is a food",
         rate:3,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -39,6 +42,7 @@ const ProductData=[
         description:"This is a food",
         rate:4,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -49,6 +53,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -59,6 +64,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -69,6 +75,7 @@ const ProductData=[
         description:"This is a food",
         rate:4,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -79,6 +86,7 @@ const ProductData=[
         description:"This is a food",
         rate:4,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -89,6 +97,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -99,6 +108,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -109,6 +119,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -119,6 +130,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -129,6 +141,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -139,6 +152,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -149,6 +163,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -159,6 +174,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -169,6 +185,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -179,6 +196,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -189,6 +207,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -199,6 +218,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"79",
+        comments:[]
     },
     {
         type:"bread",
@@ -209,6 +229,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -219,6 +240,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -229,6 +251,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -239,6 +262,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -249,6 +273,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"79",
+        comments:[]
     },
     {
         type:"bread",
@@ -259,6 +284,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -269,6 +295,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -279,6 +306,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"109",
+        comments:[]
     },
     {
         type:"bread",
@@ -289,6 +317,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -299,6 +328,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"149",
+        comments:[]
     },
     {
         type:"bread",
@@ -309,6 +339,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -319,6 +350,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -329,6 +361,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -349,6 +382,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"149",
+        comments:[]
     },
     {
         type:"bread",
@@ -359,6 +393,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"149",
+        comments:[]
     },
     {
         type:"bread",
@@ -369,6 +404,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -379,6 +415,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"bread",
@@ -389,6 +426,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
     {
         type:"burger",
@@ -399,6 +437,7 @@ const ProductData=[
         description:"This is a food",
         rate:5,
         price:"49",
+        comments:[]
     },
 
 ]

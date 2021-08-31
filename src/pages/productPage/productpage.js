@@ -185,6 +185,7 @@ function ProductPage() {
                                     displayStyle={displayStyle}
                                     title={product.title}
                                     key={product.id}
+                                    id={product.id}
                                     src={product.src}
                                     alt={product.alt}
                                     price={product.price}
