@@ -54,6 +54,15 @@
             text-overflow: ellipsis; 
         }
     }
+    .ProductTitleLink{
+        font-size:24px;
+        color:black;
+        transition:0.3s;
+        :hover{
+            color:#FF514E;
+            transition:0.3s;
+        }
+    }
     .ProductDescription{
         p{  
             width:80%;

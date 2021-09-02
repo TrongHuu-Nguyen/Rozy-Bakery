@@ -25,7 +25,7 @@ const CardItem=(props)=>{
                 </div>
                 <div className="CardItemInfo">
                     <div className="ProductTitle">
-                        <Link to={`/product-detail?name=${title}&id=${id}`}><p>{title}</p></Link>
+                        <Link className="ProductTitleLink" style={{ textDecoration: 'none' }} to={`/product-detail?name=${title}&id=${id}`}><p>{title}</p></Link>
                     </div>
                     <div className="ProductDescription">
                         <p>{description}</p>

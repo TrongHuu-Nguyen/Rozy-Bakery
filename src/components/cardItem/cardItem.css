@@ -71,6 +71,19 @@
   text-overflow: ellipsis;
 }
 
+.CardItemContentGrid .ProductTitleLink {
+  font-size: 24px;
+  color: black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.CardItemContentGrid .ProductTitleLink :hover {
+  color: #FF514E;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .CardItemContentGrid .ProductDescription p {
   width: 80%;
   white-space: nowrap;
