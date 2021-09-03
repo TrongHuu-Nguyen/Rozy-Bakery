@@ -4,17 +4,16 @@ import { faShippingFast,faClock,faTags } from '@fortawesome/free-solid-svg-icons
 import { Image,Rate,Radio,Tabs } from 'antd';
 import {HeartOutlined,ShoppingCartOutlined} from '@ant-design/icons'
 import './productDetail.css'
-import Comment from '../../components/comment/comment';
-import CardItem from '../../components/cardItem/cardItem'
-import ProductData from '../productPage/fakedata.js'
+import Comment from '../../productDetail/Comment/comment';
+import CardItem from '../../../components/cardItem/cardItem'
+import ProductData from '../../../fakedata.js'
 import _ from 'lodash'
-import Footer from '../../components/footer/footer.js'
-import Header from '../../components/header/header.js'
-import TopBar from '../../components/topBar/topBar.js'
+import Footer from '../../../layout/footer/footer'
+import Header from '../../../layout/header/header.js'
+import TopBar from '../../../layout/topBar/topBar.js'
 import {useLocation} from "react-router-dom"
 
 const { TabPane } = Tabs;
-
 
 const ProductDetail =()=>{
     const [visible, setVisible] = React.useState(false);

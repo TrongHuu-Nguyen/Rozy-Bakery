@@ -1,5 +1,5 @@
-import ProductPage from "./pages/productPage/productpage"
-import ProductDetail from "./pages/productDetail/productDetail.js"
+import ProductPage from "./pages/productPage/productPage/productpage"
+import ProductDetail from "./pages/productDetail/productDetailPage/productDetail"
 import HomePage from "./pages/homePage/homepage";
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 import 'antd/dist/antd.css'
@@ -12,7 +12,7 @@ function App() {
     < BrowserRouter>
       <div className="App">
       <Switch>
-        <Route path="/"><HomePage/></Route>
+        <Route path="/" exact ><HomePage/></Route>
         <Route path="/product"><ProductPage/></Route>
         <Route path="/product-detail"> <ProductDetail/></Route>
       </Switch>

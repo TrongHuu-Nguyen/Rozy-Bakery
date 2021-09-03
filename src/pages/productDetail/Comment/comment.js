@@ -3,7 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import React from 'react';
 import './comment.css'
-import ProductData from '../../pages/productPage/fakedata.js'
+import ProductData from '../../../fakedata.js'
 
 
 const OlderComment=(props)=>{

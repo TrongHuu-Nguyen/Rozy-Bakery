@@ -1,6 +1,6 @@
 import './homepage.css'
-import TopBar from '../../components/topBar/topBar'
-import Footer from '../../components/footer/footer'
+import TopBar from '../../layout/topBar/topBar'
+import Footer from '../../layout/footer/footer'
 import { Carousel } from 'antd';
 import {ShoppingCartOutlined} from '@ant-design/icons'
 import step1 from '../../asset/step-1.jpg'

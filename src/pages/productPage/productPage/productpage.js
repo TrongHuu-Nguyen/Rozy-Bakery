@@ -2,12 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger,faHotdog,faBreadSlice,faGlassCheers,faPizzaSlice,faTh,faThList } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Rate,Radio,Space,Input } from 'antd';
-import Footer from '../../components/footer/footer.js'
-import Header from '../../components/header/header.js'
+import Footer from '../../../layout/footer/footer.js'
+import Header from '../../../layout/header/header.js'
 import './productpage.css'
-import TopBar from '../../components/topBar/topBar.js'
-import ProductData from './fakedata.js'
-import CardItem from '../../components/cardItem/cardItem.js'
+import TopBar from '../../../layout/topBar/topBar.js'
+import ProductData from '../../../fakedata.js'
+import CardItem from '../../../components/cardItem/cardItem.js'
 import { Pagination } from 'antd'
 
 
