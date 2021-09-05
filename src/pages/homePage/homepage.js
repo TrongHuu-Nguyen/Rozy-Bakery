@@ -5,6 +5,7 @@ import TopBanner from './topBanner/topBanner'
 import OrderStep from './orderStep/orderStep'
 import MiddleBanner from './middleBanner/middleBanner'
 import CategorySlide from './categorySlide/categorySlide'
+import Delivery from './deliverySlide/deliverySlide'
 
 const HomePage=()=>{
         return (
@@ -14,6 +15,7 @@ const HomePage=()=>{
                 <OrderStep/>
                 <MiddleBanner/>
                 <CategorySlide/>
+                <Delivery/>
                 <Footer/>
             </div>  
         );

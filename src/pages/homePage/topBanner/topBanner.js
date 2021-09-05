@@ -8,7 +8,7 @@ const TopBanner=()=>{
         <div className="TopBanner">
             
             <div className="FirstBanner">
-                <Carousel autoplay>
+                <Carousel autoplay autoplaySpeed={1500}>
                     
                         <div className="BannerBackground FirstBanner1">
                             <div className="BannerContent">

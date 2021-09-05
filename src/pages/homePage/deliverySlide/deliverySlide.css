@@ -1,0 +1,94 @@
+.Delivery {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.DeliveryContent {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.DeliveryContent .Content {
+  width: 50%;
+  padding: 40px;
+}
+
+.DeliveryContent .DeliveryImg {
+  width: 50%;
+}
+
+.DeliveryContent .DeliveryImg img {
+  width: 100%;
+}
+
+.DeliveryContent h2 {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.DeliveryContent p {
+  font-size: 14px;
+}
+
+.ShipperInfo {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.BottomBanner {
+  width: 100%;
+  padding-bottom: 45%;
+  background-image: url(../../../asset/background6.jpg);
+  background-attachment: fixed;
+}
+
+.BottomBanner img {
+  height: 100%;
+}
+
+.Video {
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 37.5%;
+}
+
+.UpdateShop {
+  width: 100%;
+  max-width: 1366px;
+  height: 200px;
+  position: absolute;
+  background-color: #FF514E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 992px) {
+  .DeliveryContent .DeliveryImg {
+    display: none;
+  }
+  .DeliveryContent .Content {
+    width: 90%;
+    text-align: center;
+  }
+  .DeliveryContent .Content h2 {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .DeliveryContent .Content p {
+    font-size: 12px;
+  }
+}
+/*# sourceMappingURL=deliverySlide.css.map */

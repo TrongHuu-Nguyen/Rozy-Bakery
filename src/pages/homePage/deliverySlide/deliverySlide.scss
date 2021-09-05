@@ -1,0 +1,76 @@
+.Delivery{
+    width:100%;
+    margin:0 auto;
+}
+.DeliveryContent{
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    .Content{
+        width:50%;
+        padding:40px;
+    }
+    .DeliveryImg{
+        width:50%;
+        img{
+            width:100%;
+        }
+    }
+    h2{
+        font-weight: bold;
+        font-size: 32px;
+    }
+    p{
+        font-size:  14px;
+    }
+}
+.ShipperInfo{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+}
+.BottomBanner{
+    width:100%;
+    padding-bottom: 45%;
+    background-image: url(../../../asset/background6.jpg);
+    background-attachment: fixed;
+    img{
+        height:100%;
+    }
+}
+.Video{
+    width:25%;
+    height:25%;
+    position: absolute;
+    margin-top:10%;
+    margin-left:37.5%;
+}
+.UpdateShop{
+    width:100%;
+    max-width:1366px;
+    height:200px;
+    position: absolute;
+    background-color: #FF514E;
+    display:flex;
+}
+
+@media screen and (max-width:992px){
+    .DeliveryContent{
+        .DeliveryImg{
+            display:none;
+        }
+        .Content{
+            width:90%;
+            text-align:center;
+            h2{
+                font-weight: bold;
+                font-size: 24px;
+            }
+            p{
+                font-size:  12px;
+            }
+        }
+    }
+    
+}
