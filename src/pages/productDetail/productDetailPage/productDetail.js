@@ -19,7 +19,9 @@ const ProductDetail =()=>{
     const [visible, setVisible] = React.useState(false);
     const [value, setValue] = React.useState(1);
     const [count,setCount]=React.useState(0);
-    
+    React.useEffect(()=>{
+        window.scrollTo(0,200);
+    },[])
     const location=useLocation();
     const queryItem = new URLSearchParams(location.search);
     const itemId=queryItem.get("id");

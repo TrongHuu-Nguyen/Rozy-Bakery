@@ -1,5 +1,6 @@
 import { Carousel } from 'antd';
 import {ShoppingCartOutlined} from '@ant-design/icons'
+import {Link} from 'react-router-dom'
 import './topBanner.css'
 
 
@@ -8,13 +9,13 @@ const TopBanner=()=>{
         <div className="TopBanner">
             
             <div className="FirstBanner">
-                <Carousel autoplay autoplaySpeed={1500}>
+                <Carousel autoplay autoplaySpeed={3000}>
                     
                         <div className="BannerBackground FirstBanner1">
                             <div className="BannerContent">
                                 <h2>ENJOY YOUR MEAL</h2>
                                 <p>Good food is wise <span style={{color:"#FF154E"}}>medicine</span></p>
-                                <div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div>
+                                <Link to="/product"><div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div></Link>
                             </div>
                         </div>
                     
@@ -22,7 +23,7 @@ const TopBanner=()=>{
                                 <div className="BannerContent">
                                 <h2>HAPPY YOUR SPECIAL</h2>
                                 <p>Love at first <span style={{color:"#FF154E"}}>bite</span></p>
-                                <div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div>
+                                <Link to="/product"><div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div></Link>
                                 </div>
                         </div>
                     
@@ -31,7 +32,7 @@ const TopBanner=()=>{
                                 <h2 className="LastBanner">GOOD FOOD IS GOOD MOOD</h2>
                                 <p>The belly rules the<span style={{color:"#FF154E"}}> mind</span></p>
                                 <p></p>
-                                <div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div>
+                                <Link to="/product"><div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div></Link>
                             </div>
                         </div>
                     

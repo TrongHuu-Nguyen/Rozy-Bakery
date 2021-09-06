@@ -19,6 +19,7 @@ function ProductPage() {
     const [showItem,setShowItem]=React.useState([]);
 
     React.useEffect(()=>{
+        window.scrollTo(0,0);
         setFiltedData(ProductData);
         setShowItem(filtedData.slice(0,12))
     },[]);

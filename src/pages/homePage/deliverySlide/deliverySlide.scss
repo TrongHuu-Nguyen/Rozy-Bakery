@@ -1,10 +1,10 @@
 .Delivery{
     width:100%;
-    margin:0 auto;
+    margin: auto;
 }
 .DeliveryContent{
     width:90%;
-    margin:0 auto;
+    margin:50px auto;
     display:flex;
     .Content{
         width:50%;
@@ -32,27 +32,45 @@
 }
 .BottomBanner{
     width:100%;
-    padding-bottom: 45%;
+    border-top:1px solid white;
+    background-size:cover;
+    padding-bottom:10%;
     background-image: url(../../../asset/background6.jpg);
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    img{
-        height:100%;
-    }
 }
 .Video{
-    width:25%;
-    height:25%;
-    position: absolute;
+    cursor: pointer;
+    width:20%;
+    height:20%;
     margin-top:10%;
-    margin-left:37.5%;
+    margin-left:40%;
+    border-radius:50%;
+
 }
 .UpdateShop{
     width:100%;
     max-width:1366px;
-    height:200px;
-    position: absolute;
+    height:250px;
     background-color: #FF514E;
     display:flex;
+    justify-content: center;
+    align-items: center;
+    div{
+        width:20%;
+        text-align:center;
+        p{
+            display:block;
+            color:white;
+            font-size:48px;
+            font-weight: bold;
+            height:32px;
+        }
+        h2{
+            color:white;
+        }
+
+    }
 }
 
 @media screen and (max-width:992px){
@@ -70,6 +88,24 @@
             p{
                 font-size:  12px;
             }
+        }
+    }
+    .UpdateShop{
+        flex-wrap: wrap;
+        div{
+            width:45%;
+            text-align:center;
+            p{
+              
+                font-size:32px;
+                font-weight: bold;
+                height:24px;
+            }
+            h2{
+                color:white;
+                font-size:14px;
+            }
+    
         }
     }
     

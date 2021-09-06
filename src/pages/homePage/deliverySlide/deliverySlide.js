@@ -1,4 +1,5 @@
 import './deliverySlide.css'
+import {Link} from 'react-router-dom'
 import delivery from '../../../asset/delivery.png'
 import deliveryMan from '../../../asset/deliveryMan.png'
 import YoutubeIcon from '../../../asset/youtube.png'
@@ -23,9 +24,7 @@ const Delivery=()=>{
                             <p>Delivery Order Num</p>
                             <h3 style={{color:"#FF514E",fontWeight:"bold"}}>123-456789</h3>
                         </div>
-                        <div className="OrderButton">
-                                <p>ORDER NOW</p>
-                        </div>
+                        <Link to="/product"><div className="OrderButton"><h3>ORDER NOW</h3></div></Link>
                     </div>
                 </div>
                 <div className="DeliveryImg">
@@ -40,7 +39,7 @@ const Delivery=()=>{
                     </div>
                 </div>
             </div>
-            {/* <div className="UpdateShop">
+            <div className="UpdateShop">
                     <div className="CupsOfCoffee">
                         <p>350+</p>
                         <h2>Cups of Coffee</h2>
@@ -57,7 +56,7 @@ const Delivery=()=>{
                         <p>30</p>
                         <h2>Sandwichs at Hour</h2>
                     </div>
-            </div> */}
+            </div>
         </div>
     )
 }

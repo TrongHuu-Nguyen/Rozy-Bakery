@@ -3,11 +3,12 @@ import {ShopOutlined,FileTextOutlined,
         ShoppingCartOutlined,UserOutlined,
         MenuOutlined,OrderedListOutlined
 } from '@ant-design/icons'
+import {Link} from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
 
-
 const TopBar=()=>{
+   
     const [isShow,setIsShow]=React.useState(false);
 
     const showSideMenu=(e)=>{
@@ -25,8 +26,8 @@ const TopBar=()=>{
                     <div className="TopMenu">
                         <ul>
                             <li><MenuOutlined onClick={(e)=>{showSideMenu(e)}} /></li>
-                            <li><HomeOutlined/>&nbsp;<p>Pages</p></li>
-                            <li><UnorderedListOutlined />&nbsp;<p>Online Order</p></li>
+                            <li><Link to="/"><p style={{color:"white"}}><HomeOutlined/>&nbsp;Pages</p></Link></li>
+                            <li><Link to="/product"><p style={{color:"white"}}><UnorderedListOutlined />&nbsp;Online Order</p></Link></li>
                             <li><FileTextOutlined/>&nbsp;<p>News</p></li>
                             <li><ShopOutlined />&nbsp;<p>Store Location</p></li>   
                         </ul>
@@ -35,7 +36,7 @@ const TopBar=()=>{
                     <ul>
                             <li><ShoppingCartOutlined /><div className="CartUpdate"><p>0</p></div></li>
                             <li><UserOutlined /><p>Login</p></li>
-                        </ul>
+                    </ul>
                     </div>
                     
                 </div>
