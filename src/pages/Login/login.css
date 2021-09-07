@@ -1,0 +1,177 @@
+.LoginPage {
+  width: 100vw;
+  max-width: 1366px;
+  overflow: hidden;
+}
+
+.LoginBox {
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 20px 5px #e9e9e9;
+          box-shadow: 0 0 20px 5px #e9e9e9;
+  width: 80%;
+  height: 90vh;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.LoginImage {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.LoginImage img {
+  width: 90%;
+}
+
+.LoginForm {
+  width: 30%;
+  margin: 50px auto;
+}
+
+.LoginForm label {
+  font-weight: bold;
+}
+
+.LoginForm input:invalid {
+  border: 2px solid #FF514E;
+}
+
+.LoginForm input:valid {
+  border: 2px solid #1ED760;
+}
+
+.LoginForm input:required {
+  border: 2px solid #00AFF0;
+}
+
+.CreateAccount {
+  cursor: pointer;
+  color: #FF514E;
+  font-weight: bold;
+}
+
+.LoginInput {
+  border: none;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  text-indent: 10px;
+  outline: none;
+  width: 100%;
+  height: 35px;
+}
+
+.InputSubmit {
+  width: 100%;
+  height: 50px;
+}
+
+.SubmitBtn {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #FF514E;
+}
+
+.SubmitBtn p {
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.SubmitBtn:hover {
+  background-color: #C33D3B;
+}
+
+.RegisterAccount {
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.RegisterBox {
+  width: 30%;
+  min-width: 350px;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 0 0 5px 3px #e8e8e8;
+          box-shadow: 0 0 5px 3px #e8e8e8;
+}
+
+.RegisterBox h2 {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.RegisterBox label {
+  font-weight: bold;
+}
+
+.RegisterBox input {
+  width: 100%;
+}
+
+.RegisterBox input:invalid {
+  border: 2px solid #FF514E;
+}
+
+.RegisterBox input:valid {
+  border: 2px solid #1ED760;
+}
+
+.RegisterBox input:required {
+  border: 2px solid #00AFF0;
+}
+
+.ShowRegisterBox {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+@media screen and (max-width: 992px) {
+  .LoginForm {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .LoginImage {
+    display: none;
+  }
+  .LoginForm {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=login.css.map */

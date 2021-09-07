@@ -35,7 +35,7 @@ const TopBar=()=>{
                     <div className="Cart-User">
                     <ul>
                             <li><ShoppingCartOutlined /><div className="CartUpdate"><p>0</p></div></li>
-                            <li><UserOutlined /><p>Login</p></li>
+                            <Link to="/login"><li><UserOutlined /><p style={{color:"white"}}>Login</p></li></Link>
                     </ul>
                     </div>
                     
@@ -45,7 +45,7 @@ const TopBar=()=>{
                 <div className="SideMenu" onClick={(e)=>{e.stopPropagation();}}>
                     <div className="SideMenuTop" onClick={(e)=>{e.stopPropagation();}}>
                         <ul>
-                            <li><UserOutlined style={{fontSize:"32px"}} />&nbsp;&nbsp;<p>Login</p></li>
+                        <Link to="/login"><li><UserOutlined style={{fontSize:"32px"}} />&nbsp;&nbsp;<p>Login</p></li></Link>
                         </ul>
                     </div>
                     <div className="SideMenuBody" onClick={(e)=>{e.stopPropagation();}} >
