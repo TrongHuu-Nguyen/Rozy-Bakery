@@ -9,7 +9,7 @@
   -webkit-box-shadow: 0 0 20px 5px #e9e9e9;
           box-shadow: 0 0 20px 5px #e9e9e9;
   width: 80%;
-  height: 90vh;
+  height: auto;
   margin: 50px auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,20 +37,20 @@
 }
 
 .LoginForm input:invalid {
-  border: 2px solid #FF514E;
+  border: 2px solid #ff514e;
 }
 
 .LoginForm input:valid {
-  border: 2px solid #1ED760;
+  border: 2px solid #1ed760;
 }
 
 .LoginForm input:required {
-  border: 2px solid #00AFF0;
+  border: 2px solid #00aff0;
 }
 
 .CreateAccount {
   cursor: pointer;
-  color: #FF514E;
+  color: #ff514e;
   font-weight: bold;
 }
 
@@ -75,7 +75,7 @@
   height: 40px;
   margin: 0 auto;
   border-radius: 10px;
-  background-color: #FF514E;
+  background-color: #ff514e;
 }
 
 .SubmitBtn p {
@@ -86,7 +86,7 @@
 }
 
 .SubmitBtn:hover {
-  background-color: #C33D3B;
+  background-color: #c33d3b;
 }
 
 .RegisterAccount {
@@ -142,15 +142,15 @@
 }
 
 .RegisterBox input:invalid {
-  border: 2px solid #FF514E;
+  border: 2px solid #ff514e;
 }
 
 .RegisterBox input:valid {
-  border: 2px solid #1ED760;
+  border: 2px solid #1ed760;
 }
 
 .RegisterBox input:required {
-  border: 2px solid #00AFF0;
+  border: 2px solid #00aff0;
 }
 
 .ShowRegisterBox {

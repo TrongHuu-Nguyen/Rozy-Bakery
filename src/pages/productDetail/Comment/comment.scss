@@ -1,75 +1,71 @@
-.CommentTable{
+.CommentTable {
     width: 100%;
-    margin-bottom:30px;
-    
 }
-.ListComments{
+.ListComments {
     width: 100%;
-    display:flex;
-    flex-direction:column;
-
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
 }
-.CommentBox{
-    margin-top:10px;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
+.CommentBox {
+    height:200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
-.UserAvatar{
-    width:60px;
-    
+.UserAvatar {
+    width: 60px;
 }
-.CommentContent{
+.CommentContent {
     flex: 1;
-    margin-left:10px;
-    
+    margin-left: 10px;
 }
-.UserRate{
-    width:100%;
-    display:flex;
-    p{
-        display:block;
-        margin:8px 20px;
+.UserRate {
+    width: 100%;
+    display: flex;
+    p {
+        display: block;
+        margin: 8px 20px;
     }
 }
-.UserComment{
-    width:100%;
-    
-    textarea{
-        width:100%;
-        height:80px;
-        outline:none;
-        resize:none;
+.UserComment {
+    width: 100%;
+
+    textarea {
+        width: 100%;
+        height: 80px;
+        outline: none;
+        resize: none;
         text-indent: 20px;
-        border-radius:3px;
-        border:1px solid #e4e4e4;
-        background-color:#f7f7f7;
+        border-radius: 3px;
+        border: 1px solid #e4e4e4;
+        background-color: #f7f7f7;
     }
 }
-.PostCommentBtn{
+.PostCommentBtn {
     user-select: none;
     cursor: pointer;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     // margin:0 30px;
     font-weight: 500;
     font-size: 16px;
-    color:white;
-    overflow:hidden;
+    color: white;
+    overflow: hidden;
     box-shadow: 5px 5px 5px #b7b7b7;
     margin-top: 20px;
-    width:150px;
-    height:35px;
-    background-color:#FF514E;
+    width: 150px;
+    height: 35px;
+    background-color: #ff514e;
     border-radius: 17px;
-    transition:0.1s;
-    p{
-        display:inline-block;
-        margin:10px 20px;
+    transition: 0.1s;
+    p {
+        display: inline-block;
+        margin: 10px 20px;
     }
 }
-.PostCommentBtn:active{
-    background-color: #C33D3B;
-    transition:0.1s;
+.PostCommentBtn:active {
+    background-color: #c33d3b;
+    transition: 0.1s;
 }

@@ -1,6 +1,5 @@
 .CommentTable {
   width: 100%;
-  margin-bottom: 30px;
 }
 
 .ListComments {
@@ -12,10 +11,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .CommentBox {
-  margin-top: 10px;
+  height: 200px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -87,7 +89,7 @@
   margin-top: 20px;
   width: 150px;
   height: 35px;
-  background-color: #FF514E;
+  background-color: #ff514e;
   border-radius: 17px;
   -webkit-transition: 0.1s;
   transition: 0.1s;
@@ -99,7 +101,7 @@
 }
 
 .PostCommentBtn:active {
-  background-color: #C33D3B;
+  background-color: #c33d3b;
   -webkit-transition: 0.1s;
   transition: 0.1s;
 }

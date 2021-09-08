@@ -1,5 +1,6 @@
 .MainMenu {
   width: 100%;
+  max-width: 1366px;
   margin: 0 auto;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .TopMenu li p:hover {
-  color: #FF514E;
+  color: #ff514e;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
@@ -91,7 +92,7 @@
 }
 
 .Cart-User li p:hover {
-  color: #FF514E;
+  color: #ff514e;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
@@ -104,37 +105,47 @@
 }
 
 .CartUpdate p {
-  color: #FFBB03;
+  color: #ffbb03;
   font-weight: bold;
   text-align: center;
 }
 
-.SideMenu {
-  background-color: rgba(0, 0, 0, 0.95);
-  width: 75%;
+.SideMenu,
+.ProductCart {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 45%;
+  min-width: 300px;
   height: 100%;
   -webkit-box-align: left;
       -ms-flex-align: left;
           align-items: left;
 }
 
-.SideMenu div {
+.SideMenu div,
+.ProductCart div {
+  cursor: pointer;
   width: 100%;
   border-bottom: 1px solid #333333;
   margin-top: 10px;
-}
-
-.SideMenu div ul {
-  width: 100%;
-}
-
-.SideMenu div ul li {
-  width: 100%;
   font-size: 16px;
   color: white;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.SideMenu ul,
+.ProductCart ul {
+  width: 100%;
+}
+
+.SideMenu ul li,
+.ProductCart ul li {
+  width: 100%;
+  color: white;
   margin-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,16 +157,138 @@
   cursor: pointer;
 }
 
-.SideMenu div ul li p:hover {
-  color: #FF514E;
+.SideMenu ul li p:hover,
+.ProductCart ul li p:hover {
+  color: #ff514e;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-.SideMenuBackground {
+.ProductCart {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ProductCart div {
+  border: none;
+}
+
+.ProductCart .TitleContent {
+  width: 100%;
+  height: 100px;
+  padding-left: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(black));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), black);
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+.ProductCart .TitleContent p {
+  display: block;
+  margin: auto;
+}
+
+.ProductCartItems {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: auto;
+}
+
+.ProductCartTotal {
+  width: 100%;
+  height: 150px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ProductCartTotal .TotalDetail {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ProductCartTotal .TotalDetail p, .ProductCartTotal .TotalDetail h2 {
+  color: #FF514E;
+  font-size: 32px;
+  display: block;
+}
+
+.ProductCartTotal .TotalDetail p {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.ProductCartTotal .TotalBtn {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ProductCartTotal .TotalBtn button {
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #FF514E;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.ProductCartTotal .TotalBtn button:hover {
+  background-color: #C33D3B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.ProductCartTotal .TotalBtn .BuyMoreBtn {
+  background-color: white;
+  color: black;
+}
+
+.ProductCartTotal .TotalBtn .BuyMoreBtn:hover {
+  background-color: #F5F5F5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.SideMenuBackground,
+.ProductCartBackground {
   z-index: 10001;
   background-color: rgba(0, 0, 0, 0.2);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   -webkit-box-align: left;
       -ms-flex-align: left;
@@ -166,9 +299,11 @@
   visibility: hidden;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
 }
 
-.ShowSideMenu {
+.Show {
   opacity: 1;
   visibility: visible;
   -webkit-transition: 0.4s;

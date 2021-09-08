@@ -1,10 +1,10 @@
 import {ShopOutlined,FileTextOutlined,
         HomeOutlined,UnorderedListOutlined,
         ShoppingCartOutlined,UserOutlined,
-        MenuOutlined,OrderedListOutlined
+        MenuOutlined,OrderedListOutlined,CloseOutlined
 } from '@ant-design/icons'
-import { Drawer } from 'antd';
 
+import 'antd/dist/antd.css';
 import {Link} from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
@@ -13,15 +13,19 @@ const TopBar=()=>{
    
     const [isShow,setIsShow]=React.useState(false);
     const [visible, setVisible] = React.useState(false);
-    const showDrawer = () => {
+
+
+    const showCart = () => {
+    
         setVisible(true);
       };
-      const onClose = () => {
+    const closeCart = (e) => {
+        e.stopPropagation();
         setVisible(false);
       };
 
-    const showSideMenu=(e)=>{
-        e.stopPropagation();
+    const showSideMenu=()=>{
+        
         setIsShow(true);
     };
     const exitSideMenu=(e)=>{
@@ -43,14 +47,14 @@ const TopBar=()=>{
                     </div>
                     <div className="Cart-User">
                     <ul>
-                            <li onClick={showDrawer}><ShoppingCartOutlined /><div className="CartUpdate" ><p>0</p></div></li>
+                            <li onClick={showCart}><ShoppingCartOutlined /><div className="CartUpdate" ><p>0</p></div></li>
                             <Link to="/login"><li><UserOutlined /><p style={{color:"white"}}>Login</p></li></Link>
                     </ul>
                     </div>
                     
                 </div>
             </div>
-            <div className={isShow?"SideMenuBackground ShowSideMenu":"SideMenuBackground"} onClick={(e)=>{exitSideMenu(e)}}>
+            <div className={isShow?"SideMenuBackground Show":"SideMenuBackground"} onClick={(e)=>{exitSideMenu(e)}}>
                 <div className="SideMenu" onClick={(e)=>{e.stopPropagation();}}>
                     <div className="SideMenuTop" onClick={(e)=>{e.stopPropagation();}}>
                         <ul>
@@ -72,9 +76,25 @@ const TopBar=()=>{
                     </div>
                 </div>
             </div>
-            <Drawer title="SHOPPING CART" placement="right" onClose={onClose} visible={visible}>
-
-            </Drawer>
+            <div className={visible?"ProductCartBackground Show":"ProductCartBackground"} onClick={(e)=>{closeCart(e)}}>
+                <div className="ProductCart" onClick={(e)=>{e.stopPropagation();}}>
+                    <div className="ProductCartTitle" onClick={(e)=>{e.stopPropagation();}}>
+                       <div className="TitleContent"><CloseOutlined style={{fontSize:"32px"}}/><p><ShoppingCartOutlined style={{fontSize:"32px"}}/>&nbsp;&nbsp;SHOPPING CART</p></div>
+                    </div>
+                    <div className="ProductCartItems" onClick={(e)=>{e.stopPropagation();}} >
+                       
+                    </div>
+                    <div className="ProductCartTotal"  onClick={(e)=>{e.stopPropagation();}}>
+                        <div className="TotalDetail">
+                            <p>Total</p><h2>$0.00</h2>
+                        </div>
+                        <div className="TotalBtn">
+                                <button className="CheckoutBtn"><ShoppingCartOutlined/>&nbsp;&nbsp;CHECKOUT</button>
+                                <button className="BuyMoreBtn"><ShopOutlined />&nbsp;&nbsp;BUY MORE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,142 +1,141 @@
-.LoginPage{
-    width:100vw;
-    max-width:1366px;
-    overflow:hidden;
+.LoginPage {
+    width: 100vw;
+    max-width: 1366px;
+    overflow: hidden;
 }
 
-.LoginBox{
+.LoginBox {
     border-radius: 20px;
     box-shadow: 0 0 20px 5px #e9e9e9;
-    width:80%;
-    height:90vh;
-    margin:50px auto;
-    display:flex;
+    width: 80%;
+    height:auto;
+    margin: 50px auto;
+    display: flex;
     justify-content: space-around;
-    
 }
 
-.LoginImage{
-    width:50%;
-    margin:50px auto;
-    img{
-        width:90%;
+.LoginImage {
+    width: 50%;
+    margin: 50px auto;
+    img {
+        width: 90%;
     }
 }
-.LoginForm{
-    width:30%;
-    margin:50px auto;
-    label{
+.LoginForm {
+    width: 30%;
+    margin: 50px auto;
+    label {
         font-weight: bold;
     }
     input:invalid {
-        border: 2px solid #FF514E;
-      }
-      
+        border: 2px solid #ff514e;
+    }
+
     input:valid {
-        border: 2px solid #1ED760;
-      }
-      input:required {
-        border: 2px solid #00AFF0;
-      }
+        border: 2px solid #1ed760;
+    }
+    input:required {
+        border: 2px solid #00aff0;
+    }
 }
-.CreateAccount{
+.CreateAccount {
     cursor: pointer;
-    color:#FF514E;
+    color: #ff514e;
     font-weight: bold;
 }
-.LoginInput{
-    border:none;
-    background-color:#eeeeee;
-    border-radius:5px;
+.LoginInput {
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 5px;
     text-indent: 10px;
-    outline:none;
-    width:100%;
-    height:35px;
+    outline: none;
+    width: 100%;
+    height: 35px;
 }
-.InputSubmit{
-    width:100%;
-    height:50px;
+.InputSubmit {
+    width: 100%;
+    height: 50px;
 }
-.SubmitBtn{
+.SubmitBtn {
     cursor: pointer;
-    width:100px;
-    height:40px;
-    margin:0 auto;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
     border-radius: 10px;
-    background-color:#FF514E;
-    
-    p{
-        color:white;
-        text-align:center;
-        line-height:40px;
+    background-color: #ff514e;
+
+    p {
+        color: white;
+        text-align: center;
+        line-height: 40px;
         font-weight: bold;
     }
-    &:hover{
-        background-color:#C33D3B;
+    &:hover {
+        background-color: #c33d3b;
     }
 }
 
-.RegisterAccount{
+.RegisterAccount {
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.2);
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100vw;
+    width: 100vw;
     height: 100vh;
-    position:fixed;
-    top:0;
-    backdrop-filter:blur(5px);
-    opacity:0;
-    visibility:hidden;
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
     transition: 0.3s;
 }
-.RegisterBox{
-    width:30%;
-    min-width:350px;
-    padding:25px;
-    border-radius:20px;
+.RegisterBox {
+    width: 30%;
+    min-width: 350px;
+    padding: 25px;
+    border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 5px 3px #e8e8e8;
-    h2{
-        display:block;
-        width:200px;
-        margin:0 auto;
+    h2 {
+        display: block;
+        width: 200px;
+        margin: 0 auto;
     }
-    label{
+    label {
         font-weight: bold;
     }
-    input{
-        width:100%;
+    input {
+        width: 100%;
     }
     input:invalid {
-        border: 2px solid #FF514E;
-      }
-      
+        border: 2px solid #ff514e;
+    }
+
     input:valid {
-        border: 2px solid #1ED760;
-      }
-      input:required {
-        border: 2px solid #00AFF0;
-      }
+        border: 2px solid #1ed760;
+    }
+    input:required {
+        border: 2px solid #00aff0;
+    }
 }
-.ShowRegisterBox{
-    opacity:1;
-    visibility:visible;
+.ShowRegisterBox {
+    opacity: 1;
+    visibility: visible;
     transition: 0.4s;
 }
 
-@media screen and (max-width:992px){
-    .LoginForm{
+@media screen and (max-width: 992px) {
+    .LoginForm {
         width: 40%;
     }
 }
-@media screen and (max-width:768px){
-    .LoginImage{
-        display:none;
+@media screen and (max-width: 768px) {
+    .LoginImage {
+        display: none;
     }
-    .LoginForm{
+    .LoginForm {
         width: 80%;
     }
 }
