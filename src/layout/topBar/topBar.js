@@ -3,6 +3,8 @@ import {ShopOutlined,FileTextOutlined,
         ShoppingCartOutlined,UserOutlined,
         MenuOutlined,OrderedListOutlined
 } from '@ant-design/icons'
+import { Drawer } from 'antd';
+
 import {Link} from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
@@ -10,6 +12,13 @@ import React from 'react'
 const TopBar=()=>{
    
     const [isShow,setIsShow]=React.useState(false);
+    const [visible, setVisible] = React.useState(false);
+    const showDrawer = () => {
+        setVisible(true);
+      };
+      const onClose = () => {
+        setVisible(false);
+      };
 
     const showSideMenu=(e)=>{
         e.stopPropagation();
@@ -34,7 +43,7 @@ const TopBar=()=>{
                     </div>
                     <div className="Cart-User">
                     <ul>
-                            <li><ShoppingCartOutlined /><div className="CartUpdate"><p>0</p></div></li>
+                            <li onClick={showDrawer}><ShoppingCartOutlined /><div className="CartUpdate" ><p>0</p></div></li>
                             <Link to="/login"><li><UserOutlined /><p style={{color:"white"}}>Login</p></li></Link>
                     </ul>
                     </div>
@@ -63,6 +72,9 @@ const TopBar=()=>{
                     </div>
                 </div>
             </div>
+            <Drawer title="SHOPPING CART" placement="right" onClose={onClose} visible={visible}>
+
+            </Drawer>
         </div>
     )
 }
