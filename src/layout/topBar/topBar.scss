@@ -79,8 +79,7 @@
 .SideMenu,
 .ProductCart {
     background-color: rgba(0, 0, 0, 0.8);
-    width: 45%;
-    min-width:300px;
+    width: 400px;
     height: 100%;
     align-items: left;
     div {
@@ -208,7 +207,7 @@
     top: 0;
     opacity: 0;
     visibility: hidden;
-    transition: 0.2s;
+    transition: 0.6s;
     backdrop-filter: blur(3px);
 }
 .Show {
@@ -234,5 +233,10 @@
     }
     .Cart-User li:last-child {
         display: none;
+    }
+}
+@media screen and (max-width: 576px) {
+    .ProductCart{
+        width:100%;
     }
 }

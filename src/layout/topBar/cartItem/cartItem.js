@@ -1,11 +1,11 @@
 import './cartItem.css'
 
-const CartItem=(props)=>{
-    return(
+const CartItem = (props) => {
+    return (
         <div className="CartItem">
             <div className="CartItemDetail">
                 <div className="ItemImage">
-                    <img src={props.src} alt="ItemImage"/>
+                    <img src={props.src} alt="ItemImage" />
                 </div>
                 <div className="ItemTitle">
                     <h3>{props.title}</h3>

@@ -1,79 +1,77 @@
-import { Rate,Avatar } from 'antd';
+import { Rate, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import React from 'react';
 import './comment.css'
 import ProductData from '../../../fakedata.js'
 
-
-const OlderComment=(props)=>{
-    return(
+const OlderComment = (props) => {
+    return (
         <div className="CommentBox">
-                <div className="UserAvatar">
-                    <Avatar src={props.userAvatar} size={50}/><p>{props.userName}</p>
-                    </div>
-                <div className="CommentContent">
-                    <div className="UserRate">
-                        <Rate allowClear={false} value={props.rate} disabled />
-                        <p>({moment(props.moment).fromNow()})</p>
-                    </div>
-                    <div className="UserComment">
-                        <textarea disabled="" className="comment" value={props.comment}></textarea>
-                    </div>
+            <div className="UserAvatar">
+                <Avatar src={props.userAvatar} size={50} /><p>{props.userName}</p>
+            </div>
+            <div className="CommentContent">
+                <div className="UserRate">
+                    <Rate allowClear={false} value={props.rate} disabled />
+                    <p>({moment(props.moment).fromNow()})</p>
+                </div>
+                <div className="UserComment">
+                    <textarea disabled="" className="comment" value={props.comment}></textarea>
                 </div>
             </div>
+        </div>
     )
 };
 
+const Comment = (props) => {
 
-const Comment=(props)=>{
-    
-    const [rating,setRating] = React.useState(0);
-    const commentRef=React.useRef("");
-    const index = ProductData.map(item=>item.id).indexOf(props.itemId);
-    const [listComments,setListComments] = React.useState(ProductData[index].comments);
-    const postComment=()=>{
-        if(commentRef.current.value.trim()){
-            const currentMoment=moment();
-            const userComment={
-               id: Math.random().toString(36).slice(2),
-               userName:"User",
-               userAvatar:"https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-               rate:rating,
-               comment:commentRef.current.value,
-               moment:currentMoment
-           };
-            let newComment=[...listComments];
+    const [rating, setRating] = React.useState(0);
+    const commentRef = React.useRef("");
+    const index = ProductData.map(item => item.id).indexOf(props.itemId);
+    const [listComments, setListComments] = React.useState(ProductData[index].comments);
+    const postComment = () => {
+        if (commentRef.current.value.trim()) {
+            const currentMoment = moment();
+            const userComment = {
+                id: Math.random().toString(36).slice(2),
+                userName: "User",
+                userAvatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+                rate: rating,
+                comment: commentRef.current.value,
+                moment: currentMoment
+            };
+            let newComment = [...listComments];
             newComment.push(userComment);
-            setListComments(()=>newComment);
-            ProductData[index].comments=newComment;
-            commentRef.current.value="";
+            setListComments(() => newComment);
+            ProductData[index].comments = newComment;
+            commentRef.current.value = "";
             setRating(0);
         }
     }
 
-    return(
+    return (
         <div className="CommentTable">
             <div className="ListComments">
-                {listComments.map(item=>{
-                    return(
+                {listComments.map(item => {
+                    return (
                         <OlderComment
-                        key={item.id}
-                        userName={item.userName}
-                        userAvatar={item.userAvatar}
-                        rate={item.rate}
-                        comment={item.comment}
-                        moment={item.moment}
+                            key={item.id}
+                            userName={item.userName}
+                            userAvatar={item.userAvatar}
+                            rate={item.rate}
+                            comment={item.comment}
+                            moment={item.moment}
                         />
                     )
                 })
-            }
+                }
             </div>
             <div className="CommentBox">
-                <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={50}/></div>
+                <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={50} /></div>
                 <div className="CommentContent">
                     <div className="UserRate">
-                        <Rate allowClear={false} value={rating}  onChange={(value=>setRating(()=>value))}/>
+                        <Rate allowClear={false} value={rating} onChange={(value => setRating(() => value))} />
                         <p>(Please choose an one)</p>
                     </div>
                     <div className="UserComment">
@@ -83,9 +81,9 @@ const Comment=(props)=>{
                 </div>
 
             </div>
-            
+
         </div>
-        
+
     )
 }
 

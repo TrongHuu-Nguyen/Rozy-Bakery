@@ -113,8 +113,7 @@
 .SideMenu,
 .ProductCart {
   background-color: rgba(0, 0, 0, 0.8);
-  width: 45%;
-  min-width: 300px;
+  width: 400px;
   height: 100%;
   -webkit-box-align: left;
       -ms-flex-align: left;
@@ -297,8 +296,8 @@
   top: 0;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
 }
@@ -332,6 +331,12 @@
   }
   .Cart-User li:last-child {
     display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ProductCart {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=topBar.css.map */
