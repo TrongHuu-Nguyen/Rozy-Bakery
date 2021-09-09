@@ -4,6 +4,10 @@
   overflow: hidden;
 }
 
+.LoginPage span {
+  color: #ff514e;
+}
+
 .LoginBox {
   border-radius: 20px;
   -webkit-box-shadow: 0 0 20px 5px #e9e9e9;
@@ -77,6 +81,8 @@
           box-shadow: 0 3px 10px 3px gray;
   border-radius: 20px;
   background-color: #ff514e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .SubmitBtn p, .HomeBtn p {
@@ -88,10 +94,18 @@
 
 .SubmitBtn:hover, .HomeBtn:hover {
   background-color: #c33d3b;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .HomeBtn {
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .HomeBtn p {
@@ -100,6 +114,8 @@
 
 .HomeBtn:hover {
   background-color: #EBE9E9;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .RegisterAccount {
