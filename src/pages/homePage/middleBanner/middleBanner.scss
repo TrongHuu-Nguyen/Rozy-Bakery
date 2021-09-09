@@ -1,81 +1,110 @@
-
-
-.MiddleBanner{
-    width:100%;
-    background-image: url('../../../asset/background5.jpg');
-    background-size: auto 100%;
-    height:768px;
-    display:flex;
+.MiddleBanner {
+    width: 100%;
+    background-image: url("../../../asset/background5.jpg");
+    background-size: cover;
+    height: 768px;
+    display: flex;
     justify-content: space-around;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     box-sizing: border-box;
 }
-.LeftSideTags,.RightSideTags{
-    
-    width:40%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    
+.LeftSideTags,
+.RightSideTags {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.RightSideTags{
-    display:flex;
-    align-items:flex-end;
-    flex-direction:column;
-    // justify-content:space-around;
+.RightSideTags {
+    align-items: flex-end;
 }
-.TagItem{
-    width:380px;
-    height:33%;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    // align-items:center;
-}
-.Tag:hover{
-    margin-bottom:25px;
-    background-color:#FF514E;
-    transition:0.4s;
-}
-.Tag{
-    width:100%;
-    height:160px;
-    background-color: white;
-    box-shadow: 0px 0px 5px gray;
-    border-radius: 8px;
-    transition:0.4s; 
-}
-.TagContent{
+.TagItem {
     width:80%;
-    margin:25px auto;
-    h2{
+    min-width: 300px;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Tag:hover {
+    margin-bottom: 25px;
+    background-color: #ff514e;
+    transition: 0.4s;
+    .TagContent h2,
+    .TagContent p {
+        color: white;
+        transition: 0.4s;
+    }
+}
+.Tag {
+    width: 100%;
+    height: 160px;
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: 0.4s;
+}
+.TagContent {
+    width: 80%;
+    margin: 25px auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    h2 {
+        color: black;
         font-weight: bold;
-        font-size:24px;
+        font-size: 24px;
+        transition: 0.4s;
     }
-    p{
-        color:#a1a1a1;
-        font-size:14px;
+    p {
+        color: #a1a1a1;
+        font-size: 14px;
+        transition: 0.4s;
     }
 }
-.TagTwo{
-    margin-left:50px;
+.TagTwo {
+    margin-left: 50px;
 }
-.TagFive{
-    margin-right:50px;
+.TagFive {
+    margin-right: 50px;
 }
-.TagNumb{
-    width:60px;
-    height:60px;
+.TagNumb {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0px 0px 5px  gray;
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
     text-align: center;
     position: absolute;
-    margin-top:-30px;
-    margin-left:30px;
+    margin-top: -30px;
+    margin-left: 30px;
     font-size: 32px;
-    p{
-        display:block;
-        line-height:60px;
+    p {
+        display: block;
+        line-height: 60px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .MiddleBanner {
+        background-image: none;
+        height: 1500px;
+        display: flex;
+        flex-direction: column;
+        .LeftSideTags,
+        .RightSideTags {
+            width: 80%;
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .TagTwo {
+            margin-left: 0;
+        }
+        .TagFive {
+            margin-right: 0;
+        }
     }
 }

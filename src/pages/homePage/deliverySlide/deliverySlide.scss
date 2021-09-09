@@ -1,112 +1,107 @@
-.Delivery{
-    width:100%;
+.Delivery {
+    width: 100%;
     margin: auto;
 }
-.DeliveryContent{
-    width:90%;
-    margin:50px auto;
-    display:flex;
-    .Content{
-        width:50%;
-        padding:40px;
+.DeliveryContent {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    .Content {
+        width: 50%;
+        padding: 40px;
     }
-    .DeliveryImg{
-        width:50%;
-        img{
-            width:100%;
+    .DeliveryImg {
+        width: 50%;
+        img {
+            width: 100%;
         }
     }
-    h2{
+    h2 {
         font-weight: bold;
         font-size: 32px;
     }
-    p{
-        font-size:  14px;
+    p {
+        font-size: 14px;
     }
 }
-.ShipperInfo{
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
+.ShipperInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
-.BottomBanner{
-    width:100%;
-    border-top:1px solid white;
-    background-size:cover;
-    padding-bottom:10%;
+.BottomBanner {
+    width: 100%;
+    border-top: 1px solid white;
+    background-size: cover;
+    padding-bottom: 10%;
     background-image: url(../../../asset/background6.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.Video{
+.Video {
     cursor: pointer;
-    width:20%;
-    height:20%;
-    margin-top:10%;
-    margin-left:40%;
-    border-radius:50%;
-
+    width: 20%;
+    height: 20%;
+    margin-top: 10%;
+    margin-left: 40%;
+    border-radius: 50%;
 }
-.UpdateShop{
-    width:100%;
-    max-width:1366px;
-    height:250px;
-    background-color: #FF514E;
-    display:flex;
+.UpdateShop {
+    width: 100%;
+    max-width: 1366px;
+    height: 250px;
+    background-color: #ff514e;
+    display: flex;
     justify-content: center;
     align-items: center;
-    div{
-        width:20%;
-        text-align:center;
-        p{
-            display:block;
-            color:white;
-            font-size:48px;
+    div {
+        width: 20%;
+        text-align: center;
+        p {
+            display: block;
+            color: white;
+            font-size: 48px;
             font-weight: bold;
-            height:32px;
+            height: 32px;
         }
-        h2{
-            color:white;
+        h2 {
+            color: white;
         }
-
     }
 }
 
-@media screen and (max-width:992px){
-    .DeliveryContent{
-        .DeliveryImg{
-            display:none;
+@media screen and (max-width: 992px) {
+    .DeliveryContent {
+        .DeliveryImg {
+            display: none;
         }
-        .Content{
-            width:90%;
-            text-align:center;
-            h2{
+        .Content {
+            width: 90%;
+            text-align: center;
+            h2 {
                 font-weight: bold;
                 font-size: 24px;
             }
-            p{
-                font-size:  12px;
+            p {
+                font-size: 12px;
             }
         }
     }
-    .UpdateShop{
+    .UpdateShop {
         flex-wrap: wrap;
-        div{
-            width:45%;
-            text-align:center;
-            p{
-              
-                font-size:32px;
+        div {
+            width: 45%;
+            text-align: center;
+            p {
+                font-size: 32px;
                 font-weight: bold;
-                height:24px;
+                height: 24px;
             }
-            h2{
-                color:white;
-                font-size:14px;
+            h2 {
+                color: white;
+                font-size: 14px;
             }
-    
         }
     }
-    
 }

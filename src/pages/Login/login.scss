@@ -30,11 +30,7 @@
     input:invalid {
         border: 2px solid #ff514e;
     }
-
     input:valid {
-        border: 2px solid #1ed760;
-    }
-    input:required {
         border: 2px solid #00aff0;
     }
 }
@@ -54,16 +50,17 @@
 }
 .InputSubmit {
     width: 100%;
+    display:flex;
     height: 50px;
 }
-.SubmitBtn {
+.SubmitBtn , .HomeBtn {
     cursor: pointer;
-    width: 100px;
+    width: 140px;
     height: 40px;
     margin: 0 auto;
-    border-radius: 10px;
+    box-shadow:0 3px 10px 3px gray;
+    border-radius: 20px;
     background-color: #ff514e;
-
     p {
         color: white;
         text-align: center;
@@ -74,7 +71,16 @@
         background-color: #c33d3b;
     }
 }
-
+.HomeBtn{
+    background-color: white;
+    
+    p {
+        color: black;
+    }
+    &:hover {
+        background-color: #EBE9E9;
+    }
+}
 .RegisterAccount {
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.2);
@@ -112,11 +118,7 @@
     input:invalid {
         border: 2px solid #ff514e;
     }
-
     input:valid {
-        border: 2px solid #1ed760;
-    }
-    input:required {
         border: 2px solid #00aff0;
     }
 }

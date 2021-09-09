@@ -1,165 +1,119 @@
-.TopBanner{
+.TopBanner {
     width: 100%;
     margin: 0 auto;
 }
-.FirstBanner{
-    width:100%;
+.Banner {
+    width: 100%;
 }
-.FirstBanner1{
+.Banner1 {
     background-image: url("../../../asset/background.jpg");
-    display:block;
+    display: block;
     background-size: contain;
     background-repeat: no-repeat;
-    padding-top:56.25%;
+    padding-top: 56.25%;
 }
-.FirstBanner2{
+.Banner2 {
     background-image: url("../../../asset/background2.jpg");
-    display:block;
+    display: block;
     background-size: contain;
     background-repeat: no-repeat;
-    padding-top:56.25%;
+    padding-top: 56.25%;
 }
-.FirstBanner3{
+.Banner3 {
     background-image: url("../../../asset/background3.jpg");
-    display:block;
+    display: block;
     background-size: contain;
     background-repeat: no-repeat;
-    padding-top:56.25%;
+    padding-top: 56.25%;
 }
-.BannerContent{
+.BannerContent {
     position: absolute;
-    top:100px;
+    top: 100px;
     margin-left: 50px;
-    h2{
-        color:white;
+    h2 {
+        color: white;
         font-size: 24px;
     }
-    p{  
-        width:550px;
-        color:white;
+    p {
+        width: 550px;
+        color: white;
         font-weight: bold;
         font-size: 64px;
-        line-height:64px;
+        line-height: 64px;
     }
 }
-.LastBanner{
-    padding-top:280px;
+.LastBanner {
+    padding-top: 280px;
 }
-.OrderButton{
+.OrderButton {
     cursor: pointer;
-    display:flex;
-    width:140px;
-    height:40px;
+    display: flex;
+    width: 140px;
+    height: 40px;
     border-radius: 20px;
-    background-color:#FF514E;
+    background-color: #ff514e;
+    box-shadow: 1px 3px 5px 3px rgba(0, 0, 0, 0.2);
     align-items: center;
-    padding-left:5px;
+    padding-left: 5px;
     font-size: 16px;
-    color:white;
-    transition:0.3s;
-    h3{
+    color: white;
+    transition: 0.3s;
+    h3 {
         font-size: 16px;
         font-weight: bold;
-        color:white;
+        color: white;
         margin-left: 10px;
-        padding-top:5px;  
+        padding-top: 5px;
     }
 }
-.OrderButton:hover{
-    background-color:#C33D3B;
-    transition:0.3s;
+.OrderButton:hover {
+    background-color: #c33d3b;
+    transition: 0.3s;
 }
-.FirstBannerContent{
-    width:100%;
-}
-.FirstBannerImage{
-    width:100%;
-    height:100%;
-    img{
-        width:100%;
-        height:100%;
-    }
-}
-.FirstBannerGreeting{
-    width:50%;
-    position:absolute;
-    top:150px;
-    left:100px;
-    h2{
-        color:white;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    p{
-        color:white;
-        font-size: 64px;
-        font-weight: bold;
-    }   
-}
-.ShoppingButton{
-    width:150px;
-    height:30px;
-    border-radius: 15px;
-    background-color:#FF514E;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    color:white;
-    font-size:16px;
-    p{
-        font-size:16px;
-        font-weight: bold;
-        padding-top:15px;
-    }
-}
-
-@media screen and (max-width:992px){
-    .BannerContent{
-        h2{
+@media screen and (max-width: 992px) {
+    .BannerContent {
+        h2 {
             font-size: 16px;
         }
-        p{  
-            width:400px;
+        p {
+            width: 400px;
             font-size: 48px;
-            line-height:48px;
+            line-height: 48px;
         }
-        
     }
-    .LastBanner{
-        padding-top:150px;
+    .LastBanner {
+        padding-top: 150px;
     }
 }
-@media screen and (max-width:768px){
-    .BannerContent{
-        h2{
+@media screen and (max-width: 768px) {
+    .BannerContent {
+        h2 {
             font-size: 12px;
         }
-        p{  
-            width:350px;
+        p {
+            width: 350px;
             font-size: 32px;
-            line-height:32px;
+            line-height: 32px;
         }
     }
-    .LastBanner{
-        padding-top:150px;
+    .LastBanner {
+        padding-top: 150px;
     }
-    
 }
-@media screen and (max-width:576px){
-    .BannerContent{
-        top:80px;
+@media screen and (max-width: 576px) {
+    .BannerContent {
+        top: 80px;
         margin-left: 20px;
-        h2{
+        h2 {
             font-size: 10px;
         }
-        p{  
-            width:100px;
+        p {
+            width: 100px;
             font-size: 24px;
-            line-height:24px;
+            line-height: 24px;
         }
     }
-    .LastBanner{
-        padding-top:0px;
+    .LastBanner {
+        padding-top: 0px;
     }
-   
 }
