@@ -4,13 +4,19 @@ import Footer from '../../layout/footer/footer'
 import React from 'react'
 import { ShopOutlined } from '@ant-design/icons'
 import {Link} from 'react-router-dom'
-
+import _ from 'lodash'
 
 const LoginPage = () => {
+    let listUser=[];
+    const users=JSON.parse(localStorage.getItem("userAccount"))||[];
+    
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
+    React.useEffect(() => {
+        listUser=[...users];
+    }, [users]);
+   
     //input ref
     let userIdRef = React.useRef(null);
     let userPassRef = React.useRef(null);
@@ -24,13 +30,15 @@ const LoginPage = () => {
     let registerPassErrorRef = React.useRef(null);
     let reWritePassErrorRef = React.useRef(null);
     // constants
-    const idPattern = /^[a-z0-9_]{5,16}$/;
-    const passwordPattern = /^[a-z0-9]{8,20}$/;
+    const idPattern = /^[a-zA-Z0-9_]{5,16}$/;
+    const passwordPattern = /^[a-zA-Z0-9]{8,20}$/;
     const idErrorMess="5-16 characters '_' and numbers, no special characters";
+    const idDuplicateErrorMess="Account already exists";
     const passErrorMess="8-20 characters and numbers, no special characters";
     const rewritepassErrorMess="re-enter password does not match";
+    const signInErrorMess="Incorrect account or password";
 
-    const clearErrorMess=()=>{
+    const clearAll=()=>{
         userIdErrorRef.current.innerHTML="";
         userPassErrorRef.current.innerHTML="";
         registerIdErrorRef.current.innerHTML="";
@@ -47,16 +55,16 @@ const LoginPage = () => {
     const UserSignUp = () => {
         let isValid=true;
         let registerId=registerIdRef.current.value;
-        let registerPass=registerIdRef.current.value;
-        let reWritePass=registerIdRef.current.value;
+        let registerPass=registerPassRef.current.value;
+        let reWritePass=reWritePassRef.current.value;
         const validate=(item,validate,error,mess)=>{
             if(item===""){
                 error.current.innerHTML="*Required";
-                isValid=false;
+                return isValid=false;
             }
             if(!validate.test( item)){
                 error.current.innerHTML=mess;
-                isValid=false;
+                return isValid=false;
             }
             if(validate.test( item)){
                 error.current.innerHTML="";
@@ -65,12 +73,65 @@ const LoginPage = () => {
         validate(registerId,idPattern,registerIdErrorRef,idErrorMess);
         validate(registerPass,passwordPattern,registerPassErrorRef,passErrorMess);
         validate(reWritePass,passwordPattern,reWritePassErrorRef,passErrorMess);
+
+        if(_.findIndex(users,["userId",registerId])>=0){
+            registerIdErrorRef.current.innerHTML=idDuplicateErrorMess;
+            return isValid=false;
+        }
         if(reWritePass!==registerPass){
             reWritePassErrorRef.current.innerHTML=rewritepassErrorMess;
-            isValid=false;
+            return isValid=false;
         }
+        let account={
+            userId:registerId,
+            userPass:registerPass,
+            id:Math.random().toString(32).slice(2),
+            userComment:[],
+            userWish:[],
+            userCart:[]
+        }
+        listUser.push(account);
+
         if(isValid){
+            localStorage.setItem("userAccount",JSON.stringify(listUser))
+            clearAll();
             setIsShow(false);
+            alert("Ban Da Dang ky thanh cong!");
+        }
+    };
+
+
+    const UserSignIn = () => {
+        let isValid=true;
+        let userId=userIdRef.current.value;
+        let userPass=userPassRef.current.value;
+        const validate=(item,validate,error,mess)=>{
+            if(item===""){
+                error.current.innerHTML="*Required";
+                return isValid=false;
+            }
+            if(!validate.test( item)){
+                error.current.innerHTML=mess;
+                return isValid=false;
+            }
+            if(validate.test( item)){
+                error.current.innerHTML="";
+            }
+        }
+        validate(userId,idPattern,userIdErrorRef,idErrorMess);
+        validate(userPass,passwordPattern,userPassErrorRef,passErrorMess);
+        const currentUser=_.find(users,{"userId":userId,"userPass":userPass});
+        
+        if(isValid&&(currentUser===undefined)){
+            userPassErrorRef.current.innerHTML=signInErrorMess;
+            return isValid=false;
+        }
+       
+        
+        if(isValid){
+            localStorage.setItem("currentUser",JSON.stringify(currentUser));
+            clearAll();
+            alert("Dang nhap thanh cong!");
         }
     };
     
@@ -84,11 +145,8 @@ const LoginPage = () => {
     };
     const exitRegisterBox = (e) => {
         e.stopPropagation();
-        clearErrorMess();
+        clearAll();
         setIsShow(false);
-    };
-    const UserLogin = (e) => {
-
     };
     
     return (
@@ -118,7 +176,7 @@ const LoginPage = () => {
 
                     </div><br />
                     <div className="InputSubmit">
-                        <div className="SubmitBtn" onClick={UserLogin}><p>LOG IN</p></div>
+                        <div className="SubmitBtn" onClick={UserSignIn}><p>LOG IN</p></div>
                         <div className="HomeBtn"><Link to="/"><p><ShopOutlined style={{fontSize: "16px"}}/>&nbsp;HOME PAGE</p></Link></div>
                     </div>
                     {/* <Divider>Or</Divider> */}
