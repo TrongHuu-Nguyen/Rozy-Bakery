@@ -1,0 +1,44 @@
+.CartItem{
+    width:80%;
+    background-color:white;
+    // height:80px;
+    // display:flex;
+    // flex-direction:row;
+    // // align-items: center;
+    // justify-content:space-around;
+    // border:1px solid white;
+    
+    .ItemImage{
+        width:80px;
+        height:100%;
+        overflow:hidden;
+        img{
+            width:80px;
+            height:80px;
+            object-fit: contain;
+        }
+    }
+    .CartItemDetail{
+        border:1px solid white;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        flex:1;
+        padding-left:10px;
+        height:80px;
+        h3{
+            color:white;
+            font-size:14px;
+        }
+    }
+    .DeleteBtn{
+        border:1px solid white;
+        width:50px;
+        button{
+            margin:0 auto;
+            background-color:transparent;
+            border:none;
+        }
+    }
+}

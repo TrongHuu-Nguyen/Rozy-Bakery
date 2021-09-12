@@ -159,7 +159,7 @@
     }
     .TitleContent {
         width: 100%;
-        height: 100px;
+        height: 50px;
         padding-left: 10px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
         margin: 0 auto;
@@ -171,14 +171,15 @@
     }
 }
 .ProductCartItems {
-    width: 100%;
-    display: flex;
+    border:1px solid white;
+    // display: flex;
+    // flex-direction:column;
     flex: 1;
     overflow-y: auto;
-    ::-webkit-scrollbar {
-        display: hidden;
-    }
 }
+// .ProductCartItems::-webkit-scrollbar {
+//     display: none;
+// }
 .ProductCartTotal {
     width: 100%;
     height: 150px;
@@ -242,7 +243,6 @@
     width: 100%;
     max-width: 1366px;
     height: 100vh;
-    max-height: 768px;
     align-items: left;
     position: fixed;
     top: 0;

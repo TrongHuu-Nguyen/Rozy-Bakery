@@ -6,11 +6,12 @@ import {
     CloseOutlined, LogoutOutlined,
     ContactsOutlined
 } from '@ant-design/icons'
-// import _ from 'lodash'
+import _ from 'lodash'
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
+import CartItem from './cartItem/cartItem'
 
 const TopBar = () => {
     const [isShow, setIsShow] = React.useState(false);
@@ -19,6 +20,7 @@ const TopBar = () => {
     const [countCart, setCountCart] = React.useState(null);
     const [currentUser, setCurrentUser] = React.useState("Login");
     let user = [];
+    let userCartType=[];
 
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
@@ -36,7 +38,7 @@ const TopBar = () => {
         if(isLogIn){
             let userCart=user.userCart;
             setCountCart(userCart.length);
-            // let userCartType=_.countBy(userCart,Math.floor);
+            userCartType=_.countBy(userCart,Math.floor);
         }else{
             setCountCart(0);
         }
@@ -123,7 +125,7 @@ const TopBar = () => {
                             </div>
                         </div>
                         <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-
+                            <CartItem/>
                         </div>
                         <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                             <div className="TotalDetail">
