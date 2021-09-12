@@ -2,22 +2,53 @@ import {
     ShopOutlined, FileTextOutlined,
     HomeOutlined, UnorderedListOutlined,
     ShoppingCartOutlined, UserOutlined,
-    MenuOutlined, OrderedListOutlined, CloseOutlined
+    MenuOutlined, OrderedListOutlined,
+    CloseOutlined, LogoutOutlined,
+    ContactsOutlined
 } from '@ant-design/icons'
-
+// import _ from 'lodash'
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
 
 const TopBar = () => {
-
     const [isShow, setIsShow] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
+    const [isLogIn, setIsLogIn] = React.useState(false);
+    const [countCart, setCountCart] = React.useState(null);
+    const [currentUser, setCurrentUser] = React.useState("Login");
+    let user = [];
 
+    const checkLogin = () => {
+        user = JSON.parse(localStorage.getItem("currentUser"));
+        if (!!user) {
+            setCurrentUser(() => user.userId);
+            setIsLogIn(() => true);
+        } else {
+            setCurrentUser(() => "Login");
+            setIsLogIn(() => false);
+        }
+    };
+
+    React.useEffect(() => {
+        checkLogin();
+        if(isLogIn){
+            let userCart=user.userCart;
+            setCountCart(userCart.length);
+            // let userCartType=_.countBy(userCart,Math.floor);
+        }else{
+            setCountCart(0);
+        }
+
+    }, [isLogIn]);
+
+    const logOut = () => {
+        setIsLogIn(() => false);
+        localStorage.removeItem("currentUser");
+    };
 
     const showCart = () => {
-
         setVisible(true);
     };
     const closeCart = (e) => {
@@ -26,7 +57,6 @@ const TopBar = () => {
     };
 
     const showSideMenu = () => {
-
         setIsShow(true);
     };
     const exitSideMenu = (e) => {
@@ -48,8 +78,14 @@ const TopBar = () => {
                     </div>
                     <div className="Cart-User">
                         <ul>
-                            <li onClick={showCart}><ShoppingCartOutlined /><div className="CartUpdate" ><p>0</p></div></li>
-                            <Link to="/login"><li><UserOutlined /><p style={{ color: "white" }}>Login</p></li></Link>
+                            <li onClick={showCart}><ShoppingCartOutlined /><div className="CartUpdate" ><p>{countCart}</p></div></li>
+                            <li><UserOutlined /> <Link to="/login"><p style={{ color: "white" }}>{currentUser}</p></Link>
+                                {isLogIn ? <ul>
+                                    <li><p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p></li>
+                                    <li><p><OrderedListOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My WishList</p></li>
+                                    <li><p onClick={logOut}><LogoutOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;Logout</p></li>
+                                </ul> : null}
+                            </li>
                         </ul>
                     </div>
 
@@ -59,7 +95,7 @@ const TopBar = () => {
                 <div className="SideMenu" onClick={(e) => { e.stopPropagation(); }}>
                     <div className="SideMenuTop" onClick={(e) => { e.stopPropagation(); }}>
                         <ul>
-                            <Link to="/login"><li><UserOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;<p>Login</p></li></Link>
+                            <Link to="/login"><li><UserOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;<p>{currentUser}</p></li></Link>
                         </ul>
                     </div>
                     <div className="SideMenuBody" onClick={(e) => { e.stopPropagation(); }} >
@@ -77,28 +113,31 @@ const TopBar = () => {
                     </div>
                 </div>
             </div>
-            <div className={visible ? "ProductCartBackground Show" : "ProductCartBackground"} onClick={(e) => { closeCart(e) }}>
-                <div className="ProductCart" onClick={(e) => { e.stopPropagation(); }}>
-                    <div className="ProductCartTitle" onClick={(e) => { e.stopPropagation(); }}>
-                        <div className="TitleContent">
-                            <CloseOutlined style={{ fontSize: "32px" }} onClick={(e) => { closeCart(e) }} />
-                            <p><ShoppingCartOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;SHOPPING CART</p>
+            {isLogIn ?
+                <div className={visible ? "ProductCartBackground Show" : "ProductCartBackground"} onClick={(e) => { closeCart(e) }}>
+                    <div className="ProductCart" onClick={(e) => { e.stopPropagation(); }}>
+                        <div className="ProductCartTitle" onClick={(e) => { e.stopPropagation(); }}>
+                            <div className="TitleContent">
+                                <CloseOutlined style={{ fontSize: "32px" }} onClick={(e) => { closeCart(e) }} />
+                                <p><ShoppingCartOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;SHOPPING CART</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
+                        <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
 
-                    </div>
-                    <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
-                        <div className="TotalDetail">
-                            <p>Total</p><h2>$0.00</h2>
                         </div>
-                        <div className="TotalBtn">
-                            <button className="CheckoutBtn"><ShoppingCartOutlined />&nbsp;&nbsp;CHECKOUT</button>
-                            <button className="BuyMoreBtn"><ShopOutlined />&nbsp;&nbsp;BUY MORE</button>
+                        <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
+                            <div className="TotalDetail">
+                                <p>Total</p><h2>$0.00</h2>
+                            </div>
+                            <div className="TotalBtn">
+                                <button className="CheckoutBtn"><ShoppingCartOutlined />&nbsp;&nbsp;CHECKOUT</button>
+                                <button className="BuyMoreBtn"><ShopOutlined />&nbsp;&nbsp;BUY MORE</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                : null}
+
         </div>
     )
 }

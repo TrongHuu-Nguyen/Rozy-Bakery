@@ -14,9 +14,9 @@ function App() {
         <Route path="/product"><ProductPage /></Route>
         <Route path="/product-detail"> <ProductDetail /></Route>
         <Route path="/login" render={()=>{
-          return !localStorage.getItem("access")?<LoginPage />:<Redirect to="/"/>
+          return !localStorage.getItem("currentUser")?<LoginPage/>:<Redirect to="/"/>
         }}>
-          
+
         </Route>
       </Switch>
     </div>

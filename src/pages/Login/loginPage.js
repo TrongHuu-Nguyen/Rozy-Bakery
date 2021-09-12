@@ -95,10 +95,12 @@ const LoginPage = () => {
         listUser.push(account);
 
         if (isValid) {
-            localStorage.setItem("userAccount", JSON.stringify(listUser))
+            localStorage.setItem("userAccount", JSON.stringify(listUser));
+            localStorage.setItem("currentUser", JSON.stringify(account));
             clearAll();
             setIsShow(false);
             alert("Ban Da Dang ky thanh cong!");
+            history.replace("/");
         }
     };
 
@@ -136,7 +138,6 @@ const LoginPage = () => {
 
         if (isValid) {
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
-            localStorage.setItem("access", JSON.stringify(true));
             clearAll();
             alert("Dang nhap thanh cong!");
             history.replace("/");
@@ -185,7 +186,6 @@ const LoginPage = () => {
                         <div className="SubmitBtn" onClick={UserSignIn}><p>LOG IN</p></div>
                         <div className="HomeBtn"><Link to="/"><p><ShopOutlined style={{ fontSize: "16px" }} />&nbsp;HOME PAGE</p></Link></div>
                     </div>
-                    {/* <Divider>Or</Divider> */}
                 </div>
 
             </div>

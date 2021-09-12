@@ -39,6 +39,10 @@
 }
 
 .CardItemContentGrid .ProductImage {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,6 +67,10 @@
 }
 
 .CardItemContentGrid .ProductTitle p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 80%;
   font-size: 24px;
   font-weight: bold;
