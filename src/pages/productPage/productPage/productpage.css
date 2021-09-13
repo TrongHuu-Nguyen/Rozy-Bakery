@@ -50,18 +50,14 @@
   transition: 0.6s;
 }
 
-.ProductSidebarPriceTitle {
+.ProductSidebarPriceTitle,
+.ProductSidebarRateTitle {
   border-bottom: 1px solid #d9d9d9;
   margin: 10px auto;
 }
 
 .ProductSidebarPriceItems span {
   font-size: 16px;
-}
-
-.ProductSidebarRateTitle {
-  border-bottom: 1px solid #d9d9d9;
-  margin: 10px auto;
 }
 
 .ProductSidebarRateItem {

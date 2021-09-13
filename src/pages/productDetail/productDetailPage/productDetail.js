@@ -1,20 +1,18 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShippingFast, faClock, faTags } from '@fortawesome/free-solid-svg-icons'
+import ProductData from '../../../fakedata.js'
+import _ from 'lodash'
+import { useLocation } from "react-router-dom"
 import { Image, Rate, Radio, Tabs } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
 import Comment from '../../productDetail/Comment/comment';
 import CardItem from '../../../components/cardItem/cardItem'
-import ProductData from '../../../fakedata.js'
-import _ from 'lodash'
 import Footer from '../../../layout/footer/footer'
 import Header from '../../../layout/header/header.js'
 import TopBar from '../../../layout/topBar/topBar.js'
-import { useLocation } from "react-router-dom"
+import Shipping from './shipping/shipping'
 
 const { TabPane } = Tabs;
-
 const ProductDetail = () => {
     const [visible, setVisible] = React.useState(false);
     const [value, setValue] = React.useState(1);
@@ -22,7 +20,7 @@ const ProductDetail = () => {
     React.useEffect(() => {
         window.scrollTo(0, 200);
     }, [])
-
+    
     const location = useLocation();
     const queryItem = new URLSearchParams(location.search);
     const itemId = queryItem.get("id");
@@ -57,15 +55,12 @@ const ProductDetail = () => {
                     <div className="ProductImages">
                         <Image
                             preview={{ visible: false }}
-
                             src={currentItem.src}
                             onClick={() => setVisible(true)}
                         />
                         <div style={{ display: 'none' }}>
                             <Image.PreviewGroup preview={{ visible, onVisibleChange: vis => setVisible(vis) }}>
                                 <Image src={currentItem.src} />
-                                <Image src={currentItem.src} />
-                                <Image src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp" />
                             </Image.PreviewGroup>
                         </div>
                     </div>
@@ -93,23 +88,10 @@ const ProductDetail = () => {
                             <ShoppingCartOutlined /><p> ADD TO CART</p>
                         </div>
                         <div className="WishIcon FakeBtn"><HeartOutlined style={{ fontSize: "18px" }} /></div>
-
                     </div>
-                    <div className="Shipping">
-                        <div className="ShipPolicy">
-                            <div className="PolicyIcon" ><FontAwesomeIcon icon={faShippingFast} size="lg" style={{ color: "#FF514E" }} /></div>
-                            <p>Free global shipping on all orders</p>
-                        </div>
-                        <div className="ShipPolicy">
-                            <div className="PolicyIcon"><FontAwesomeIcon icon={faClock} size="lg" style={{ color: "#FF514E" }} /></div><p>2 hours easy returns if you change your mind</p>
-                        </div>
-                        <div className="ShipPolicy">
-                            <div className="PolicyIcon"><FontAwesomeIcon icon={faTags} size="lg" style={{ color: "#FF514E" }} /></div><p>Order before noon for same day dispatch</p>
-                        </div>
-                    </div>
+                    <Shipping/>
                 </div>
             </div>
-
             <div className="ProductFullDescription">
                 <Tabs defaultActiveKey="1" centered>
                     <TabPane tab="Description" key="1">

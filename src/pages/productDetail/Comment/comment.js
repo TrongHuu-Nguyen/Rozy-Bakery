@@ -4,28 +4,9 @@ import moment from 'moment';
 import React from 'react';
 import './comment.css'
 import ProductData from '../../../fakedata.js'
-
-const OlderComment = (props) => {
-    return (
-        <div className="CommentBox">
-            <div className="UserAvatar">
-                <Avatar src={props.userAvatar} size={50} /><p>{props.userName}</p>
-            </div>
-            <div className="CommentContent">
-                <div className="UserRate">
-                    <Rate allowClear={false} value={props.rate} disabled />
-                    <p>({moment(props.moment).fromNow()})</p>
-                </div>
-                <div className="UserComment">
-                    <textarea disabled="" className="comment" value={props.comment}></textarea>
-                </div>
-            </div>
-        </div>
-    )
-};
+import OlderComment from './olderComment/oderComment'
 
 const Comment = (props) => {
-
     const [rating, setRating] = React.useState(0);
     const commentRef = React.useRef("");
     const index = ProductData.map(item => item.id).indexOf(props.itemId);
@@ -64,8 +45,7 @@ const Comment = (props) => {
                             moment={item.moment}
                         />
                     )
-                })
-                }
+                })}
             </div>
             <div className="CommentBox">
                 <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={60} /></div>

@@ -43,7 +43,6 @@ function ProductPage() {
 
     const typeFilter = (type) => {
         let dataType = [];
-        console.log(type);
         switch (type) {
             case "burger":
                 dataType = ProductData.filter(item => item.type === "burger"); setTitle(() => "Burgers")
