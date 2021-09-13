@@ -40,6 +40,10 @@
           justify-content: space-between;
 }
 
+.TopMenu {
+  margin-top: 8px;
+}
+
 .TopMenu li:first-child {
   display: none;
 }
@@ -150,31 +154,42 @@
   transition: 0.4s;
 }
 
+.Cart-User .currentUser {
+  color: white;
+  font-size: 18px;
+  display: block;
+  margin-top: 12px;
+}
+
 .CartUpdate {
   width: 30px;
-  height: 20px;
+  height: 25px;
   border-radius: 10px;
   background-color: rgba(255, 81, 78, 0.7);
 }
 
 .CartUpdate p {
+  display: block;
   color: #ffbb03;
   font-weight: bold;
   text-align: center;
+  padding-top: 3px;
 }
 
 .SideMenu,
 .ProductCart {
   background-color: rgba(0, 0, 0, 0.8);
-  width: 400px;
+  width: 320px;
   height: 100%;
   -webkit-box-align: left;
       -ms-flex-align: left;
           align-items: left;
 }
 
-.SideMenu div,
-.ProductCart div {
+.SideMenu .SideMenuTop, .SideMenu .SideMenuBody, .SideMenu .SideMenuBottom,
+.ProductCart .SideMenuTop,
+.ProductCart .SideMenuBody,
+.ProductCart .SideMenuBottom {
   cursor: pointer;
   width: 100%;
   border-bottom: 1px solid #333333;
@@ -230,10 +245,19 @@
 }
 
 .ProductCart div {
-  border: none;
+  font-size: 16px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.ProductCart .TitleContent {
+.ProductCart .ProductCartTitle {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.ProductCart .ProductCartTitle .TitleContent {
   width: 100%;
   height: 50px;
   padding-left: 10px;
@@ -243,17 +267,28 @@
   font-size: 24px;
 }
 
-.ProductCart .TitleContent p {
+.ProductCart .ProductCartTitle .TitleContent p {
   display: block;
   margin: auto;
 }
 
-.ProductCartItems {
-  border: 1px solid white;
+.ProductCart .ProductCartItems {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   overflow-y: auto;
+}
+
+.ProductCart .ProductCartItems::-webkit-scrollbar {
+  display: none;
 }
 
 .ProductCartTotal {
@@ -278,6 +313,9 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 .ProductCartTotal .TotalDetail p,
@@ -315,6 +353,19 @@
   background-color: #ff514e;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.ProductCartTotal .TotalBtn button p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 35px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .ProductCartTotal .TotalBtn button:hover {

@@ -68,7 +68,7 @@ const Comment = (props) => {
                 }
             </div>
             <div className="CommentBox">
-                <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={50} /></div>
+                <div className="UserAvatar"><Avatar icon={<UserOutlined />} size={60} /></div>
                 <div className="CommentContent">
                     <div className="UserRate">
                         <Rate allowClear={false} value={rating} onChange={(value => setRating(() => value))} />

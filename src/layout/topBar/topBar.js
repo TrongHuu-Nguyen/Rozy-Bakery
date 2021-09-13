@@ -80,8 +80,14 @@ const TopBar = () => {
                     </div>
                     <div className="Cart-User">
                         <ul>
-                            <li onClick={showCart}><ShoppingCartOutlined /><div className="CartUpdate" ><p>{countCart}</p></div></li>
-                            <li><UserOutlined /> <Link to="/login"><p style={{ color: "white" }}>{currentUser}</p></Link>
+                            <li onClick={showCart}><ShoppingCartOutlined />
+                                <div className="CartUpdate" >
+                                    <p>{countCart}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <UserOutlined /> 
+                                <Link to="/login"><p className="currentUser">{currentUser}</p></Link>
                                 {isLogIn ? <ul>
                                     <li><p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p></li>
                                     <li><p><OrderedListOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My WishList</p></li>
@@ -97,7 +103,7 @@ const TopBar = () => {
                 <div className="SideMenu" onClick={(e) => { e.stopPropagation(); }}>
                     <div className="SideMenuTop" onClick={(e) => { e.stopPropagation(); }}>
                         <ul>
-                            <Link to="/login"><li><UserOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;<p>{currentUser}</p></li></Link>
+                            <Link to="/login"><li><UserOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;<p style={{ fontSize: "24px" }}>{currentUser}</p></li></Link>
                         </ul>
                     </div>
                     <div className="SideMenuBody" onClick={(e) => { e.stopPropagation(); }} >
@@ -119,6 +125,7 @@ const TopBar = () => {
                 <div className={visible ? "ProductCartBackground Show" : "ProductCartBackground"} onClick={(e) => { closeCart(e) }}>
                     <div className="ProductCart" onClick={(e) => { e.stopPropagation(); }}>
                         <div className="ProductCartTitle" onClick={(e) => { e.stopPropagation(); }}>
+                        
                             <div className="TitleContent">
                                 <CloseOutlined style={{ fontSize: "32px" }} onClick={(e) => { closeCart(e) }} />
                                 <p><ShoppingCartOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;SHOPPING CART</p>
@@ -126,14 +133,16 @@ const TopBar = () => {
                         </div>
                         <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
                             <CartItem/>
+                            <CartItem/>
+                            <CartItem/>
                         </div>
                         <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                             <div className="TotalDetail">
                                 <p>Total</p><h2>$0.00</h2>
                             </div>
                             <div className="TotalBtn">
-                                <button className="CheckoutBtn"><ShoppingCartOutlined />&nbsp;&nbsp;CHECKOUT</button>
-                                <button className="BuyMoreBtn"><ShopOutlined />&nbsp;&nbsp;BUY MORE</button>
+                                <button className="CheckoutBtn"><p><ShoppingCartOutlined style={{ fontSize: "24px" }}/>&nbsp;&nbsp;CHECKOUT</p></button>
+                                <button className="BuyMoreBtn"><p><ShopOutlined style={{ fontSize: "24px" }} />&nbsp;&nbsp;BUY MORE</p></button>
                             </div>
                         </div>
                     </div>

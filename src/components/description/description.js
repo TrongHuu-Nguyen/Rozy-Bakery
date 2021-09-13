@@ -11,9 +11,6 @@ const Description=()=>{
                   deleniti? Eum in proident risus torquent! Sodales torquent vehicula potenti
                    nostra semper at, gravida torquent, fusce illo.</p>
             </div>
-            <div className="DescriptionDetailTable">
-
-            </div>
         </div>
     )
 }

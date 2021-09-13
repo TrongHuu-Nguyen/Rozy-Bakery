@@ -1,4 +1,5 @@
 import './cartItem.css'
+import {DeleteOutlined} from '@ant-design/icons'
 
 const CartItem = (props) => {
     return (
@@ -8,19 +9,19 @@ const CartItem = (props) => {
             </div>
             <div className="CartItemDetail">
                 <div className="ItemTitle">
-                    <h3>tittle</h3>
+                    <h3>tittlegdfgrgergwegwegerheregwfwfwf</h3>
                 </div>
                 <div className="ItemPrice">
                     <h3 style={{color:"#FF514E"}}>$49</h3>
                 </div>
                 <div className="CartItemCustom">
                     <button>+</button>
-                    <div>5</div>
+                    <div><p>115</p></div>
                     <button>-</button>
                 </div>
             </div>
             <div className="DeleteBtn">
-                <button>Del</button>
+                <button><DeleteOutlined/></button>
             </div>
 
         </div>
