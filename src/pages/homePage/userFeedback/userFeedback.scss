@@ -1,35 +1,35 @@
-.UserFeedback{
-    width:100%;
-    height:500px;
-    border-bottom:3px solid #FF514E;
-}
-.UserAvatar{
-    width:200px;
-    height:200px;
-    margin:50px auto;
-    overflow:hidden;  
-}
-.Frame{
-    width:100%;
-    height:100%;
-    border:5px solid #FF514E;
-    overflow:hidden;
-    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-    img{
-        width:100%;
-        height:100%;
-        object-fit: cover;
+.UserFeedback {
+    width: 100%;
+    height: 500px;
+    border-bottom: 3px solid #ff514e;
+    .UserAvatar {
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        overflow: hidden;
+        .Frame {
+            width: 100%;
+            height: 100%;
+            border: 5px solid #ff514e;
+            overflow: hidden;
+            border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
-}
-.UserCaption{
-    width:75%;
-    margin:0 auto;
-    text-align:center;
-    h2{
-        font-size: 32px;
-        font-weight: bold;
-    }
-    p{
-        font-size: 16px;
+    .UserCaption {
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+        }
     }
 }
