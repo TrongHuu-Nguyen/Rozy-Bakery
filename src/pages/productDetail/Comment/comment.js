@@ -3,14 +3,23 @@ import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import React from 'react';
 import './comment.css'
-import ProductData from '../../../fakedata.js'
 import OlderComment from './olderComment/oderComment'
+import {useSelector,useDispatch} from 'react-redux'
+import {getProductAPI,addCommentAPI} from '../../../slice/productSlice'
 
 const Comment = (props) => {
     const [rating, setRating] = React.useState(0);
     const commentRef = React.useRef("");
+    const ProductData=useSelector((state)=>state.products.list);
     const index = ProductData.map(item => item.id).indexOf(props.itemId);
     const [listComments, setListComments] = React.useState(ProductData[index].comments);
+
+    const dispatch = useDispatch();
+    
+    React.useEffect(() => {
+        dispatch(getProductAPI());
+    }, [dispatch])
+
     const postComment = () => {
         if (commentRef.current.value.trim()) {
             const currentMoment = moment();
@@ -25,9 +34,14 @@ const Comment = (props) => {
             let newComment = [...listComments];
             newComment.push(userComment);
             setListComments(() => newComment);
-            ProductData[index].comments = newComment;
+            // ProductData[index].comments = newComment;
             commentRef.current.value = "";
             setRating(0);
+
+            const updateProduct=[...ProductData[index] ];
+            updateProduct.comments=listComments;
+            dispatch(addCommentAPI(updateProduct));
+
         }
     }
 

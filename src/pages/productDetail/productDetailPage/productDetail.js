@@ -1,10 +1,12 @@
 import React from 'react'
-import ProductData from '../../../fakedata.js'
+// import ProductData from '../../../fakedata.js'
 import _ from 'lodash'
-import { useLocation } from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom"
 import { Image, Rate, Radio, Tabs } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProductAPI } from '../../../slice/productSlice'
 import Comment from '../../productDetail/Comment/comment';
 import CardItem from '../../../components/cardItem/cardItem'
 import Footer from '../../../layout/footer/footer'
@@ -17,19 +19,53 @@ const ProductDetail = () => {
     const [visible, setVisible] = React.useState(false);
     const [value, setValue] = React.useState(1);
     const [count, setCount] = React.useState(0);
-    React.useEffect(() => {
-        window.scrollTo(0, 200);
-    }, [])
+    const [currentItem, setCurrentItem] = React.useState({});
+    const [commentNumb, setCommentNumb] = React.useState(0);
+    const [relativeItem, setRelativeItem] = React.useState([]);
+
+    const dispatch = useDispatch();
+    const listProduct = useSelector((state) => state.products.list);
     
     const location = useLocation();
+    const history = useHistory();
     const queryItem = new URLSearchParams(location.search);
     const itemId = queryItem.get("id");
     const itemTitle = queryItem.get("name");
-    const queryProduct = ProductData.filter(item => item.id === itemId);
-    const currentItem = queryProduct[0];
-    let commentNumb = currentItem.comments.length;
-    const relativeItems = ProductData.filter(item => item.type === currentItem.type)
-    const relativeItem = _.sampleSize(relativeItems, 5);
+
+
+    // const isLoading=useSelector((state) => state.products.loading);
+    
+    // let queryProduct = [];
+    // let currentItem = null;
+    // let commentNumb = 0;
+    // const relativeItems = [];
+    // const relativeItem = [];
+
+
+    React.useEffect(() => {
+        window.scrollTo(0, 200);
+        dispatch(getProductAPI());
+    }, [dispatch])
+
+    React.useEffect(() => {
+        if (listProduct && listProduct.length && itemId) {
+            const product = listProduct.find(item => item.id === itemId);
+            if (!product) {
+                history.push('/product');
+            }
+            // const currentItem = queryProduct[0];
+            const commentNumbTemp = product.comments.length;
+            const relativeItems = listProduct.filter(item => item.type === product.type)
+            const relativeItemTemp = _.sampleSize(relativeItems, 5);
+            setCurrentItem(product);
+            setCommentNumb(commentNumbTemp);
+            setRelativeItem(relativeItemTemp);
+        }
+    }, [listProduct, itemId])
+
+    
+    
+
     const descrease = () => {
         setCount(count - 1);
         setValue(count - 1);
@@ -89,7 +125,7 @@ const ProductDetail = () => {
                         </div>
                         <div className="WishIcon FakeBtn"><HeartOutlined style={{ fontSize: "18px" }} /></div>
                     </div>
-                    <Shipping/>
+                    <Shipping />
                 </div>
             </div>
             <div className="ProductFullDescription">

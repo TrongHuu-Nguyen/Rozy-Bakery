@@ -101,7 +101,7 @@
   margin: 10px 20px;
 }
 
-.CommentTable .CommentBox .UserComment:active {
+.CommentTable .CommentBox .UserComment .PostCommentBtn:active {
   background-color: #c33d3b;
   -webkit-transition: 0.1s;
   transition: 0.1s;

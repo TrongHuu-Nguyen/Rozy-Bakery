@@ -60,11 +60,12 @@
                     display: inline-block;
                     margin: 10px 20px;
                 }
+                &:active {
+                    background-color: #c33d3b;
+                    transition: 0.1s;
+                }
             }
-            &:active {
-                background-color: #c33d3b;
-                transition: 0.1s;
-            }
+            
         }
     }
 }

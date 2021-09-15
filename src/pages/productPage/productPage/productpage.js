@@ -6,10 +6,11 @@ import Footer from '../../../layout/footer/footer.js'
 import Header from '../../../layout/header/header.js'
 import './productpage.css'
 import TopBar from '../../../layout/topBar/topBar.js'
-import ProductData from '../../../fakedata.js'
+// import ProductData from '../../../fakedata.js'
 import CardItem from '../../../components/cardItem/cardItem.js'
 import { Pagination } from 'antd'
-
+import {useSelector, useDispatch} from 'react-redux'
+import {getProductAPI} from '../../../slice/productSlice'
 
 function ProductPage() {
     const [value, setValue] = React.useState(1);
@@ -18,11 +19,19 @@ function ProductPage() {
     const [filtedData, setFiltedData] = React.useState([]);
     const [showItem, setShowItem] = React.useState([]);
 
+    const dispatch = useDispatch();
+    const listProduct=useSelector((state)=>state.products.list);
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
-        setFiltedData(ProductData);
+        dispatch(getProductAPI());
+    }, [dispatch]);
+
+    React.useEffect(() => {
+        setFiltedData(listProduct);
         setShowItem(filtedData.slice(0, 12))
-    }, []);
+    }, [listProduct]);
+
     React.useEffect(() => {
         setShowItem(filtedData.slice(0, 12))
     }, [filtedData]);
@@ -34,7 +43,7 @@ function ProductPage() {
     const onSearchBar = (value) => {
         const matchedItem = [];
         const keyword = value.toLowerCase().split(" ").join('').replace(/[`!@#$%^&*:;-?|"']/g, "");
-        ProductData.forEach((item) => {
+        listProduct.forEach((item) => {
             let title = item.title.toLowerCase().split(" ").join('');
             if (title.search(keyword) >= 0) { matchedItem.push(item) }
         })
@@ -45,21 +54,21 @@ function ProductPage() {
         let dataType = [];
         switch (type) {
             case "burger":
-                dataType = ProductData.filter(item => item.type === "burger"); setTitle(() => "Burgers")
+                dataType = listProduct.filter(item => item.type === "burger"); setTitle(() => "Burgers")
                 break;
             case "bread":
-                dataType = ProductData.filter(item => item.type === "bread"); setTitle(() => "Breads")
+                dataType = listProduct.filter(item => item.type === "bread"); setTitle(() => "Breads")
                 break;
             case "pizza":
-                dataType = ProductData.filter(item => item.type === "pizza"); setTitle(() => "Pizzas")
+                dataType = listProduct.filter(item => item.type === "pizza"); setTitle(() => "Pizzas")
                 break;
             case "sandwich":
-                dataType = ProductData.filter(item => item.type === "sandwich"); setTitle(() => "Sandwiches")
+                dataType = listProduct.filter(item => item.type === "sandwich"); setTitle(() => "Sandwiches")
                 break;
             case "drink":
-                dataType = ProductData.filter(item => item.type === "drink"); setTitle(() => "Drinks")
+                dataType = listProduct.filter(item => item.type === "drink"); setTitle(() => "Drinks")
                 break;
-            default: dataType = [...ProductData]; setTitle(() => "All Food")
+            default: dataType = [...listProduct]; setTitle(() => "All Food")
                 break;
         }
         setFiltedData(() => dataType);
@@ -67,13 +76,13 @@ function ProductPage() {
     const priceFilter = (price) => {
         let dataPrice = [];
         switch (price) {
-            case 2: dataPrice = ProductData.filter(item => item.price <= 49)
+            case 2: dataPrice = listProduct.filter(item => item.price <= 49)
                 break;
-            case 3: dataPrice = ProductData.filter(item => (item.price > 49 && item.price < 100))
+            case 3: dataPrice = listProduct.filter(item => (item.price > 49 && item.price < 100))
                 break;
-            case 4: dataPrice = ProductData.filter(item => item.price > 100)
+            case 4: dataPrice = listProduct.filter(item => item.price > 100)
                 break;
-            default: dataPrice = [...ProductData]; setTitle(() => "All Food")
+            default: dataPrice = [...listProduct]; setTitle(() => "All Food")
                 break;
         }
         setFiltedData(() => dataPrice);
@@ -81,13 +90,13 @@ function ProductPage() {
     const rateFilter = (rate) => {
         let dataRate = [];
         switch (rate) {
-            case 5: dataRate = ProductData.filter(item => item.rate === 5)
+            case 5: dataRate = listProduct.filter(item => item.rate === 5)
                 break;
-            case 4: dataRate = ProductData.filter(item => item.rate === 4)
+            case 4: dataRate = listProduct.filter(item => item.rate === 4)
                 break;
-            case 3: dataRate = ProductData.filter(item => item.rate <= 3)
+            case 3: dataRate = listProduct.filter(item => item.rate <= 3)
                 break;
-            default: dataRate = [...ProductData]; setTitle(() => "All Food")
+            default: dataRate = [...listProduct]; setTitle(() => "All Food")
                 break;
         }
         setFiltedData(() => dataRate);
