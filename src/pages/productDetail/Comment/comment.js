@@ -4,28 +4,25 @@ import moment from 'moment';
 import React from 'react';
 import './comment.css'
 import OlderComment from './olderComment/oderComment'
-import {useSelector,useDispatch} from 'react-redux'
-import {getProductAPI,addCommentAPI} from '../../../slice/productSlice'
+import { useDispatch } from 'react-redux'
+import { addCommentAPI } from '../../../slice/productSlice'
+import { message } from 'antd';
 
 const Comment = (props) => {
     const [rating, setRating] = React.useState(0);
     const commentRef = React.useRef("");
-    const ProductData=useSelector((state)=>state.products.list);
-    const index = ProductData.map(item => item.id).indexOf(props.itemId);
-    const [listComments, setListComments] = React.useState(ProductData[index].comments);
-
+    const [listComments, setListComments] = React.useState(props.item.comments);
     const dispatch = useDispatch();
-    
-    React.useEffect(() => {
-        dispatch(getProductAPI());
-    }, [dispatch])
-
-    const postComment = () => {
-        if (commentRef.current.value.trim()) {
+    const postComment = async () => {
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) {
+            message.warning('You need to be logged in to comment.');
+        }
+        if (commentRef.current.value.trim() && !!currentUser) {
             const currentMoment = moment();
             const userComment = {
                 id: Math.random().toString(36).slice(2),
-                userName: "User",
+                userName: currentUser.userId,
                 userAvatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
                 rate: rating,
                 comment: commentRef.current.value,
@@ -34,15 +31,17 @@ const Comment = (props) => {
             let newComment = [...listComments];
             newComment.push(userComment);
             setListComments(() => newComment);
-            // ProductData[index].comments = newComment;
-            commentRef.current.value = "";
-            setRating(0);
-
-            const updateProduct=[...ProductData[index] ];
-            updateProduct.comments=listComments;
-            dispatch(addCommentAPI(updateProduct));
-
+            const updateProduct = { ...props.item };
+            updateProduct.comments = newComment;
+            try {
+                await dispatch(addCommentAPI(updateProduct));
+            }
+            catch (e) {
+                console.log(e)
+            }
         }
+        commentRef.current.value = "";
+        setRating(0);
     }
 
     return (

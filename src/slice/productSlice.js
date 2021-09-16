@@ -9,10 +9,10 @@ export const getProductAPI=createAsyncThunk('product/getProductAPI', async()=> {
     return listProduct.data
 })
 
-export const addCommentAPI=createAsyncThunk('product/getProductAPI', async(payload)=> {
+export const addCommentAPI=createAsyncThunk('product/addCommentAPI', async(payload)=> {
     await axios
-        .post(
-            `http://localhost:3001/ProductData?id=${payload.id}`,payload)
+        .put(
+            `http://localhost:3001/ProductData/${payload.id}`,payload)
         .then(res=> res)
         .catch(e=>console.log(e));
 })
@@ -38,6 +38,16 @@ const productSlice=createSlice({
         [getProductAPI.rejected]:(state, action)=>{
             state.error=action.error;
             state.loading=false;
+        },
+
+        [addCommentAPI.pending]:(state)=>{
+            
+        },
+        [addCommentAPI.fulfilled]:(state, action)=>{
+            
+        },
+        [addCommentAPI.rejected]:(state, action)=>{
+            
         }
     }
 })

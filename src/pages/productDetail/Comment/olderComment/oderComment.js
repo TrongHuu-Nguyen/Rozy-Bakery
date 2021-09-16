@@ -5,7 +5,8 @@ const OlderComment = (props) => {
     return (
         <div className="CommentBox">
             <div className="UserAvatar">
-                <Avatar src={props.userAvatar} size={50} /><p>{props.userName}</p>
+                <Avatar src={props.userAvatar} size={50} />
+                <p>{props.userName}</p>
             </div>
             <div className="CommentContent">
                 <div className="UserRate">

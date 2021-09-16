@@ -25,22 +25,13 @@ const ProductDetail = () => {
 
     const dispatch = useDispatch();
     const listProduct = useSelector((state) => state.products.list);
+    const isLoading = useSelector((state)=>state.products.loading);
     
     const location = useLocation();
     const history = useHistory();
     const queryItem = new URLSearchParams(location.search);
     const itemId = queryItem.get("id");
     const itemTitle = queryItem.get("name");
-
-
-    // const isLoading=useSelector((state) => state.products.loading);
-    
-    // let queryProduct = [];
-    // let currentItem = null;
-    // let commentNumb = 0;
-    // const relativeItems = [];
-    // const relativeItem = [];
-
 
     React.useEffect(() => {
         window.scrollTo(0, 200);
@@ -53,7 +44,7 @@ const ProductDetail = () => {
             if (!product) {
                 history.push('/product');
             }
-            // const currentItem = queryProduct[0];
+
             const commentNumbTemp = product.comments.length;
             const relativeItems = listProduct.filter(item => item.type === product.type)
             const relativeItemTemp = _.sampleSize(relativeItems, 5);
@@ -64,8 +55,6 @@ const ProductDetail = () => {
     }, [listProduct, itemId])
 
     
-    
-
     const descrease = () => {
         setCount(count - 1);
         setValue(count - 1);
@@ -82,6 +71,9 @@ const ProductDetail = () => {
         setValue(e.target.value);
         setCount(e.target.value);
     };
+    if(isLoading) return (
+        <h2>Loading...</h2>
+    )
     return (
         <div className="ProductDetail">
             <TopBar />
@@ -134,7 +126,7 @@ const ProductDetail = () => {
                         <p>{currentItem.description}</p>
                     </TabPane>
                     <TabPane tab="Reviews" key="2">
-                        <Comment itemId={itemId} />
+                        <Comment item={currentItem} />
                     </TabPane>
                 </Tabs>
             </div>

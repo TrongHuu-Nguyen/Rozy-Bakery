@@ -21,6 +21,7 @@ function ProductPage() {
 
     const dispatch = useDispatch();
     const listProduct=useSelector((state)=>state.products.list);
+    const isLoading = useSelector((state)=>state.products.loading);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -107,6 +108,9 @@ function ProductPage() {
         const currentItems = filtedData.slice(start, end);
         setShowItem(() => currentItems);
     }
+    if(isLoading) return (
+        <h2>Loading...</h2>
+    )
     return (
         <div className="ProductPage">
             <TopBar />
