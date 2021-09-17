@@ -12,36 +12,43 @@ import { Link } from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
 import CartItem from './cartItem/cartItem'
+import {useSelector,useDispatch} from 'react-redux'
+import {addItem} from '../../slice/userSlice'
 
 const TopBar = () => {
     const [isShow, setIsShow] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
     const [isLogIn, setIsLogIn] = React.useState(false);
-    const [countCart, setCountCart] = React.useState(null);
+    const countCart = useSelector(state=>state.user.cart.length);
+    const Cart=useSelector(state=>state.user.cart);
     const [currentUser, setCurrentUser] = React.useState("Login");
     let user = [];
-    let userCartType=[];
+    const dispatch = useDispatch();
+    const userCartType=_.countBy(Cart,Math.floor);
+    console.log(userCartType);
 
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
         if (!!user) {
             setCurrentUser(() => user.userId);
             setIsLogIn(() => true);
+            dispatch(addItem(user.userCart));
         } else {
             setCurrentUser(() => "Login");
             setIsLogIn(() => false);
         }
     };
 
+
     React.useEffect(() => {
         checkLogin();
-        if(isLogIn){
-            let userCart=user.userCart;
-            setCountCart(userCart.length);
-            userCartType=_.countBy(userCart,Math.floor);
-        }else{
-            setCountCart(0);
-        }
+        // if(isLogIn){
+        //     let userCart=user.userCart;
+            // setCountCart(userCart.length);
+            // userCartType=_.countBy(userCart,Math.floor);
+        // }else{
+            // setCountCart(0);
+        // }
 
     }, [isLogIn]);
 

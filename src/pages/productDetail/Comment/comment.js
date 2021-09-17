@@ -5,7 +5,7 @@ import React from 'react';
 import './comment.css'
 import OlderComment from './olderComment/oderComment'
 import { useDispatch } from 'react-redux'
-import { addCommentAPI } from '../../../slice/productSlice'
+import { addCommentAPI,getProductAPI } from '../../../slice/productSlice'
 import { message } from 'antd';
 
 const Comment = (props) => {

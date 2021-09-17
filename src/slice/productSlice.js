@@ -38,16 +38,6 @@ const productSlice=createSlice({
         [getProductAPI.rejected]:(state, action)=>{
             state.error=action.error;
             state.loading=false;
-        },
-
-        [addCommentAPI.pending]:(state)=>{
-            
-        },
-        [addCommentAPI.fulfilled]:(state, action)=>{
-            
-        },
-        [addCommentAPI.rejected]:(state, action)=>{
-            
         }
     }
 })

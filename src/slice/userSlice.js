@@ -1,55 +1,97 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 
-export const getUsertAPI=createAsyncThunk('user/getUsertAPI', async()=> {
+export const getUserAPI = createAsyncThunk('user/getUserAPI', async () => {
     const listUser = await axios
         .get('http://localhost:3001/User')
-        .then(res=> res)
-        .catch(e=>console.log(e));
+        .then(res => res)
+        .catch(e => console.log(e));
     return listUser.data
 })
 
-export const addCartUserAPI=createAsyncThunk('user/addCartUserAPI', async(payload)=> {
+export const addUserAPI = createAsyncThunk('user/addUserAPI', async (payload) => {
     await axios
-        .patch(
-            `http://localhost:3001/User/${payload.id}`,payload)
-        .then(res=> res)
-        .catch(e=>console.log(e));
+        .post('http://localhost:3001/User', payload)
+        .then(res => res)
+        .catch(e => console.log(e));
 })
 
-const userSlice=createSlice({
-    name:"user",
-    initialState:{ 
-        list:[],
-        loading:false,
-        error:''
+export const addCartUserAPI = createAsyncThunk('user/addCartUserAPI', async (payload) => {
+    await axios
+        .patch(`http://localhost:3001/User/${payload.id}`,
+            {
+                "userCart": payload.idItems
+            })
+        .then(res => res)
+        .catch(e => console.log(e));
+})
+
+const userSlice = createSlice({
+    name: "user",
+    initialState: {
+        list: [],
+        loading: false,
+        error: '',
+        cart: []
     },
-    reducers: {},
+    reducers: {
+        addItem(state, action) {
+            state.cart=action.payload;
+            console.log(state.cart)
+        },
+        removeItem(state, action) {
+            state.cart=action.payload;
+        }
+
+    },
 
     extraReducers: {
-        [getUsertAPI.pending]:(state)=>{
-            state.loading=true;
+        //get list user
+        [getUserAPI.pending]: (state) => {
+            state.loading = true;
         },
-        [getUsertAPI.fulfilled]:(state, action)=>{
-            state.list=(action.payload);
-            state.loading=false;
+        [getUserAPI.fulfilled]: (state, action) => {
+            state.list = (action.payload);
+            state.loading = false;
         },
-        [getUsertAPI.rejected]:(state, action)=>{
-            state.error=action.error;
-            state.loading=false;
+        [getUserAPI.rejected]: (state, action) => {
+            state.error = action.error;
+            state.loading = false;
         },
 
-        [addCartUserAPI.pending]:(state)=>{
-            
+        // add new user
+        [addUserAPI.pending]: (state) => {
+            state.loading = true;
+
         },
-        [addCartUserAPI.fulfilled]:(state, action)=>{
-            
+        [addUserAPI.fulfilled]: (state, action) => {
+            state.list.push(action.payload);
+
         },
-        [addCartUserAPI.rejected]:(state, action)=>{
-            
-        }
+        [addUserAPI.rejected]: (state, action) => {
+            state.error = action.error;
+            state.loading = false;
+
+        },
+
+        //add item to current user's cart
+        [addCartUserAPI.pending]: (state) => {
+
+        },
+        [addCartUserAPI.fulfilled]: (state, action) => {
+
+        },
+        [addCartUserAPI.rejected]: (state, action) => {
+            state.error = action.error;
+            state.loading = false;
+        },
+
+
+
     }
 })
 
-const { reducer : userReducer } = userSlice;
+
+const { reducer: userReducer, actions } = userSlice;
+export const { addItem, removeItem } = actions;
 export default userReducer;

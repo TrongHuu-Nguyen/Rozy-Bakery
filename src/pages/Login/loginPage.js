@@ -3,19 +3,21 @@ import loginImage from '../../asset/pngegg.png'
 import Footer from '../../layout/footer/footer'
 import React from 'react'
 import { ShopOutlined } from '@ant-design/icons'
-import { Link,useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { getUserAPI, addUserAPI } from '../../slice/userSlice'
+import { message } from 'antd'
 import _ from 'lodash'
 
 const LoginPage = () => {
-    let listUser = [];
-    const users = JSON.parse(localStorage.getItem("userAccount")) || [];
-    let history=useHistory();
+    const dispatch = useDispatch();
+    const users = useSelector(state => state.user.list);
+
+    let history = useHistory();
     React.useEffect(() => {
         window.scrollTo(0, 0);
+        dispatch(getUserAPI());
     }, []);
-    React.useEffect(() => {
-        listUser = [...users];
-    }, [users]);
 
     //input ref
     let userIdRef = React.useRef(null);
@@ -39,7 +41,6 @@ const LoginPage = () => {
     const signInErrorMess = "Incorrect account or password";
     const NotExistErrorMess = "Account does not exist";
 
-
     const clearAll = () => {
         userIdErrorRef.current.innerHTML = "";
         userPassErrorRef.current.innerHTML = "";
@@ -52,7 +53,6 @@ const LoginPage = () => {
         registerPassRef.current.value = "";
         reWritePassRef.current.value = "";
     };
-
 
     const UserSignUp = () => {
         let isValid = true;
@@ -92,18 +92,19 @@ const LoginPage = () => {
             userWish: [],
             userCart: []
         }
-        listUser.push(account);
-
         if (isValid) {
-            localStorage.setItem("userAccount", JSON.stringify(listUser));
+            const key = 'updatable';
+            dispatch(addUserAPI(account));
             localStorage.setItem("currentUser", JSON.stringify(account));
             clearAll();
             setIsShow(false);
-            alert("Ban Da Dang ky thanh cong!");
-            history.replace("/");
+            message.loading({ content: 'Registing...',key});
+            setTimeout(() => {
+                message.success({ content: 'You have successfully registered!',key, duration: 2 });
+                history.replace("/");
+            }, 2000);
         }
     };
-
 
     const UserSignIn = () => {
         let isValid = true;
@@ -137,10 +138,14 @@ const LoginPage = () => {
         }
 
         if (isValid) {
+            const key = 'updatable';
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
             clearAll();
-            alert("Dang nhap thanh cong!");
-            history.replace("/");
+            message.loading({ content: 'Logging in...',key});
+            setTimeout(() => {
+                message.success({ content: 'successful login!',key, duration: 2 });
+                history.replace("/");
+            }, 1000);
         }
     };
 
@@ -159,7 +164,6 @@ const LoginPage = () => {
     return (
         <div className="LoginPage">
             <div className="LoginBox">
-
                 <div className="LoginImage">
                     <img src={loginImage} alt="login" />
                 </div>
@@ -169,25 +173,21 @@ const LoginPage = () => {
                         Don't have an account? <span className="CreateAccount" onClick={ShowRegisterBox}>Create an account</span>
                     </p>
                     <div className="InputID">
-
                         <label for="UserID">User ID</label><br />
                         <input ref={userIdRef} type="text" placeholder="Your ID" id="UserID" className="LoginInput" required></input>
                         <br /><span ref={userIdErrorRef}></span><br />
-
                     </div><br />
                     <div className="InputPassword">
 
                         <label for="UserPassword">User Password</label><br />
                         <input ref={userPassRef} type="password" placeholder="Your Password" id="UserPassword" className="LoginInput" required></input>
                         <br /><span ref={userPassErrorRef}></span><br />
-
                     </div><br />
                     <div className="InputSubmit">
                         <div className="SubmitBtn" onClick={UserSignIn}><p>LOG IN</p></div>
                         <div className="HomeBtn"><Link to="/"><p><ShopOutlined style={{ fontSize: "16px" }} />&nbsp;HOME PAGE</p></Link></div>
                     </div>
                 </div>
-
             </div>
             <div className={isShow ? "RegisterAccount ShowRegisterBox" : "RegisterAccount"} onClick={exitRegisterBox}>
                 <div className="RegisterBox" onClick={(e) => { e.stopPropagation(); }}>
@@ -199,33 +199,25 @@ const LoginPage = () => {
                                 <label for="RegisterUserID">User ID</label><br />
                                 <input ref={registerIdRef} type="text" placeholder="Enter Your ID" id="RegisterUserID" className="LoginInput" required></input>
                                 <br /><span ref={registerIdErrorRef}></span><br />
-
                             </div>
-
                             <div className="InputPassword">
-
                                 <label for="RegisterUserPassword">User Password</label><br />
                                 <input ref={registerPassRef} type="password" placeholder="Enter Your Password" id="RegisterUserPassword" className="LoginInput" required></input>
                                 <br /><span ref={registerPassErrorRef}></span><br />
-
                             </div>
                             <div className="InputPassword">
-
                                 <label for="RegisterUserPasswordRewrite">Rewrite Your Password</label><br />
                                 <input ref={reWritePassRef} type="password" placeholder="Rewrite Your Password" id="RegisterUserPasswordRewrite" className="LoginInput" required></input>
                                 <br /><span ref={reWritePassErrorRef}></span><br />
-
                             </div><br />
                             <div className="InputSubmit">
                                 <div className="SubmitBtn" onClick={UserSignUp}><p>SIGN UP</p></div>
-
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <Footer />
-
         </div>
     )
 }

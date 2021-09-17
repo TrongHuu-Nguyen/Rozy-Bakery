@@ -1,5 +1,28 @@
 {
-  "User": [],
+  "User": [
+    {
+      "userId": "nguyentrong",
+      "userPass": "123123123",
+      "id": "0c1crlmaeh8",
+      "userComment": [],
+      "userWish": [],
+      "userCart": [
+        "1",
+        "3",
+        "3",
+        "2",
+        "1",
+        "4",
+        "10",
+        "2",
+        "2",
+        "2",
+        "3",
+        "1",
+        "2"
+      ]
+    }
+  ],
   "ProductData": [
     {
       "type": "burger",
@@ -10,7 +33,40 @@
       "description": "This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal ! This is a food, have a good meal !",
       "rate": 5,
       "price": "79",
-      "comments": []
+      "comments": [
+        {
+          "id": "6o5ge8nz1l9",
+          "userName": "nguyenhuu",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 0,
+          "comment": "bình luận đầu tiên",
+          "moment": "2021-09-17T07:44:02.552Z"
+        },
+        {
+          "id": "tm13naqdfci",
+          "userName": "nguyenhuu",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 0,
+          "comment": "bình luận thứ 2",
+          "moment": "2021-09-17T07:44:59.644Z"
+        },
+        {
+          "id": "boph27uurk6",
+          "userName": "nguyenhuu",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 0,
+          "comment": "bình luận thứ 3",
+          "moment": "2021-09-17T07:46:52.156Z"
+        },
+        {
+          "id": "z9euf0v5yig",
+          "userName": "nguyenhuu",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 0,
+          "comment": "bình luận thứ 4",
+          "moment": "2021-09-17T07:48:41.955Z"
+        }
+      ]
     },
     {
       "type": "bread",
