@@ -5,7 +5,7 @@ import React from 'react';
 import './comment.css'
 import OlderComment from './olderComment/oderComment'
 import { useDispatch } from 'react-redux'
-import { addCommentAPI,getProductAPI } from '../../../slice/productSlice'
+import { addCommentAPI,countComment } from '../../../slice/productSlice'
 import { message } from 'antd';
 
 const Comment = (props) => {
@@ -33,6 +33,7 @@ const Comment = (props) => {
             setListComments(() => newComment);
             const updateProduct = { ...props.item };
             updateProduct.comments = newComment;
+            dispatch(countComment(newComment.length))
             try {
                 await dispatch(addCommentAPI(updateProduct));
             }
@@ -42,6 +43,7 @@ const Comment = (props) => {
         }
         commentRef.current.value = "";
         setRating(0);
+        
     }
 
     return (

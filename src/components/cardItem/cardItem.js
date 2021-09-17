@@ -8,9 +8,6 @@ import {useDispatch,useSelector} from 'react-redux'
 import {getUserAPI,addCartUserAPI,addItem} from '../../slice/userSlice'
 
 const CardItem = (props) => {
-    // const checkCart=useSelector(state=>state.user.cart);
-    // console.log(checkCart);
-    // const updateCart=[...checkCart]
     const dispatch = useDispatch();
     const { src, alt, title, description, rate, price, displayStyle, id } = props;
     
@@ -24,7 +21,6 @@ const CardItem = (props) => {
                 id:currentUser.id,
                 idItems:currentUser.userCart
             }
-            // updateCart.push(idItem);
             dispatch(addItem(currentUser.userCart));
             dispatch(addCartUserAPI(payload));
             dispatch(getUserAPI());

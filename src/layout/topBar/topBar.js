@@ -25,7 +25,6 @@ const TopBar = () => {
     let user = [];
     const dispatch = useDispatch();
     const userCartType=_.countBy(Cart,Math.floor);
-    console.log(userCartType);
 
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
@@ -39,17 +38,8 @@ const TopBar = () => {
         }
     };
 
-
     React.useEffect(() => {
         checkLogin();
-        // if(isLogIn){
-        //     let userCart=user.userCart;
-            // setCountCart(userCart.length);
-            // userCartType=_.countBy(userCart,Math.floor);
-        // }else{
-            // setCountCart(0);
-        // }
-
     }, [isLogIn]);
 
     const logOut = () => {
@@ -139,9 +129,12 @@ const TopBar = () => {
                             </div>
                         </div>
                         <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-                            <CartItem/>
-                            <CartItem/>
-                            <CartItem/>
+                            {Object.entries(userCartType).map(([key,value])=>{ 
+                                return <CartItem
+                                    itemId={key}
+                                    itemNumb={value}
+                                />
+                            })}
                         </div>
                         <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                             <div className="TotalDetail">

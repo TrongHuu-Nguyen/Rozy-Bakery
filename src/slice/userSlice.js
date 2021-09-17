@@ -37,7 +37,6 @@ const userSlice = createSlice({
     reducers: {
         addItem(state, action) {
             state.cart=action.payload;
-            console.log(state.cart)
         },
         removeItem(state, action) {
             state.cart=action.payload;

@@ -22,10 +22,15 @@ const productSlice=createSlice({
     initialState:{ 
         list:[],
         loading:false,
-        error:''
+        error:'',
+        comments:0
     },
 
-    reducers: {},
+    reducers: {
+        countComment(state,action) {
+            state.comments=action.payload
+        }
+    },
 
     extraReducers: {
         [getProductAPI.pending]:(state)=>{
@@ -42,5 +47,6 @@ const productSlice=createSlice({
     }
 })
 
-const { reducer : productReducer } = productSlice;
+const { reducer : productReducer,actions } = productSlice;
+export const { countComment } = actions;
 export default productReducer;

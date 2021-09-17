@@ -6,7 +6,7 @@ import { Image, Rate, Radio, Tabs } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProductAPI } from '../../../slice/productSlice'
+import { countComment, getProductAPI } from '../../../slice/productSlice'
 import Comment from '../../productDetail/Comment/comment';
 import CardItem from '../../../components/cardItem/cardItem'
 import Footer from '../../../layout/footer/footer'
@@ -20,7 +20,7 @@ const ProductDetail = () => {
     const [value, setValue] = React.useState(1);
     const [count, setCount] = React.useState(0);
     const [currentItem, setCurrentItem] = React.useState({});
-    const [commentNumb, setCommentNumb] = React.useState(0);
+    // const [commentNumb, setCommentNumb] = React.useState(0);
     const [relativeItem, setRelativeItem] = React.useState([]);
 
     const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const ProductDetail = () => {
     const queryItem = new URLSearchParams(location.search);
     const itemId = queryItem.get("id");
     const itemTitle = queryItem.get("name");
-
+    const comments=useSelector(state=>state.products.comments);
     React.useEffect(() => {
         window.scrollTo(0, 200);
         dispatch(getProductAPI());
@@ -49,7 +49,8 @@ const ProductDetail = () => {
             const relativeItems = listProduct.filter(item => item.type === product.type)
             const relativeItemTemp = _.sampleSize(relativeItems, 5);
             setCurrentItem(product);
-            setCommentNumb(commentNumbTemp);
+            // setCommentNumb(commentNumbTemp);
+            dispatch(countComment(commentNumbTemp));
             setRelativeItem(relativeItemTemp);
         }
     }, [listProduct, itemId])
@@ -96,7 +97,7 @@ const ProductDetail = () => {
                 <div className="ProductFullDetail">
                     <h1>{currentItem.title}</h1>
                     <div className="ProductRate-Comment">
-                        <Rate disabled defaultValue={5} />&nbsp;&nbsp;&nbsp;&nbsp;<p> {commentNumb} Customer Reviews </p>
+                        <Rate disabled defaultValue={5} />&nbsp;&nbsp;&nbsp;&nbsp;<p> {comments} Customer Reviews </p>
                     </div>
                     <h2>${currentItem.price}</h2>
                     <h3>Choose your options</h3>
