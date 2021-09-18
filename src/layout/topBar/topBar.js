@@ -12,26 +12,31 @@ import { Link } from 'react-router-dom'
 import './topBar.css'
 import React from 'react'
 import CartItem from './cartItem/cartItem'
-import {useSelector,useDispatch} from 'react-redux'
-import {addItem} from '../../slice/userSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { setItem } from '../../slice/userSlice'
+import { getProductCartAPI } from '../../slice/cartSlice'
+import { setTotalCart } from '../../slice/cartSlice'
+
 
 const TopBar = () => {
     const [isShow, setIsShow] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
     const [isLogIn, setIsLogIn] = React.useState(false);
-    const countCart = useSelector(state=>state.user.cart.length);
-    const Cart=useSelector(state=>state.user.cart);
+    const countCart = useSelector(state => state.user.cart.length);
+    const Cart = useSelector(state => state.user.cart);
     const [currentUser, setCurrentUser] = React.useState("Login");
     let user = [];
     const dispatch = useDispatch();
-    const userCartType=_.countBy(Cart,Math.floor);
+    const userCartType = _.countBy(Cart, Math.floor);
+    const listProduct = useSelector(state => state.cart.list);
+    const total= useSelector(state => state.cart.total);
 
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
         if (!!user) {
             setCurrentUser(() => user.userId);
             setIsLogIn(() => true);
-            dispatch(addItem(user.userCart));
+            dispatch(setItem(user.userCart));
         } else {
             setCurrentUser(() => "Login");
             setIsLogIn(() => false);
@@ -39,14 +44,23 @@ const TopBar = () => {
     };
 
     React.useEffect(() => {
+            let sum = 0;
+            Cart.map((id)=>{
+                sum += parseInt(listProduct.find(item => item.id === id).price);
+                return sum
+            });
+            dispatch(setTotalCart(sum));
+    }, [Cart]);
+
+    React.useEffect(() => {
         checkLogin();
+        dispatch(getProductCartAPI());
     }, [isLogIn]);
 
     const logOut = () => {
         setIsLogIn(() => false);
         localStorage.removeItem("currentUser");
     };
-
     const showCart = () => {
         setVisible(true);
     };
@@ -54,7 +68,6 @@ const TopBar = () => {
         e.stopPropagation();
         setVisible(false);
     };
-
     const showSideMenu = () => {
         setIsShow(true);
     };
@@ -83,7 +96,7 @@ const TopBar = () => {
                                 </div>
                             </li>
                             <li>
-                                <UserOutlined /> 
+                                <UserOutlined />
                                 <Link to="/login"><p className="currentUser">{currentUser}</p></Link>
                                 {isLogIn ? <ul>
                                     <li><p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p></li>
@@ -122,26 +135,27 @@ const TopBar = () => {
                 <div className={visible ? "ProductCartBackground Show" : "ProductCartBackground"} onClick={(e) => { closeCart(e) }}>
                     <div className="ProductCart" onClick={(e) => { e.stopPropagation(); }}>
                         <div className="ProductCartTitle" onClick={(e) => { e.stopPropagation(); }}>
-                        
+
                             <div className="TitleContent">
                                 <CloseOutlined style={{ fontSize: "32px" }} onClick={(e) => { closeCart(e) }} />
                                 <p><ShoppingCartOutlined style={{ fontSize: "32px" }} />&nbsp;&nbsp;SHOPPING CART</p>
                             </div>
                         </div>
                         <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-                            {Object.entries(userCartType).map(([key,value])=>{ 
+                            {!!listProduct.length && Object.entries(userCartType).map(([key, value]) => {
                                 return <CartItem
-                                    itemId={key}
-                                    itemNumb={value}
+                                    key={key}
+                                    item={listProduct.find(item => item.id === key)}
+                                    countItem={value}
                                 />
                             })}
                         </div>
                         <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                             <div className="TotalDetail">
-                                <p>Total</p><h2>$0.00</h2>
+                                <p>Total</p><h2>${total}</h2>
                             </div>
                             <div className="TotalBtn">
-                                <button className="CheckoutBtn"><p><ShoppingCartOutlined style={{ fontSize: "24px" }}/>&nbsp;&nbsp;CHECKOUT</p></button>
+                                <button className="CheckoutBtn"><p><ShoppingCartOutlined style={{ fontSize: "24px" }} />&nbsp;&nbsp;CHECKOUT</p></button>
                                 <button className="BuyMoreBtn"><p><ShopOutlined style={{ fontSize: "24px" }} />&nbsp;&nbsp;BUY MORE</p></button>
                             </div>
                         </div>

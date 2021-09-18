@@ -8,7 +8,6 @@ import MiddleBanner from './middleBanner/middleBanner'
 import CategorySlide from './categorySlide/categorySlide'
 import Delivery from './deliverySlide/deliverySlide'
 import UserFeedback from './userFeedback/userFeedback'
-
 const HomePage=()=>{
     React.useEffect(()=>{
         window.scrollTo(0,0);

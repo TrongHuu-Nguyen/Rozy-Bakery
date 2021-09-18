@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
-import {useDispatch,useSelector} from 'react-redux'
-import {getUserAPI,addCartUserAPI,addItem} from '../../slice/userSlice'
+import {useDispatch} from 'react-redux'
+import {setCartUserAPI,setItem} from '../../slice/userSlice'
 
 const CardItem = (props) => {
     const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const CardItem = (props) => {
                 id:currentUser.id,
                 idItems:currentUser.userCart
             }
-            dispatch(addItem(currentUser.userCart));
-            dispatch(addCartUserAPI(payload));
-            dispatch(getUserAPI());
+            dispatch(setItem(currentUser.userCart));
+            dispatch(setCartUserAPI(payload));
+            // dispatch(getUserAPI());
         }
     }
 

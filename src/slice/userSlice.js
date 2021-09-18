@@ -16,7 +16,7 @@ export const addUserAPI = createAsyncThunk('user/addUserAPI', async (payload) =>
         .catch(e => console.log(e));
 })
 
-export const addCartUserAPI = createAsyncThunk('user/addCartUserAPI', async (payload) => {
+export const setCartUserAPI = createAsyncThunk('user/setCartUserAPI', async (payload) => {
     await axios
         .patch(`http://localhost:3001/User/${payload.id}`,
             {
@@ -25,7 +25,6 @@ export const addCartUserAPI = createAsyncThunk('user/addCartUserAPI', async (pay
         .then(res => res)
         .catch(e => console.log(e));
 })
-
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -35,13 +34,9 @@ const userSlice = createSlice({
         cart: []
     },
     reducers: {
-        addItem(state, action) {
-            state.cart=action.payload;
-        },
-        removeItem(state, action) {
+        setItem(state, action) {
             state.cart=action.payload;
         }
-
     },
 
     extraReducers: {
@@ -70,27 +65,10 @@ const userSlice = createSlice({
         [addUserAPI.rejected]: (state, action) => {
             state.error = action.error;
             state.loading = false;
-
         },
-
-        //add item to current user's cart
-        [addCartUserAPI.pending]: (state) => {
-
-        },
-        [addCartUserAPI.fulfilled]: (state, action) => {
-
-        },
-        [addCartUserAPI.rejected]: (state, action) => {
-            state.error = action.error;
-            state.loading = false;
-        },
-
-
-
     }
 })
 
-
 const { reducer: userReducer, actions } = userSlice;
-export const { addItem, removeItem } = actions;
+export const { setItem} = actions;
 export default userReducer;

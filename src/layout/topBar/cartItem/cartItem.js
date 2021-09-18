@@ -1,29 +1,73 @@
 import './cartItem.css'
-import {DeleteOutlined} from '@ant-design/icons'
+import { DeleteOutlined } from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { setItem, setCartUserAPI } from '../../../slice/userSlice'
+
+import React from 'react'
 
 const CartItem = (props) => {
+    const { item, countItem } = props;
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const dispatch = useDispatch();  
+    
+    const increaseItem = () => {
+        currentUser.userCart.push(item.id);
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
+        const payload = {
+            id: currentUser.id,
+            idItems: currentUser.userCart
+        }
+        dispatch(setItem(currentUser.userCart));
+        dispatch(setCartUserAPI(payload));
+    }
+
+    const decreaseItem = () => {
+        if (countItem > 1) {
+            const index = currentUser.userCart.findIndex(idItem => idItem === item.id);
+            currentUser.userCart.splice(index, 1);
+            localStorage.setItem("currentUser", JSON.stringify(currentUser))
+            const payload = {
+                id: currentUser.id,
+                idItems: currentUser.userCart
+            }
+            dispatch(setItem(currentUser.userCart));
+            dispatch(setCartUserAPI(payload));
+        }else return;
+    }
+
+    const removeItem = () => {
+            const newCart = currentUser.userCart.filter(idItem => idItem !== item.id);
+            currentUser.userCart=newCart;
+            localStorage.setItem("currentUser", JSON.stringify(currentUser))
+            const payload = {
+                id: currentUser.id,
+                idItems: currentUser.userCart
+            }
+            dispatch(setItem(currentUser.userCart));
+            dispatch(setCartUserAPI(payload));
+    }
     return (
         <div className="CartItem">
             <div className="ItemImage">
-                <img src='https://cdn.tgdd.vn/Files/2019/06/11/1172411/video-cach-lam-hamburger-ga-pho-mai-sieu-don-gian-va-ngon-tuyet-voi-tai-nha5.jpg' alt="ItemImage" />
+                <img src={item.src} alt="ItemImage" />
             </div>
             <div className="CartItemDetail">
                 <div className="ItemTitle">
-                    <h3>tittlegdfgrgergwegwegerheregwfwfwf</h3>
+                    <h3>{item.title}</h3>
                 </div>
                 <div className="ItemPrice">
-                    <h3 style={{color:"#FF514E"}}>$49</h3>
+                    <h3 style={{ color: "#FF514E" }}>${item.price}</h3>
                 </div>
                 <div className="CartItemCustom">
-                    <button>+</button>
-                    <div><p>115</p></div>
-                    <button>-</button>
+                <div>
+                    <button onClick={decreaseItem}>-</button>
+                    <p>{countItem}</p></div>
+                    <button onClick={increaseItem}>+</button>
                 </div>
             </div>
             <div className="DeleteBtn">
-                <button><DeleteOutlined/></button>
+                <button onClick={removeItem}><DeleteOutlined /></button>
             </div>
-
         </div>
     )
 }
