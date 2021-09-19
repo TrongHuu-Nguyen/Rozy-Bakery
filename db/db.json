@@ -6,7 +6,16 @@
       "id": "0c1crlmaeh8",
       "userComment": [],
       "userWish": [],
-      "userCart": []
+      "userCart": [
+        {
+          "id": "1",
+          "detail": []
+        },
+        {
+          "id": "1",
+          "detail": []
+        }
+      ]
     }
   ],
   "ProductData": [

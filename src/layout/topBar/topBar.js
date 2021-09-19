@@ -27,10 +27,10 @@ const TopBar = () => {
     const [currentUser, setCurrentUser] = React.useState("Login");
     let user = [];
     const dispatch = useDispatch();
-    const userCartType = _.countBy(Cart, Math.floor);
+    let userCartType = [];
     const listProduct = useSelector(state => state.cart.list);
     const total= useSelector(state => state.cart.total);
-
+    let margin=0; //Discount price
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
         if (!!user) {
@@ -42,15 +42,46 @@ const TopBar = () => {
             setIsLogIn(() => false);
         }
     };
-
+    const calculateDiscount=(count)=>{
+        let discount=0;
+        switch(count){
+            case 0:
+                 discount=0;
+            break;
+            case 1:
+                 discount=0;
+            break;
+            case 2:
+                 discount=0.1;
+            break;
+            case 3:
+                 discount=0.15;
+            break;
+            case 4:
+                 discount=0.20;
+            break;
+            default:
+                 discount=0.25;
+            break;
+        }
+        return discount;
+    }
     React.useEffect(() => {
+        if(Cart.length>0&&listProduct.length>0){
+            userCartType = _.sortedUniq(Cart);
+            console.log(userCartType)
             let sum = 0;
-            Cart.map((id)=>{
-                sum += parseInt(listProduct.find(item => item.id === id).price);
+            let count=0;
+            Cart.map((product)=>{
+                sum += parseInt(listProduct.find(item => item.id === product.id).price);
+                count+=1;
                 return sum
             });
-            dispatch(setTotalCart(sum));
-    }, [Cart]);
+            margin=(sum*calculateDiscount(count)).toFixed(2);
+            const finalTotal=sum-margin;
+            dispatch(setTotalCart(finalTotal));
+        }
+    }, [Cart.length,listProduct]);
 
     React.useEffect(() => {
         checkLogin();
@@ -142,13 +173,13 @@ const TopBar = () => {
                             </div>
                         </div>
                         <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-                            {!!listProduct.length && Object.entries(userCartType).map(([key, value]) => {
+                            {/* {!!listProduct.length && Object.entries(userCartType).map(([key, value]) => {
                                 return <CartItem
                                     key={key}
                                     item={listProduct.find(item => item.id === key)}
                                     countItem={value}
                                 />
-                            })}
+                            })} */}
                         </div>
                         <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                             <div className="TotalDetail">
