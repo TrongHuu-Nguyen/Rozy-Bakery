@@ -15,11 +15,7 @@ const CardItem = (props) => {
         const currentUser=JSON.parse(localStorage.getItem("currentUser"));
         if(!currentUser)return;
         if(currentUser){
-            const item={
-                id:idItem,
-                detail:[]
-            }
-            currentUser.userCart.push(item);
+            currentUser.userCart.push(idItem);
             localStorage.setItem("currentUser",JSON.stringify(currentUser));
             const payload={
                 id:currentUser.id,
@@ -27,11 +23,11 @@ const CardItem = (props) => {
             }
             dispatch(setItem(currentUser.userCart));
             dispatch(setCartUserAPI(payload));
+            // dispatch(getUserAPI());
         }
     }
 
     const addToWish=(idItem)=>{
-
     }
 
     return (

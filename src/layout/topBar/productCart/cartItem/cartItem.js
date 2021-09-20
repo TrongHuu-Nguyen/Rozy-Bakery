@@ -1,7 +1,7 @@
 import './cartItem.css'
 import { DeleteOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
-import { setItem, setCartUserAPI } from '../../../slice/userSlice'
+import { setItem, setCartUserAPI } from '../../../../slice/userSlice'
 
 import React from 'react'
 
