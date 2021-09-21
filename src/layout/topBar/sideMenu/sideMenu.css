@@ -1,0 +1,76 @@
+.SideMenu {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 320px;
+  height: 100%;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+.SideMenu .SideMenuTop,
+.SideMenu .SideMenuBody,
+.SideMenu .SideMenuBottom {
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px solid #333333;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.SideMenu ul {
+  width: 100%;
+}
+
+.SideMenu ul li {
+  width: 100%;
+  color: white;
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.SideMenu ul li p:hover {
+  color: #ff514e;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.SideMenuBackground {
+  z-index: 10001;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.Show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+/*# sourceMappingURL=sideMenu.css.map */

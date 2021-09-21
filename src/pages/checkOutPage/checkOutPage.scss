@@ -1,0 +1,67 @@
+.CheckOut{
+    width:100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    &Body{
+    width:90%;
+    margin: 50px auto;
+    display:flex;
+    justify-content:space-around;
+}
+}
+
+.CheckOutForm{
+    width:50%;
+    padding:40px;
+    display:flex;
+    flex-direction: column;
+    .UserAccount{
+        display:flex;
+        align-items: center;
+        margin-bottom:10px;
+        p{
+            display: inline-block;
+            margin:0 20px;;
+            font-size: 24px;
+        }
+    }
+    .UserInfoForm{
+        width:100%;
+        border:1px solid;
+        padding: 20px 0;
+        div{
+            width:100%;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin:5px auto;
+            input{
+                margin:5px;
+                display:flex;
+                flex:1;
+                border-radius: 5px;
+                height:35px;
+                text-indent: 10px;
+                outline:none;
+                border:1px solid;
+            }
+        }
+        .CheckOutButton{
+            width:80%;
+            margin:0 auto;
+            p{
+                display:block;
+            }
+        }
+    }
+}
+
+
+
+
+
+.ListProduct{
+    width:50%;
+    padding:40px;
+    border:1px solid;
+}

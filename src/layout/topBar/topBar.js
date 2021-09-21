@@ -11,8 +11,6 @@ import SideMenu from './sideMenu/sideMenu';
 import calculateDiscount from './services/calculateDiscount'
 import TopMenu from './topMenu/topMenu';
 
-
-
 const TopBar = () => {
     const [isShow, setIsShow] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
@@ -24,7 +22,7 @@ const TopBar = () => {
     const dispatch = useDispatch();
     const userCartType = _.countBy(Cart, Math.floor);
     const listProduct = useSelector(state => state.cart.list);
-    const total= useSelector(state => state.cart.total);
+    const total = useSelector(state => state.cart.total);
     const [margin, setMargin] = React.useState(0); //Discount price
     const checkLogin = () => {
         user = JSON.parse(localStorage.getItem("currentUser"));
@@ -37,20 +35,18 @@ const TopBar = () => {
             setIsLogIn(() => false);
         }
     };
-    
-
     React.useEffect(() => {
-        if(!!Cart){
+        if (!!Cart) {
             let sum = 0;
-            let count=0;
-            Cart.map((id)=>{
+            let count = 0;
+            Cart.map((id) => {
                 sum += parseInt(listProduct.find(item => item.id === id).price);
-                count+=1;
+                count += 1;
                 return sum
             });
-            const discount=(sum*calculateDiscount(count)).toFixed(2);
-            setMargin(()=>discount)
-            const finalTotal=sum-discount
+            const discount = (sum * calculateDiscount(count)).toFixed(2);
+            setMargin(() => discount)
+            const finalTotal = sum - discount
             dispatch(setTotalCart(finalTotal));
         }
     }, [Cart]);
@@ -89,20 +85,20 @@ const TopBar = () => {
             />
 
             <SideMenu
-            isShow={isShow}
-            exitSideMenu={exitSideMenu}
-            currentUser={currentUser}
+                isShow={isShow}
+                exitSideMenu={exitSideMenu}
+                currentUser={currentUser}
             />
 
             {isLogIn ?
-            <ProductCart
-            visible={visible}
-            total={total}
-            margin={margin}
-            userCartType={userCartType}
-            closeCart={closeCart}
-            listProduct={listProduct}
-            />  : null}
+                <ProductCart
+                    visible={visible}
+                    total={total}
+                    margin={margin}
+                    userCartType={userCartType}
+                    closeCart={closeCart}
+                    listProduct={listProduct}
+                /> : null}
         </div>
     )
 }

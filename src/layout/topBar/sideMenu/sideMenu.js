@@ -4,7 +4,7 @@ import {
     HomeOutlined, UnorderedListOutlined,
     UserOutlined, OrderedListOutlined,
 } from '@ant-design/icons'
-// import './sideMenu.css'
+import './sideMenu.css'
 
 const SideMenu=(props)=>{
     const {isShow,exitSideMenu,currentUser}=props;
