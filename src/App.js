@@ -13,8 +13,13 @@ function App() {
       <Switch>
         <Route path="/" exact ><HomePage /></Route>
         <Route path="/product"><ProductPage /></Route>
-        <Route path="/checkout"><CheckOutPage /></Route>
         <Route path="/product-detail"> <ProductDetail /></Route>
+
+        <Route path="/checkout" render={()=>{
+          return localStorage.getItem("currentUser")?<CheckOutPage/>:<Redirect to="/"/>
+        }}>
+        </Route>
+
         <Route path="/login" render={()=>{
           return !localStorage.getItem("currentUser")?<LoginPage/>:<Redirect to="/"/>
         }}>

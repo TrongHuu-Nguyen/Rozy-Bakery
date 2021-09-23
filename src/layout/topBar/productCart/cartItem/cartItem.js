@@ -1,15 +1,16 @@
 import './cartItem.css'
 import { DeleteOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
-import { setItem, setCartUserAPI } from '../../../../slice/userSlice'
+import { setCartUserAPI } from '../../../../slice/userSlice'
+import { setItem } from '../../../../slice/cartSlice'
 
 import React from 'react'
 
 const CartItem = (props) => {
     const { item, countItem } = props;
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const dispatch = useDispatch();  
-    
+    const dispatch = useDispatch();
+
     const increaseItem = () => {
         currentUser.userCart.push(item.id);
         localStorage.setItem("currentUser", JSON.stringify(currentUser))
@@ -32,37 +33,36 @@ const CartItem = (props) => {
             }
             dispatch(setItem(currentUser.userCart));
             dispatch(setCartUserAPI(payload));
-        }else return;
+        } else return;
     }
 
     const removeItem = () => {
-            const newCart = currentUser.userCart.filter(idItem => idItem !== item.id);
-            currentUser.userCart=newCart;
-            localStorage.setItem("currentUser", JSON.stringify(currentUser))
-            const payload = {
-                id: currentUser.id,
-                idItems: currentUser.userCart
-            }
-            dispatch(setItem(currentUser.userCart));
-            dispatch(setCartUserAPI(payload));
+        const newCart = currentUser.userCart.filter(idItem => idItem !== item.id);
+        currentUser.userCart = newCart;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
+        const payload = {
+            id: currentUser.id,
+            idItems: currentUser.userCart
+        }
+        dispatch(setItem(currentUser.userCart));
+        dispatch(setCartUserAPI(payload));
     }
     return (
         <div className="CartItem">
-            <div className="ItemImage">
+            <div className="Image">
                 <img src={item.src} alt="ItemImage" />
             </div>
-            <div className="CartItemDetail">
-                <div className="ItemTitle">
+            <div className="Detail">
+                <div className="Title">
                     <h3>{item.title}</h3>
                 </div>
-                <div className="ItemPrice">
+                <div className="Price">
                     <h3 style={{ color: "#FF514E" }}>${item.price}</h3>
                 </div>
-                <div className="CartItemCustom">
-                <div>
-                    <button onClick={decreaseItem}>-</button>
-                    <p>{countItem}</p></div>
-                    <button onClick={increaseItem}>+</button>
+                <div className="Custom">
+                        <button onClick={decreaseItem}>-</button>
+                        <p>{countItem}</p>
+                        <button onClick={increaseItem}>+</button>
                 </div>
             </div>
             <div className="DeleteBtn">

@@ -1,0 +1,118 @@
+.CheckOutForm {
+  width: 50%;
+  padding: 100px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CheckOutForm h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.CheckOutForm .UserAccount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.CheckOutForm .UserAccount p {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 24px;
+}
+
+.CheckOutForm .UserInfoForm {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.CheckOutForm .UserInfoForm div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px auto;
+}
+
+.CheckOutForm .UserInfoForm div input {
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 8px;
+  height: 40px;
+  text-indent: 10px;
+  outline: none;
+  border: 1px solid gray;
+}
+
+.CheckOutForm .UserInfoForm .CheckOutButton {
+  width: 95%;
+  margin: 40px auto;
+}
+
+.CheckOutForm .UserInfoForm .CheckOutButton p {
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-weight: bold;
+  font-size: 14px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #FF514E;
+}
+
+.CheckOutForm .UserInfoForm .CheckOutButton p:hover {
+  color: #C33D3B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.CheckOutForm .UserInfoForm .CheckOutButton button {
+  width: 140px;
+  height: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: none;
+  background-color: #FF514E;
+  border-radius: 17px;
+  color: white;
+  font-weight: 500;
+  -webkit-box-shadow: 0 3px 5px 3px #d5d5d5;
+          box-shadow: 0 3px 5px 3px #d5d5d5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.CheckOutForm .UserInfoForm .CheckOutButton button:hover {
+  background-color: #C33D3B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/*# sourceMappingURL=checkOutForm.css.map */

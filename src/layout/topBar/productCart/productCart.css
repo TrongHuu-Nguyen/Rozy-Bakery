@@ -148,6 +148,7 @@
   border: none;
   outline: none;
   background-color: #ff514e;
+  color: white;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -177,7 +178,7 @@
 }
 
 .ProductCartTotal .TotalBtn .BuyMoreBtn:hover {
-  background-color: #f5f5f5;
+  background-color: #d5d5d5;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }

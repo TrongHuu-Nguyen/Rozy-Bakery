@@ -1,0 +1,164 @@
+.ListProductContainer {
+  width: 50%;
+  padding: 40px;
+}
+
+.ListProductContainer .ListProduct {
+  width: 100%;
+  padding: 40px;
+  height: 700px;
+  -webkit-box-shadow: 0 0 20px 10px #d5d5d5;
+          box-shadow: 0 0 20px 10px #d5d5d5;
+  background-color: #1C1C1C;
+  border-radius: 10px;
+}
+
+.ListProductContainer .ListProduct .CartItems {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: auto;
+}
+
+.ListProductContainer .ListProduct .CartItems::-webkit-scrollbar {
+  display: none;
+}
+
+.ListProductContainer .ListProduct .DiscountCode {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.ListProductContainer .ListProduct .DiscountCode input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 36px;
+  text-indent: 10px;
+  border: none;
+  border-radius: 18px;
+  outline: none;
+}
+
+.ListProductContainer .ListProduct .DiscountCode button {
+  width: 100px;
+  height: 36px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 18px;
+  background-color: #FF514E;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: white;
+  font-weight: 500;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.ListProductContainer .ListProduct .DiscountCode button:hover {
+  background-color: #C33D3B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.ListProductContainer .ListProduct .CartDetail {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  padding: 20px 0;
+}
+
+.ListProductContainer .ListProduct .CartDetail div {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ListProductContainer .ListProduct .CartDetail div p {
+  display: block;
+  margin: 0;
+  line-height: 40px;
+  height: 100%;
+  color: gray;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.ListProductContainer .ListProduct .CartDetail div h2 {
+  display: block;
+  margin: 0;
+  line-height: 40px;
+  height: 100%;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.ListProductContainer .ListProduct .CartTotal {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+}
+
+.ListProductContainer .ListProduct .CartTotal p {
+  display: block;
+  margin: 0;
+  line-height: 40px;
+  height: 100%;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.ListProductContainer .ListProduct .CartTotal h2 {
+  display: block;
+  margin: 0;
+  line-height: 40px;
+  height: 100%;
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+}
+/*# sourceMappingURL=listProduct.css.map */

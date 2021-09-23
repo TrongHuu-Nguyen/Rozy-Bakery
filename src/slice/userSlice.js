@@ -31,12 +31,9 @@ const userSlice = createSlice({
         list: [],
         loading: false,
         error: '',
-        cart: []
+
     },
     reducers: {
-        setItem(state, action) {
-            state.cart=action.payload;
-        }
     },
 
     extraReducers: {
@@ -69,6 +66,5 @@ const userSlice = createSlice({
     }
 })
 
-const { reducer: userReducer, actions } = userSlice;
-export const { setItem} = actions;
+const { reducer: userReducer} = userSlice;
 export default userReducer;

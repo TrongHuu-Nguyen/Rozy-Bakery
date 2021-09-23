@@ -5,7 +5,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import {useDispatch} from 'react-redux'
-import {setCartUserAPI,setItem} from '../../slice/userSlice'
+import {setCartUserAPI} from '../../slice/userSlice'
+import {setItem} from '../../slice/cartSlice'
 
 const CardItem = (props) => {
     const dispatch = useDispatch();
