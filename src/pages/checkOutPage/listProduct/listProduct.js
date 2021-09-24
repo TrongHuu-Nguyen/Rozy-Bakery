@@ -60,10 +60,6 @@ const ListProduct = (props) => {
                             />
                         })}
                 </div>
-                <div className="DiscountCode">
-                    <input type="text" placeholder="Gift card or discount code" />
-                    <button>Apply</button>
-                </div>
                 <div className="CartDetail">
                     <div>
                         <p>bill invoice</p> <h2>${invoice}</h2>

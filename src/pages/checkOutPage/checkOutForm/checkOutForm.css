@@ -66,6 +66,22 @@
   border: 1px solid gray;
 }
 
+.CheckOutForm .UserInfoForm div input::-webkit-input-placeholder {
+  font-weight: 400;
+}
+
+.CheckOutForm .UserInfoForm div input:-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.CheckOutForm .UserInfoForm div input::-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.CheckOutForm .UserInfoForm div input::placeholder {
+  font-weight: 400;
+}
+
 .CheckOutForm .UserInfoForm .CheckOutButton {
   width: 95%;
   margin: 40px auto;
@@ -73,6 +89,9 @@
 
 .CheckOutForm .UserInfoForm .CheckOutButton p {
   display: block;
+  margin: 0;
+  line-height: 40px;
+  height: 40px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;

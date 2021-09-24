@@ -17,7 +17,7 @@ const LoginPage = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(getUserAPI());
-    }, []);
+    }, [dispatch]);
 
     //input ref
     let userIdRef = React.useRef(null);

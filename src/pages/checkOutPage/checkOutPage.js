@@ -9,6 +9,9 @@ import './checkOutPage.css'
 
 const CheckOutPage = () => {
     const currentUser=JSON.parse(localStorage.getItem("currentUser"));
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
     return (
         <div className="CheckOut">
             <TopBar />
