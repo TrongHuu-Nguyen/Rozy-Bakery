@@ -1,18 +1,35 @@
 import './cardItem.css'
-import { Rate } from 'antd';
+import { Rate, notification } from 'antd';
 import { Link } from "react-router-dom"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import {useDispatch} from 'react-redux'
-import {setCartUserAPI} from '../../slice/userSlice'
-import {setItem} from '../../slice/cartSlice'
+import {setCartUserAPI,setWishUserAPI} from '../../slice/userSlice'
+import {setItem,wishItem} from '../../slice/cartSlice'
+
+const addWish = type => {
+  notification.success({
+    message: 'Success !',
+    description:
+      'The product has been added to your favorites.',
+  });
+};
+
+const addCart = type => {
+    notification.success({
+      message: 'Success !',
+      description:
+        'The product has been added to your cart.',
+    });
+  };
 
 const CardItem = (props) => {
     const dispatch = useDispatch();
     const { src, alt, title, description, rate, price, displayStyle, id } = props;
     
     const addToCart=(idItem)=>{
+        addCart();
         const currentUser=JSON.parse(localStorage.getItem("currentUser"));
         if(!currentUser)return;
         if(currentUser){
@@ -24,11 +41,23 @@ const CardItem = (props) => {
             }
             dispatch(setItem(currentUser.userCart));
             dispatch(setCartUserAPI(payload));
-            // dispatch(getUserAPI());
         }
     }
 
     const addToWish=(idItem)=>{
+        addWish();
+        const currentUser=JSON.parse(localStorage.getItem("currentUser"));
+        if(!currentUser)return;
+        if(currentUser){
+            currentUser.userWish.push(idItem);
+            localStorage.setItem("currentUser",JSON.stringify(currentUser));
+            const payload={
+                id:currentUser.id,
+                idItems:currentUser.userWish
+            }
+            dispatch(wishItem(currentUser.userWish));
+            dispatch(setWishUserAPI(payload));
+        }
     }
 
     return (

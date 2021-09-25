@@ -16,7 +16,8 @@ const cartSlice=createSlice({
         total:0,
         loading:false,
         error:'',
-        cart:[]
+        cart:[],
+        wishList:[]
     },
 
     reducers: {
@@ -25,6 +26,9 @@ const cartSlice=createSlice({
         },
         setItem(state, action) {
             state.cart=action.payload;
+        },
+        wishItem(state, action) {
+            state.wishList=action.payload;
         }
     },
 
@@ -44,5 +48,5 @@ const cartSlice=createSlice({
 })
 
 const { reducer : cartReducer,actions } = cartSlice;
-export const {setTotalCart,setItem} = actions;
+export const {setTotalCart,setItem,wishItem} = actions;
 export default cartReducer;

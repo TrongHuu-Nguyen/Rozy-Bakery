@@ -25,6 +25,17 @@ export const setCartUserAPI = createAsyncThunk('user/setCartUserAPI', async (pay
         .then(res => res)
         .catch(e => console.log(e));
 })
+
+export const setWishUserAPI = createAsyncThunk('user/setWishUserAPI', async (payload) => {
+    await axios
+        .patch(`http://localhost:3001/User/${payload.id}`,
+            {
+                "userWish": payload.idItems
+            })
+        .then(res => res)
+        .catch(e => console.log(e));
+})
+
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -62,7 +73,7 @@ const userSlice = createSlice({
         [addUserAPI.rejected]: (state, action) => {
             state.error = action.error;
             state.loading = false;
-        },
+        }
     }
 })
 

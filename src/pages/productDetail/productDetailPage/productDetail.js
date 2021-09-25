@@ -1,8 +1,7 @@
 import React from 'react'
-// import ProductData from '../../../fakedata.js'
 import _ from 'lodash'
 import { useLocation, useHistory } from "react-router-dom"
-import { Image, Rate, Radio, Tabs } from 'antd';
+import { Image, Rate, Radio, Tabs, notification } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,25 +13,47 @@ import Header from '../../../layout/header/header.js'
 import TopBar from '../../../layout/topBar/topBar.js'
 import Shipping from './shipping/shipping'
 
+
+
+// import 'react-lazy-load-image-component/src/effects/blur.css';
+import { setCartUserAPI, setWishUserAPI } from '../../../slice/userSlice'
+import { setItem, wishItem } from '../../../slice/cartSlice'
+
 const { TabPane } = Tabs;
+
+const addWish = type => {
+    notification.success({
+        message: 'Success !',
+        description:
+            'The product has been added to your favorites.',
+    });
+};
+
+const addCart = type => {
+    notification.success({
+        message: 'Success !',
+        description:
+            'The product has been added to your cart.',
+    });
+};
+
+
 const ProductDetail = () => {
     const [visible, setVisible] = React.useState(false);
-    const [value, setValue] = React.useState(1);
-    const [count, setCount] = React.useState(0);
+    const [count, setCount] = React.useState(1);
     const [currentItem, setCurrentItem] = React.useState({});
-    // const [commentNumb, setCommentNumb] = React.useState(0);
     const [relativeItem, setRelativeItem] = React.useState([]);
 
     const dispatch = useDispatch();
     const listProduct = useSelector((state) => state.products.list);
-    const isLoading = useSelector((state)=>state.products.loading);
-    
+    const isLoading = useSelector((state) => state.products.loading);
+
     const location = useLocation();
     const history = useHistory();
     const queryItem = new URLSearchParams(location.search);
     const itemId = queryItem.get("id");
     const itemTitle = queryItem.get("name");
-    const comments=useSelector(state=>state.products.comments);
+    const comments = useSelector(state => state.products.comments);
     React.useEffect(() => {
         window.scrollTo(0, 200);
         dispatch(getProductAPI());
@@ -49,30 +70,61 @@ const ProductDetail = () => {
             const relativeItems = listProduct.filter(item => item.type === product.type)
             const relativeItemTemp = _.sampleSize(relativeItems, 5);
             setCurrentItem(product);
-            // setCommentNumb(commentNumbTemp);
             dispatch(countComment(commentNumbTemp));
             setRelativeItem(relativeItemTemp);
         }
     }, [listProduct, itemId])
 
-    
+
     const descrease = () => {
         setCount(count - 1);
-        setValue(count - 1);
-        if (count <= 0) {
-            setCount(0)
-            setValue(0);
+
+        if (count <= 1) {
+            setCount(1)
         }
     }
     const increase = () => {
         setCount(count + 1);
-        setValue(count + 1);
     }
     const onChange = e => {
-        setValue(e.target.value);
         setCount(e.target.value);
     };
-    if(isLoading) return (
+
+    const addToCart = () => {
+        addCart();
+        for (let i = 0; i < count; i++) {
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) return;
+        if (currentUser) {
+                currentUser.userCart.push(itemId);
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+                const payload = {
+                    id: currentUser.id,
+                    idItems: currentUser.userCart
+                }
+                dispatch(setItem(currentUser.userCart));
+                dispatch(setCartUserAPI(payload));
+            }
+        }
+    }
+
+    const addToWish = () => {
+        addWish();
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) return;
+        if (currentUser) {
+            currentUser.userWish.push(itemId);
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            const payload = {
+                id: currentUser.id,
+                idItems: currentUser.userWish
+            }
+            dispatch(wishItem(currentUser.userWish));
+            dispatch(setWishUserAPI(payload));
+        }
+    }
+
+    if (isLoading) return (
         <h2>Loading...</h2>
     )
     return (
@@ -102,7 +154,7 @@ const ProductDetail = () => {
                     <h2>${currentItem.price}</h2>
                     <h3>Choose your options</h3>
                     <div className="DiscountOption">
-                        <Radio.Group onChange={onChange} value={value}>
+                        <Radio.Group onChange={onChange} value={count}>
                             <Radio value={2} style={{ fontSize: "16px", fontWeight: "500" }}>Buy 2 get 10 percent off</Radio ><br />
                             <Radio value={3} style={{ fontSize: "16px", fontWeight: "500" }}>Buy 3 get 15 percent off</Radio><br />
                             <Radio value={4} style={{ fontSize: "16px", fontWeight: "500" }}>Buy 4 get 20 percent off</Radio><br />
@@ -113,10 +165,12 @@ const ProductDetail = () => {
                         <div className="Increase-Decrease">
                             <div className="DecreaseButton FakeBtn" onClick={descrease}><p>-</p></div><p>{count}</p><div className="IncreaseButton FakeBtn" onClick={increase}><p>+</p></div>
                         </div>
-                        <div className="AddCardButton">
+                        <div className="AddCardButton" onClick={addToCart}>
                             <ShoppingCartOutlined /><p> ADD TO CART</p>
                         </div>
-                        <div className="WishIcon FakeBtn"><HeartOutlined style={{ fontSize: "18px" }} /></div>
+                        <div className="WishIcon FakeBtn" onClick={addToWish}>
+                            <HeartOutlined style={{ fontSize: "18px" }} />
+                        </div>
                     </div>
                     <Shipping />
                 </div>
