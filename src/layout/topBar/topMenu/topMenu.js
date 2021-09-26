@@ -3,20 +3,20 @@ import {
     HomeOutlined, UnorderedListOutlined,
     ShoppingCartOutlined, UserOutlined,
     MenuOutlined, OrderedListOutlined,
-    LogoutOutlined,ContactsOutlined
+    LogoutOutlined, ContactsOutlined
 } from '@ant-design/icons'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const TopMenu = (props) => {
-    const {countCart,isLogIn,logOut,showCart,currentUser,showSideMenu} =props;
+    const { countCart, isLogIn, logOut, showCart, currentUser, showSideMenu, showWishList } = props;
 
     return (
         <div className="TopBar">
             <div className="NavBar">
                 <div className="TopMenu">
                     <ul>
-                        <li><MenuOutlined onClick={(e) => {showSideMenu(e) }} /></li>
+                        <li><MenuOutlined onClick={(e) => { showSideMenu(e) }} /></li>
                         <li><Link to="/"><p style={{ color: "white" }}><HomeOutlined />&nbsp;Pages</p></Link></li>
                         <li><Link to="/product"><p style={{ color: "white" }}><UnorderedListOutlined />&nbsp;Online Order</p></Link></li>
                         <li><FileTextOutlined />&nbsp;<p>News</p></li>
@@ -34,9 +34,15 @@ const TopMenu = (props) => {
                             <UserOutlined />
                             <Link to="/login"><p className="currentUser">{currentUser}</p></Link>
                             {isLogIn ? <ul>
-                                <li><p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p></li>
-                                <li><p><OrderedListOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My WishList</p></li>
-                                <li><p onClick={logOut}><LogoutOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;Logout</p></li>
+                                <li>
+                                    <p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p>
+                                </li>
+                                <li onClick={showWishList}>
+                                    <p><OrderedListOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My WishList</p>
+                                </li>
+                                <li>
+                                    <p onClick={logOut}><LogoutOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;Logout</p>
+                                </li>
                             </ul> : null}
                         </li>
                     </ul>

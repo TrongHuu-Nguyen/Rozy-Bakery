@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 const ProductCart = (props) => {
     const { cart, visible, total, userCartType, closeCart, listProduct } = props;
     const dispatch = useDispatch();
+    const listUserCartType=Object.entries(userCartType);
 
     React.useEffect(() => {
         if (cart.length > 0 && listProduct.length > 0) {
@@ -37,7 +38,7 @@ const ProductCart = (props) => {
                     </div>
                 </div>
                 <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-                    {!!listProduct.length && Object.entries(userCartType).map(([key, value]) => {
+                    {!!listProduct.length && listUserCartType.forEach(([key, value]) => {
                         return <CartItem
                             key={key}
                             item={listProduct.find(item => item.id === key)}

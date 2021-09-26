@@ -1,0 +1,77 @@
+.WishList {
+  width: 350px;
+  height: 400px;
+  background-color: white;
+  position: fixed;
+  top: 20%;
+  right: -100vw;
+  z-index: 1000;
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: visible;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.WishList .WishListTittle {
+  height: 36px;
+  width: 100%;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #3a3c49;
+  color: white;
+  font-size: 14px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.WishList .WishListTittle div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.WishList .WishListTittle div p {
+  display: block;
+  padding: 0 10px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.WishList .WishListContainer {
+  width: 100%;
+  height: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.WishList .WishListContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.showWishList {
+  right: 100px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+/*# sourceMappingURL=wishList.css.map */
