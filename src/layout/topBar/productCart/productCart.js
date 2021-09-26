@@ -8,11 +8,11 @@ import calculateDiscount from '../services/calculateDiscount'
 import { useDispatch } from 'react-redux'
 
 const ProductCart = (props) => {
-    const { cart,visible, total, userCartType, closeCart, listProduct } = props;
+    const { cart, visible, total, userCartType, closeCart, listProduct } = props;
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        if (cart.length>0&&listProduct.length>0) {
+        if (cart.length > 0 && listProduct.length > 0) {
             let sum = 0;
             let count = 0;
             cart.map((id) => {
@@ -23,8 +23,8 @@ const ProductCart = (props) => {
             const discount = (sum * calculateDiscount(count)).toFixed(2);
             const finalTotal = sum - discount;
             dispatch(setTotalCart(finalTotal));
-        }else return
-    }, [cart,listProduct,dispatch]);
+        } else return
+    }, [cart, listProduct, dispatch]);
 
     return (
         <div className={visible ? "ProductCartBackground Show" : "ProductCartBackground"} onClick={(e) => { closeCart(e) }}>

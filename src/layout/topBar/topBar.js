@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './topBar.css'
 import React from 'react'
 import ProductCart from './productCart/productCart';
-import ProductWish from './productWish/productWish';
+// import ProductWish from './productWish/productWish';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { getProductCartAPI,setItem  } from '../../slice/cartSlice'
@@ -21,8 +21,11 @@ const TopBar = () => {
 
     const dispatch = useDispatch();
     const Cart = useSelector(state => state.cart.cart);
+    const wishList=useSelector(state => state.cart.wishList);
     const countCart = useSelector(state => state.cart.cart.length);
     const userCartType = _.countBy(Cart, Math.floor);
+    const userWishType = _.countBy(wishList, Math.floor);
+
     const listProduct = useSelector(state => state.cart.list);
     const total = useSelector(state => state.cart.total);
     
@@ -83,17 +86,6 @@ const TopBar = () => {
 
             {isLogIn ?
                 <ProductCart
-                    cart={Cart}
-                    visible={visible}
-                    total={total}
-                    userCartType={userCartType}
-                    closeCart={closeCart}
-                    listProduct={listProduct}
-                /> : null}
-
-
-            {isLogIn ?
-                <ProductWish
                     cart={Cart}
                     visible={visible}
                     total={total}
