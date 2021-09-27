@@ -3,7 +3,6 @@
     min-height:90px;
     margin:5px auto;
     padding: 0 5px;
-    background-color: rgba(255, 255, 255, 0.2);
     box-shadow:0 0 3px 3px rgba(255, 255, 255, 0.2);
     border-radius:5px;
     display:flex;
@@ -38,15 +37,37 @@
             word-wrap: none;
             display:block;
             margin:0 10px;
-            color:white;
             font-size:14px;
         }
-       
+        
+       .Title{
+        h3{
+            color:black;
+            transition: 0.3s;
+            &:hover{
+                color:#FF514E;
+                transition: 0.3s;
+            }
+        }
+       }
+       .Description{
+        h3{
+            color:gray;
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
+       }
+       .Price{
+        h3{
+            color:#FF514E;
+        }
+       }
         
     }
     .DeleteBtn{
         width:50px;
-        color:white;
+        color:gray;
         button{
             cursor: pointer;
             font-size: 24px;

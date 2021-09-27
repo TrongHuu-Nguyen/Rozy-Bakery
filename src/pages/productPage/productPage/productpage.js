@@ -1,12 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger, faHotdog, faBreadSlice, faGlassCheers, faPizzaSlice, faTh, faThList } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Rate, Radio, Space, Input } from 'antd';
+import { Rate, Radio, Space, Input,Empty } from 'antd';
 import Footer from '../../../layout/footer/footer.js'
 import Header from '../../../layout/header/header.js'
 import './productpage.css'
 import TopBar from '../../../layout/topBar/topBar.js'
-// import ProductData from '../../../fakedata.js'
 import CardItem from '../../../components/cardItem/cardItem.js'
 import { Pagination } from 'antd'
 import {useSelector, useDispatch} from 'react-redux'
@@ -197,7 +196,7 @@ function ProductPage() {
                         &nbsp;&nbsp;&nbsp;
                     </div>
                     <div className="ProductCardContainerItems">
-                        {showItem.map((product) => {
+                        {showItem.length?showItem.map((product) => {
                             return (
                                 <CardItem
                                     displayStyle={displayStyle}
@@ -211,14 +210,14 @@ function ProductPage() {
                                     description={product.description}
                                 />
                             )
-                        })}
+                        }):<Empty style={{width:"80%",margin:"50px auto"}}/>
+                    }
                     </div>
                 </div>
             </div>
             <div className="Pagination">
                 <Pagination
                     total={filtedData.length}
-                    showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
                     defaultPageSize={12}
                     defaultCurrent={1}
                     onChange={changePage}

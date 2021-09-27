@@ -80,10 +80,12 @@
     }
 }
 .CardItemContentList{
+    margin-left: 10px;
     cursor: pointer;
-    margin-top:20px;
+    overflow:hidden;
+    padding:10px;
     width: 100%;
-    margin-bottom: 20px;
+    height:200px;
     p{
         margin: 0;
         padding: 0;
@@ -113,6 +115,15 @@
                 white-space: nowrap; 
                 overflow: hidden;
                 text-overflow: ellipsis; 
+            }
+        }
+        .ProductTitleLink{
+            font-size:24px;
+            color:black;
+            transition:0.3s;
+            :hover{
+                color:#FF514E;
+                transition:0.3s;
             }
         }
         .ProductDescription{
@@ -163,9 +174,27 @@
     .CardItemContentGrid{
         width:32%;
     }
+    
 }
 @media screen and (max-width: 576px){
     .CardItemContentGrid{
         width:48.5%;
+    }
+    .CardItemContentList{
+        height:150px;
+        padding:0;
+        display:flex;
+        align-items:center;
+        .ProductImage{
+            display:flex;
+            align-items:center;
+            width:35%;
+        }
+        .CardItemInfo{
+            margin:0 10px;
+            display:flex;
+            flex-direction:column;
+            flex:1;
+        }
     }
 }

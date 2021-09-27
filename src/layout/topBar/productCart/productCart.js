@@ -6,6 +6,7 @@ import React from 'react'
 import { setTotalCart } from '../../../slice/cartSlice'
 import calculateDiscount from '../services/calculateDiscount'
 import { useDispatch } from 'react-redux'
+import emtyCart from '../../../asset/emtyCart-2.png'
 
 const ProductCart = (props) => {
     const { cart, visible, total, userCartType, closeCart, listProduct } = props;
@@ -38,13 +39,18 @@ const ProductCart = (props) => {
                     </div>
                 </div>
                 <div className="ProductCartItems" onClick={(e) => { e.stopPropagation(); }} >
-                    {!!listProduct.length && listUserCartType.forEach(([key, value]) => {
+                    {!!listProduct.length && listUserCartType.length?listUserCartType.map(([key, value]) => {
                         return <CartItem
                             key={key}
                             item={listProduct.find(item => item.id === key)}
                             countItem={value}
                         />
-                    })}
+                    }):<img 
+                        src={emtyCart} 
+                        alt="emty-cart"
+                        style={{marginTop:"50px"}}
+                        />
+                    }
                 </div>
                 <div className="ProductCartTotal" onClick={(e) => { e.stopPropagation(); }}>
                     <div className="TotalDetail">

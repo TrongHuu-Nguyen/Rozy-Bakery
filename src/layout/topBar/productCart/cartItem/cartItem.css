@@ -63,6 +63,14 @@
   margin: 0 10px;
   color: white;
   font-size: 14px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.CartItem .Detail h3:hover {
+  color: #ff514e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .CartItem .Detail button {
@@ -113,7 +121,7 @@
 }
 
 .CartItem button:hover {
-  color: #FF514E;
+  color: #ff514e;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }

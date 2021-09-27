@@ -3,6 +3,7 @@ import { DeleteOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
 import { setCartUserAPI } from '../../../../slice/userSlice'
 import { setItem } from '../../../../slice/cartSlice'
+import {Link} from 'react-router-dom'
 
 import React from 'react'
 
@@ -54,7 +55,9 @@ const CartItem = (props) => {
             </div>
             <div className="Detail">
                 <div className="Title">
-                    <h3>{item.title}</h3>
+                <Link className="ProductTitleLink" style={{ textDecoration: 'none' }} to={`/product-detail?name=${item.title}&id=${item.id}`}>
+                        <h3>{item.title}</h3>
+                    </Link>
                 </div>
                 <div className="Price">
                     <h3 style={{ color: "#FF514E" }}>${item.price}</h3>
