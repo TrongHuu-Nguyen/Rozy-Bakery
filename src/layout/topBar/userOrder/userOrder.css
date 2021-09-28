@@ -1,11 +1,11 @@
-.WishList {
-  width: 350px;
-  height: 400px;
+.UserOrder {
+  width: 250px;
+  height: 350px;
   background-color: white;
   position: fixed;
   top: 20%;
   right: -100vw;
-  z-index: 1000;
+  z-index: 999;
   -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -14,7 +14,7 @@
   transition: 1s;
 }
 
-.WishList .WishListTittle {
+.UserOrder .UserOrderTitle {
   height: 36px;
   width: 100%;
   padding: 0 10px;
@@ -32,7 +32,7 @@
           justify-content: space-between;
 }
 
-.WishList .WishListTittle div {
+.UserOrder .UserOrderTitle div {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,16 +42,16 @@
           align-items: center;
 }
 
-.WishList .WishListTittle div p {
+.UserOrder .UserOrderTitle div p {
   display: block;
   padding: 0 10px;
   line-height: 36px;
   margin: 0;
 }
 
-.WishList .WishListContainer {
+.UserOrder .UserOrderContainer {
   width: 100%;
-  height: 360px;
+  height: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,15 +63,15 @@
   overflow-y: auto;
 }
 
-.WishList .WishListContainer::-webkit-scrollbar {
+.UserOrder .UserOrderContainer::-webkit-scrollbar {
   display: none;
 }
 
-.showWishList {
+.ShowOrderList {
   right: 100px;
   opacity: 1;
   visibility: visible;
   -webkit-transition: 1s;
   transition: 1s;
 }
-/*# sourceMappingURL=wishList.css.map */
+/*# sourceMappingURL=userOrder.css.map */

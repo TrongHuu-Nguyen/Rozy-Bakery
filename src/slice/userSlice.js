@@ -36,12 +36,23 @@ export const setWishUserAPI = createAsyncThunk('user/setWishUserAPI', async (pay
         .catch(e => console.log(e));
 })
 
+export const setUserOrderAPI = createAsyncThunk('user/setUserOrderAPI', async (payload) => {
+    console.log(payload.userOrder);
+    await axios
+        .patch(`http://localhost:3001/User/${payload.id}`,
+            {
+                "userOrder": payload.userOrder
+            })
+        .then(res => res)
+        .catch(e => console.log(e));
+})
+
 const userSlice = createSlice({
     name: "user",
     initialState: {
         list: [],
         loading: false,
-        error: '',
+        error: ''
 
     },
     reducers: {

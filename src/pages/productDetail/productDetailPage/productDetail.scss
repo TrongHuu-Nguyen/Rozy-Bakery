@@ -57,10 +57,6 @@
     justify-content: space-between;
     align-items: baseline;
     display:flex;
-   
-    p{
-        line-height:16px;
-    }
 }
 .AddCardButton {
     user-select: none;
@@ -80,10 +76,15 @@
     overflow:hidden;
     transition:0.1s;
     box-shadow: 5px 5px 5px #b7b7b7;
+    transition:0.3s;
     p{
         display:inline-block;
         margin:10px 20px;
         
+    }
+    &:hover{
+        background-color:#C33D3B;
+        transition:0.3s;
     }
 }
 .AddCardButton:active{
@@ -98,21 +99,24 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
     width:35px;
     height:35px;
     border:none;
     border-radius:50%;
+    box-shadow: 2px 3px 5px 3px rgba(0,0,0,0.1);
     background-color:#f7f7f7;
-    transition:0.1s;
+    transition:0.3s;
     p{
-        display:inline-block;
-        margin:0 auto;
+        display:flex;
+        justify-content: center;
+        font-size: 24px;
+        margin:0;
+        padding-bottom: 5px;
     }
-}
-.FakeBtn:active{
-    background-color:#b7b7b7;
-    transition:0.2s;
+    &:hover{
+        background-color:#b7b7b7;
+        transition:0.3s;
+    }
 }
 .ShipPolicy{
     display:flex;

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 
 const TopMenu = (props) => {
-    const { countCart, isLogIn, logOut, showCart, currentUser, showSideMenu, showWishList } = props;
+    const { countCart, isLogIn, logOut, showCart, currentUser, showSideMenu, showWishList,showOrder } = props;
 
     return (
         <div className="TopBar">
@@ -34,8 +34,8 @@ const TopMenu = (props) => {
                             <UserOutlined />
                             <Link to="/login"><p className="currentUser">{currentUser}</p></Link>
                             {isLogIn ? <ul>
-                                <li>
-                                    <p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Account</p>
+                                <li onClick={showOrder}>
+                                    <p><ContactsOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My Order</p>
                                 </li>
                                 <li onClick={showWishList}>
                                     <p><OrderedListOutlined style={{ fontSize: "16px" }} />&nbsp;&nbsp;My WishList</p>

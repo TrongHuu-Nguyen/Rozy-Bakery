@@ -1,0 +1,33 @@
+.OrderItem{
+    width:100%;
+    margin:5px auto;
+    padding: 0 10px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 5px rgba(0,0,0,0.1);
+    .OrderItemImg{
+        width:50px;
+        color:gray;
+    }
+    .OrderItemContent{
+        display:flex;
+        flex:1;
+        flex-direction:column;
+        p{
+            margin:0;
+            font-weight: 500;
+        }
+    }
+    .OrderItemDelete{
+        width:30px;
+        cursor: pointer;
+        color:gray;
+        transition:0.3s;
+        &:hover{
+            color:#FF514E;
+            transition:0.3s;
+        }
+    }
+}

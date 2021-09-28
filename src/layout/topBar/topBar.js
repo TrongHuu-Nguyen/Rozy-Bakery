@@ -4,9 +4,10 @@ import './topBar.css'
 import React from 'react'
 import ProductCart from './productCart/productCart';
 import WishList from './wishList/wishList'
+import UserOrder from './userOrder/userOrder';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getProductCartAPI, setItem ,wishItem} from '../../slice/cartSlice'
+import { getProductCartAPI, setItem, wishItem } from '../../slice/cartSlice'
 
 import SideMenu from './sideMenu/sideMenu';
 
@@ -17,8 +18,9 @@ const TopBar = () => {
     const [visible, setVisible] = React.useState(false);
     const [isShowWish, setIsShowWish] = React.useState(false);
     const [isLogIn, setIsLogIn] = React.useState(false);
+    const [isShowOrder, setShowOrder] = React.useState(false);
     const [currentUser, setCurrentUser] = React.useState("Login");
-    let user = [];
+    // let user = [];
 
     const dispatch = useDispatch();
     const Cart = useSelector(state => state.cart.cart);
@@ -26,12 +28,12 @@ const TopBar = () => {
     const countCart = useSelector(state => state.cart.cart.length);
     const userCartType = _.countBy(Cart, Math.floor);
     const userWishType = _.unionBy(wishList, Math.floor);
-    
+
     const listProduct = useSelector(state => state.cart.list);
     const total = useSelector(state => state.cart.total);
 
     const checkLogin = () => {
-        user = JSON.parse(localStorage.getItem("currentUser"));
+        const user = JSON.parse(localStorage.getItem("currentUser"));
         if (!!user) {
             setCurrentUser(() => user.userId);
             setIsLogIn(() => true);
@@ -40,6 +42,7 @@ const TopBar = () => {
         } else {
             setCurrentUser(() => "Login");
             setIsLogIn(() => false);
+            dispatch(setItem([]));
         }
     };
 
@@ -72,6 +75,13 @@ const TopBar = () => {
         e.stopPropagation();
         setIsShow(false);
     };
+    const showOrder = () => {
+        setShowOrder(true);
+    };
+    const closeOrder = () => {
+        setShowOrder(false);
+    };
+
     return (
         <div className="MainMenu">
             <TopMenu
@@ -82,6 +92,7 @@ const TopBar = () => {
                 currentUser={currentUser}
                 showSideMenu={showSideMenu}
                 showWishList={showWishList}
+                showOrder={showOrder}
             />
 
             <SideMenu
@@ -100,13 +111,19 @@ const TopBar = () => {
                     listProduct={listProduct}
                 /> : null}
 
-            {isLogIn ?
+            
                 <WishList
                     isShowWish={isShowWish}
                     userWishType={userWishType}
                     closeWishList={closeWishList}
                     listProduct={listProduct}
-                /> : null}
+                />
+
+                <UserOrder
+                    isShowOrder={isShowOrder}
+                    closeOrder={closeOrder}
+                />
+
 
         </div>
     )

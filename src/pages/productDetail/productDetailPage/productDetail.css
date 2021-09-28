@@ -86,10 +86,6 @@
   display: flex;
 }
 
-.Increase-Decrease p {
-  line-height: 16px;
-}
-
 .AddCardButton {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -121,11 +117,19 @@
   transition: 0.1s;
   -webkit-box-shadow: 5px 5px 5px #b7b7b7;
           box-shadow: 5px 5px 5px #b7b7b7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .AddCardButton p {
   display: inline-block;
   margin: 10px 20px;
+}
+
+.AddCardButton:hover {
+  background-color: #C33D3B;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .AddCardButton:active {
@@ -149,25 +153,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 24px;
   width: 35px;
   height: 35px;
   border: none;
   border-radius: 50%;
+  -webkit-box-shadow: 2px 3px 5px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 3px 5px 3px rgba(0, 0, 0, 0.1);
   background-color: #f7f7f7;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .FakeBtn p {
-  display: inline-block;
-  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 5px;
 }
 
-.FakeBtn:active {
+.FakeBtn:hover {
   background-color: #b7b7b7;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .ShipPolicy {

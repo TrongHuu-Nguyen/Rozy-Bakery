@@ -14,9 +14,12 @@ const ProductCart = (props) => {
     const listUserCartType=Object.entries(userCartType);
 
     React.useEffect(() => {
+        let sum = 0;
+        let count = 0;
+        if (cart.length === 0){
+            dispatch(setTotalCart(0));
+        }
         if (cart.length > 0 && listProduct.length > 0) {
-            let sum = 0;
-            let count = 0;
             cart.map((id) => {
                 sum += parseInt(listProduct.find(item => item.id === id).price);
                 count += 1;

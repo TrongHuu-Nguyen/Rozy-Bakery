@@ -4,13 +4,17 @@ import { Steps } from 'antd';
 import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined,LeftOutlined,CheckCircleOutlined } from '@ant-design/icons';
 import {message} from 'antd'
 import {Link} from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux'
+import {setItem,orderList} from '../../../slice/cartSlice'
+import {setCartUserAPI,setUserOrderAPI} from '../../../slice/userSlice'
 
 
 const { Step } = Steps;
 const CheckOutForm=(props)=>{
     const [process,setProcess] = React.useState(true);
-
-
+    const currentUser=JSON.parse(localStorage.getItem("currentUser"));
+    const total = useSelector(state => state.cart.total);
+    const dispatch= useDispatch();
 
     const firstNameRef=React.useRef(null);
     const lastNameRef=React.useRef(null);
@@ -66,13 +70,38 @@ const CheckOutForm=(props)=>{
 
         if (isValid) {
             const key = 'updatable';
-            
             message.loading({ content: 'Sending...',key});
+
+            const order={
+                "listItem":currentUser.userCart,
+                "cost":total,
+                "id": Math.random().toString(32).slice(2),
+                "status":"processing",
+                "firstName":firstNameRef.current.value,
+                "lastName":lastNameRef.current.value,
+                "address":addressRef.current.value,
+                "email":mailRef.current.value,
+                "phone":phoneRef.current.value
+            }
+            currentUser.userOrder.push(order);
+            const orderPayload={
+                id:currentUser.id,
+                userOrder:currentUser.userOrder
+            }
+            dispatch(setUserOrderAPI(orderPayload));
+            dispatch(orderList(currentUser.userOrder));
+            currentUser.userCart=[];
+            localStorage.setItem("currentUser",JSON.stringify(currentUser));
+            const payload={
+                id:currentUser.id,
+                idItems:currentUser.userCart
+            }
+            dispatch(setItem(currentUser.userCart));
+            dispatch(setCartUserAPI(payload));
             setTimeout(() => {
                 window.scrollTo(0,0);
                 message.success({ content: 'Order Success!',key, duration: 2 });
                 clearAll();
-                
                 setProcess(false)
             }, 1000);
         }
