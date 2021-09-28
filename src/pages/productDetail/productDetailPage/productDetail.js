@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { useLocation, useHistory } from "react-router-dom"
-import { Image, Rate, Radio, Tabs, notification } from 'antd';
+import { Image, Rate, Radio, Tabs, notification,BackTop } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -129,6 +129,7 @@ const ProductDetail = () => {
     )
     return (
         <div className="ProductDetail">
+            <BackTop />
             <TopBar />
             <Header title={itemTitle} />
             <div className="ProductDetailBody">

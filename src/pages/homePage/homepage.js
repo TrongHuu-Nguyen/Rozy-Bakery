@@ -8,12 +8,14 @@ import MiddleBanner from './middleBanner/middleBanner'
 import CategorySlide from './categorySlide/categorySlide'
 import Delivery from './deliverySlide/deliverySlide'
 import UserFeedback from './userFeedback/userFeedback'
+import {BackTop} from 'antd'
 const HomePage=()=>{
     React.useEffect(()=>{
         window.scrollTo(0,0);
     },[])
         return (
             <div className="HomePage">
+                <BackTop />
                 <TopBar/>
                 <TopBanner/>
                 <OrderStep/>

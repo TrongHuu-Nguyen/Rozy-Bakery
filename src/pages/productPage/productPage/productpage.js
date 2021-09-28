@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger, faHotdog, faBreadSlice, faGlassCheers, faPizzaSlice, faTh, faThList } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { Rate, Radio, Space, Input,Empty } from 'antd';
+import { Rate, Radio, Space, Input, Empty, Spin } from 'antd';
 import Footer from '../../../layout/footer/footer.js'
 import Header from '../../../layout/header/header.js'
 import './productpage.css'
 import TopBar from '../../../layout/topBar/topBar.js'
 import CardItem from '../../../components/cardItem/cardItem.js'
-import { Pagination } from 'antd'
-import {useSelector, useDispatch} from 'react-redux'
-import {getProductAPI} from '../../../slice/productSlice'
+import { Pagination,BackTop } from 'antd'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProductAPI } from '../../../slice/productSlice'
 
 function ProductPage() {
     const [value, setValue] = React.useState(1);
@@ -19,8 +19,8 @@ function ProductPage() {
     const [showItem, setShowItem] = React.useState([]);
 
     const dispatch = useDispatch();
-    const listProduct=useSelector((state)=>state.products.list);
-    const isLoading = useSelector((state)=>state.products.loading);
+    const listProduct = useSelector((state) => state.products.list);
+    const isLoading = useSelector((state) => state.products.loading);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -107,11 +107,14 @@ function ProductPage() {
         const currentItems = filtedData.slice(start, end);
         setShowItem(() => currentItems);
     }
-    if(isLoading) return (
-        <h2>Loading...</h2>
+    if (isLoading) return (
+        <div className = "LoadingPage">
+            <Spin size="large" />
+        </div>
     )
     return (
         <div className="ProductPage">
+            <BackTop />
             <TopBar />
             <Header title={title} />
             <div className="ProductPageBody">
@@ -196,7 +199,7 @@ function ProductPage() {
                         &nbsp;&nbsp;&nbsp;
                     </div>
                     <div className="ProductCardContainerItems">
-                        {showItem.length?showItem.map((product) => {
+                        {showItem.length ? showItem.map((product) => {
                             return (
                                 <CardItem
                                     displayStyle={displayStyle}
@@ -210,8 +213,8 @@ function ProductPage() {
                                     description={product.description}
                                 />
                             )
-                        }):<Empty style={{width:"80%",margin:"50px auto"}}/>
-                    }
+                        }) : <Empty style={{ width: "80%", margin: "50px auto" }} />
+                        }
                     </div>
                 </div>
             </div>

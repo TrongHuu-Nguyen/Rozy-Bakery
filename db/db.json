@@ -4,9 +4,28 @@
       "userId": "nguyentrong",
       "userPass": "123123123",
       "id": "nafvuocs868",
-      "userOrder": [],
-      "userWish": [],
-      "userCart": []
+      "userOrder": [
+        {
+          "listItem": [
+            "1"
+          ],
+          "cost": 79,
+          "id": "n71g1pf38r",
+          "status": "processing",
+          "firstName": "Trọng",
+          "lastName": "Nguyễn",
+          "address": "K140/26 Thanh Long. DaNang city",
+          "email": "Beenguyentrong@gmail.com",
+          "phone": "1264845131"
+        }
+      ],
+      "userWish": [
+        "1"
+      ],
+      "userCart": [
+        "1",
+        "1"
+      ]
     }
   ],
   "ProductData": [
