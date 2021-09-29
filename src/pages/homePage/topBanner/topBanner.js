@@ -35,7 +35,6 @@ const TopBanner=()=>{
                                 <Link to="/product"><div className="OrderButton"><ShoppingCartOutlined/><h3>ORDER NOW</h3></div></Link>
                             </div>
                         </div>
-                    
                 </Carousel>
             </div>
             

@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from 'axios';
+import _ from 'lodash'
 
 export const getProductAPI=createAsyncThunk('product/getProductAPI', async()=> {
     const listProduct = await axios
@@ -37,7 +38,7 @@ const productSlice=createSlice({
             state.loading=true;
         },
         [getProductAPI.fulfilled]:(state, action)=>{
-            state.list=(action.payload);
+            state.list=_.shuffle(action.payload);
             state.loading=false;
         },
         [getProductAPI.rejected]:(state, action)=>{

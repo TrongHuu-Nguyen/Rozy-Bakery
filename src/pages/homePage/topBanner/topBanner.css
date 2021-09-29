@@ -68,7 +68,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
   font-size: 16px;
   color: white;
   -webkit-transition: 0.3s;
@@ -98,6 +101,14 @@
     font-size: 48px;
     line-height: 48px;
   }
+  .BannerContent .OrderButton {
+    width: 130px;
+    height: 36px;
+  }
+  .BannerContent .OrderButton h3 {
+    font-size: 14px;
+    font-weight: 500;
+  }
   .LastBanner {
     padding-top: 150px;
   }
@@ -109,11 +120,19 @@
   }
   .BannerContent p {
     width: 350px;
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .BannerContent .OrderButton {
+    width: 120px;
+    height: 30px;
+  }
+  .BannerContent .OrderButton h3 {
+    font-size: 12px;
+    font-weight: 500;
   }
   .LastBanner {
-    padding-top: 150px;
+    padding-top: 0;
   }
 }
 
@@ -126,9 +145,17 @@
     font-size: 10px;
   }
   .BannerContent p {
+    width: 150px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .BannerContent .OrderButton {
     width: 100px;
-    font-size: 24px;
-    line-height: 24px;
+    height: 25px;
+  }
+  .BannerContent .OrderButton h3 {
+    font-size: 10px;
+    font-weight: 400;
   }
   .LastBanner {
     padding-top: 0px;

@@ -5,6 +5,7 @@ import {
     MenuOutlined, OrderedListOutlined,
     LogoutOutlined, ContactsOutlined
 } from '@ant-design/icons'
+import logo from '../../../asset/Logo.png'
 import { Link } from 'react-router-dom'
 
 
@@ -17,21 +18,22 @@ const TopMenu = (props) => {
                 <div className="TopMenu">
                     <ul>
                         <li><MenuOutlined onClick={(e) => { showSideMenu(e) }} /></li>
-                        <li><Link to="/"><p style={{ color: "white" }}><HomeOutlined />&nbsp;Pages</p></Link></li>
-                        <li><Link to="/product"><p style={{ color: "white" }}><UnorderedListOutlined />&nbsp;Online Order</p></Link></li>
-                        <li><FileTextOutlined />&nbsp;<p>News</p></li>
-                        <li><ShopOutlined />&nbsp;<p>Store Location</p></li>
+                        <li><h2>Rozy's </h2><Link to="/"><img src={logo} alt="Rozy-Logo" className="Logo" /></Link></li>
+                        <li><Link to="/"><p><HomeOutlined />&nbsp;Pages</p></Link></li>
+                        <li><Link to="/product"><p><UnorderedListOutlined />&nbsp;Online Order</p></Link></li>
+                        <li><Link to="/notfound"><p><FileTextOutlined />&nbsp;News</p></Link></li>
+                        <li><Link to="/notfound"><p><ShopOutlined />&nbsp;Store Location</p></Link></li>
                     </ul>
                 </div>
                 <div className="Cart-User">
                     <ul>
-                        <li onClick={showCart}><ShoppingCartOutlined />
+                        <li onClick={showCart}><ShoppingCartOutlined className="UserCart"/>
                             <div className="CartUpdate" >
                                 <p>{countCart}</p>
                             </div>
                         </li>
                         <li>
-                            <UserOutlined />
+                            <UserOutlined className="User"/>
                             <Link to="/login"><p className="currentUser">{currentUser}</p></Link>
                             {isLogIn ? <ul>
                                 <li onClick={showOrder}>

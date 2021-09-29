@@ -9,7 +9,7 @@
   max-width: 1366px;
   margin: 0 auto;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,6 +23,8 @@
   position: fixed;
   z-index: 1000;
   top: 0;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
 }
 
 .NavBar {
@@ -52,9 +54,6 @@
   font-size: 16px;
   float: left;
   color: white;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
   margin-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -66,10 +65,31 @@
   cursor: pointer;
 }
 
+.TopMenu li p {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .TopMenu li p:hover {
   color: #ff514e;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.TopMenu li img {
+  width: 60px;
+}
+
+.TopMenu li h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  color: #e4a607;
+  margin: 0;
 }
 
 .Cart-User > ul {
@@ -155,10 +175,19 @@
 }
 
 .Cart-User .currentUser {
-  color: white;
+  color: black;
+  font-weight: 600;
   font-size: 18px;
   display: block;
-  margin-top: 12px;
+  margin-top: 15px;
+}
+
+.Cart-User .User {
+  color: black;
+}
+
+.UserCart {
+  color: black;
 }
 
 .CartUpdate {

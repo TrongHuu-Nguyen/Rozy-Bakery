@@ -76,11 +76,11 @@ function ProductPage() {
     const priceFilter = (price) => {
         let dataPrice = [];
         switch (price) {
-            case 2: dataPrice = listProduct.filter(item => item.price <= 49)
+            case 2: dataPrice = listProduct.filter(item => item.price <= 5)
                 break;
-            case 3: dataPrice = listProduct.filter(item => (item.price > 49 && item.price < 100))
+            case 3: dataPrice = listProduct.filter(item => (item.price > 5 && item.price < 10))
                 break;
-            case 4: dataPrice = listProduct.filter(item => item.price > 100)
+            case 4: dataPrice = listProduct.filter(item => item.price > 10)
                 break;
             default: dataPrice = [...listProduct]; setTitle(() => "All Food")
                 break;
@@ -102,6 +102,7 @@ function ProductPage() {
         setFiltedData(() => dataRate);
     }
     const changePage = (page, pageSize) => {
+        window.scrollTo(0, 300);
         const start = (page - 1) * pageSize;
         const end = page * pageSize;
         const currentItems = filtedData.slice(start, end);
@@ -133,12 +134,13 @@ function ProductPage() {
                             <div className="ProductSidebarCategoriesItem" onClick={() => typeFilter("sandwich")}>
                                 &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faBreadSlice} size="lg" />&nbsp;&nbsp;<p>Sandwiches</p>
                             </div>
-                            <div className="ProductSidebarCategoriesItem" onClick={() => typeFilter("drink")}>
-                                &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faGlassCheers} size="lg" />&nbsp;&nbsp;<p>Drinks</p>
-                            </div>
                             <div className="ProductSidebarCategoriesItem" onClick={() => typeFilter("pizza")}>
                                 &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faPizzaSlice} size="lg" />&nbsp;&nbsp;<p>Pizzas</p>
                             </div>
+                            <div className="ProductSidebarCategoriesItem" onClick={() => typeFilter("drink")}>
+                                &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faGlassCheers} size="lg" />&nbsp;&nbsp;<p>Drinks</p>
+                            </div>
+                           
                         </div>
 
                     </div>
@@ -150,9 +152,9 @@ function ProductPage() {
                             <Radio.Group onChange={(e) => { handelPriceRange(e); priceFilter(e.target.value) }} value={value}>
                                 <Space direction="vertical">
                                     <Radio value={1}><span>All</span></Radio>
-                                    <Radio value={2}><span>Under 50$</span></Radio>
-                                    <Radio value={3}><span>50$-100$</span></Radio>
-                                    <Radio value={4}><span>Above 100$</span></Radio>
+                                    <Radio value={2}><span>Under 5$</span></Radio>
+                                    <Radio value={3}><span>5$-10$</span></Radio>
+                                    <Radio value={4}><span>Above 10$</span></Radio>
                                 </Space>
                             </Radio.Group>
                         </div>
