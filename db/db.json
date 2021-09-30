@@ -5,7 +5,10 @@
       "userPass": "123123123",
       "id": "nafvuocs868",
       "userOrder": [],
-      "userWish": [],
+      "userWish": [
+        "2",
+        "28"
+      ],
       "userCart": []
     }
   ],

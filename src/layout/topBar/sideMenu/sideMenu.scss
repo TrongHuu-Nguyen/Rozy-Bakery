@@ -9,18 +9,18 @@
         cursor: pointer;
         width: 100%;
         border-bottom: 1px solid #333333;
-        margin-top: 10px;
+        padding-top: 10px;
         font-size: 16px;
-        color: white;
         align-items: baseline;
         display: flex;
     }
     ul {
         width: 100%;
+        overflow: hidden;
         li {
             width: 100%;
             color: white;
-            margin-left: 20px;
+            padding-left: 20px;
             display: flex;
             text-decoration: none;
             list-style-type: none;

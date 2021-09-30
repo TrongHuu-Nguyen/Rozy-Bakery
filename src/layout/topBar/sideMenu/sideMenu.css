@@ -13,9 +13,8 @@
   cursor: pointer;
   width: 100%;
   border-bottom: 1px solid #333333;
-  margin-top: 10px;
+  padding-top: 10px;
   font-size: 16px;
-  color: white;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
@@ -26,12 +25,13 @@
 
 .SideMenu ul {
   width: 100%;
+  overflow: hidden;
 }
 
 .SideMenu ul li {
   width: 100%;
   color: white;
-  margin-left: 20px;
+  padding-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

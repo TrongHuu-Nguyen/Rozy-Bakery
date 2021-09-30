@@ -4,7 +4,6 @@
 }
 
 .DeliveryContent {
-  width: 90%;
   margin: 50px auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,7 +12,13 @@
 
 .DeliveryContent .Content {
   width: 50%;
+  margin: 0 auto;
   padding: 40px;
+}
+
+.DeliveryContent .Content h3 {
+  font-size: 20px;
+  color: #FBB505;
 }
 
 .DeliveryContent .DeliveryImg {
@@ -43,6 +48,17 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.ShipperInfo .OrderButton {
+  width: 120px;
+}
+
+.ShipperInfo .OrderButton h3 {
+  color: white;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 .BottomBanner {

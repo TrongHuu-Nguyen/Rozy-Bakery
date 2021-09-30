@@ -99,6 +99,9 @@ const TopBar = () => {
                 isShow={isShow}
                 exitSideMenu={exitSideMenu}
                 currentUser={currentUser}
+                showWishList={showWishList}
+                showOrder={showOrder}
+                logOut={logOut}
             />
 
             {isLogIn ?

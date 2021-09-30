@@ -101,11 +101,11 @@
   font-size: 14px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  color: #FF514E;
+  color: #ff514e;
 }
 
 .CheckOutForm .UserInfoForm .CheckOutButton p:hover {
-  color: #C33D3B;
+  color: #c33d3b;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -119,7 +119,7 @@
       -ms-user-select: none;
           user-select: none;
   border: none;
-  background-color: #FF514E;
+  background-color: #ff514e;
   border-radius: 17px;
   color: white;
   font-weight: 500;
@@ -130,8 +130,28 @@
 }
 
 .CheckOutForm .UserInfoForm .CheckOutButton button:hover {
-  background-color: #C33D3B;
+  background-color: #c33d3b;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+@media screen and (max-width: 1024px) {
+  .CheckOutForm {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .CheckOutForm {
+    width: 100%;
+    padding: 40px 10px;
+  }
+  .CheckOutForm .UserAccount {
+    margin: 0;
+  }
+  .CheckOutForm .UserInfoForm div input {
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=checkOutForm.css.map */

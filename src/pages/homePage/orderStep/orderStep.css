@@ -18,6 +18,10 @@
   transition: 0.3s;
 }
 
+.OrderStep .OrderStepTitle h2 {
+  color: #FBB505;
+}
+
 .OrderStepContent {
   width: 100%;
   display: -webkit-box;

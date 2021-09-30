@@ -10,7 +10,23 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+}
+
+@media only screen and (max-width: 1024px) {
+  .CheckOutBody {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .CheckOutBody {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=checkOutPage.css.map */

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getProductCartAPI } from '../../../slice/cartSlice'
 import { setTotalCart } from '../../../slice/cartSlice'
 import calculateDiscount from '../../..//layout/topBar/services/calculateDiscount'
+import emtyCart from '../../../asset/emtyCart-2.png'
 
 
 
@@ -51,13 +52,18 @@ const ListProduct = (props) => {
         <div className="ListProductContainer" >
             <div className="ListProduct" >
                 <div className="CartItems" >
-                    {!!listProduct.length && Object.entries(userCartType).map(([key, value]) => {
+                    {!!listProduct.length && userCartType.length?Object.entries(userCartType).map(([key, value]) => {
                         return <CartItem
                             key={key}
                             item={listProduct.find(item => item.id === key)}
                             countItem={value}
                         />
-                    })}
+                    }):<img 
+                    src={emtyCart} 
+                    alt="emty-cart"
+                    style={{marginTop:"50px"}}
+                    />
+                    }
                 </div>
                 <div className="CartDetail">
                     <div>

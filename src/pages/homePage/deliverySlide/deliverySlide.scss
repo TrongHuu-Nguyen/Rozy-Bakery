@@ -3,12 +3,16 @@
     margin: auto;
 }
 .DeliveryContent {
-    width: 90%;
     margin: 50px auto;
     display: flex;
     .Content {
         width: 50%;
+        margin:0 auto;
         padding: 40px;
+        h3{
+            font-size:20px;
+            color:#FBB505;
+        }
     }
     .DeliveryImg {
         width: 50%;
@@ -29,6 +33,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    .OrderButton{
+        width:120px;
+        h3{
+            color:white;
+            font-size: 16px;
+            margin:0;
+            padding:0;
+        }
+    }
 }
 .BottomBanner {
     width: 100%;

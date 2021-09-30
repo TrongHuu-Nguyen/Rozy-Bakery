@@ -19,6 +19,9 @@
             &::-webkit-scrollbar {
                 display: none;
             }
+            img{
+                object-fit: contain;
+            }
         }
         .CartDetail{
             width:100%;
@@ -78,4 +81,20 @@
         }
     }
     
+}
+@media screen and (max-width:1024px){
+    .ListProductContainer{
+        width:80%;
+        margin:0 auto;
+    }
+}
+@media screen and (max-width:576px){
+    .ListProductContainer{
+        width:100%;
+        margin:0 auto;
+        padding:10px;
+        .ListProduct{
+            padding:20px;
+        }
+    }
 }

@@ -30,13 +30,12 @@ const Delivery = () => {
 
             <div className="DeliveryContent">
                 <div className="Content">
-                    <p
-                        style={{ color: "#FBB403" }}
+                    <h3
                         data-aos="fade-left"
                         data-aos-offset="200"
                     >
                         Delivery
-                    </p>
+                    </h3>
                     <h2
                         data-aos="fade-right"
                         data-aos-offset="200"
@@ -47,7 +46,7 @@ const Delivery = () => {
                         data-aos="zoom-out"
                         data-aos-offset="200"
                     >
-                        Food G is a restaurant, bar and coffee roastery located on a busy
+                        Rozy's fastfood is a restaurant, bar and coffee roastery located on a busy
                         corner site in Farringdon's Exmouth Market. With glazed frontage on
                         two sides of the building, overlooking the market and a bustling London inteon.
                     </p>
@@ -58,11 +57,11 @@ const Delivery = () => {
                             width="100"
                             height="100"
                             data-aos="fade-right"
-                            data-aos-offset="200"
+                            data-aos-offset="100"
                         />
                         <div
                             data-aos="zoom-out"
-                            data-aos-offset="200"
+                            data-aos-offset="120"
                         >
                             <p>
                                 Delivery Order Num
@@ -73,7 +72,7 @@ const Delivery = () => {
                             <div
                                 className="OrderButton"
                                 data-aos="fade-left"
-                                data-aos-offset="200"
+                                data-aos-offset="100"
                             >
                                 <h3>ORDER NOW</h3>
                             </div>
@@ -108,7 +107,7 @@ const Delivery = () => {
                 <div
                     className="CupsOfCoffee"
                     data-aos="zoom-out"
-                    data-aos-offset="200"
+                    data-aos-offset="50"
                 >
                     <p>350+</p>
                     <h2>Cups of Coffee</h2>
@@ -116,7 +115,7 @@ const Delivery = () => {
                 <div
                     className="OrdersEveryday"
                     data-aos="zoom-out"
-                    data-aos-offset="200"
+                    data-aos-offset="100"
                 >
                     <p>2,678+</p>
                     <h2>Orders Everyday</h2>
@@ -124,7 +123,7 @@ const Delivery = () => {
                 <div
                     className="SkilledProfessionals"
                     data-aos="zoom-out"
-                    data-aos-offset="200"
+                    data-aos-offset="150"
                 >
                     <p>60</p>
                     <h2>Skilled Professionals</h2>

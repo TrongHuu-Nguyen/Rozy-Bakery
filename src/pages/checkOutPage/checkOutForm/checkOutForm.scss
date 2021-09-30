@@ -1,79 +1,101 @@
-.CheckOutForm{
-    width:50%;
-    padding:100px 40px;
-    display:flex;
+.CheckOutForm {
+    width: 50%;
+    padding: 100px 40px;
+    display: flex;
     flex-direction: column;
-    h2{
-        font-size:24px;
+    h2 {
+        font-size: 24px;
         font-weight: bold;
     }
-    .UserAccount{
-        display:flex;
+    .UserAccount {
+        display: flex;
         align-items: center;
-        margin:20px 0;
-        p{
+        margin: 20px 0;
+        p {
             display: inline-block;
-            margin:0 20px;;
+            margin: 0 20px;
             font-size: 24px;
         }
     }
-    .UserInfoForm{
-        width:100%;
+    .UserInfoForm {
+        width: 100%;
         padding: 20px 0;
-        div{
-            width:100%;
-            display:flex;
+        div {
+            width: 100%;
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin:20px auto;
-            input{
-                margin:5px;
-                display:flex;
-                flex:1;
+            margin: 20px auto;
+            input {
+                margin: 5px;
+                display: flex;
+                flex: 1;
                 border-radius: 8px;
-                height:40px;
+                height: 40px;
                 text-indent: 10px;
-                outline:none;
-                border:1px solid gray;
-                &::placeholder{
+                outline: none;
+                border: 1px solid gray;
+                &::placeholder {
                     font-weight: 400;
                 }
             }
         }
-        .CheckOutButton{
-            width:95%;
-            margin:40px auto;
-            p{
-                display:block;
-                margin:0;
-                line-height:40px;
-                height:40px;
+        .CheckOutButton {
+            width: 95%;
+            margin: 40px auto;
+            p {
+                display: block;
+                margin: 0;
+                line-height: 40px;
+                height: 40px;
                 cursor: pointer;
-                user-select:none;
+                user-select: none;
                 font-weight: bold;
-                font-size:14px;
+                font-size: 14px;
                 transition: 0.3s;
-                color:#FF514E;
-                &:hover{
-                    color:#C33D3B;
+                color: #ff514e;
+                &:hover {
+                    color: #c33d3b;
                     transition: 0.3s;
                 }
             }
-            button{
-                width:140px;
-                height:35px;
+            button {
+                width: 140px;
+                height: 35px;
                 cursor: pointer;
-                user-select:none;
-                border:none;
-                background-color: #FF514E;
+                user-select: none;
+                border: none;
+                background-color: #ff514e;
                 border-radius: 17px;
-                color:white;
+                color: white;
                 font-weight: 500;
                 box-shadow: 0 3px 5px 3px #d5d5d5;
                 transition: 0.3s;
-                &:hover{
-                    background-color:#C33D3B;
+                &:hover {
+                    background-color: #c33d3b;
                     transition: 0.3s;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .CheckOutForm {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 576px) {
+    .CheckOutForm {
+        width: 100%;
+        padding: 40px 10px;
+        .UserAccount {
+            margin: 0;
+        }
+        .UserInfoForm {
+            div {
+                input {
+                    margin: 0;
                 }
             }
         }

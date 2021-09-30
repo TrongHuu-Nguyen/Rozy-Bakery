@@ -1,14 +1,21 @@
-.CheckOut{
-    width:100%;
+.CheckOut {
+    width: 100%;
     max-width: 1366px;
     margin: 0 auto;
-    &Body{
-    width:90%;
-    margin: 50px auto;
-    display:flex;
-    justify-content:space-around;
+    &Body {
+        width: 90%;
+        margin: 50px auto;
+        display: flex;
+    }
 }
+@media only screen and (max-width:1024px){
+    .CheckOutBody{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }
-
-
-
+@media only screen and (max-width:768px){
+    .CheckOutBody{
+        width: 100%;
+    }
+}
