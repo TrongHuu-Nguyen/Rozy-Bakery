@@ -142,15 +142,15 @@
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  top: 150%;
+  top: 140%;
   -webkit-box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.5);
   background-color: white;
   padding: 0;
   overflow: hidden;
   border-radius: 8px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .Cart-User ul ul li {

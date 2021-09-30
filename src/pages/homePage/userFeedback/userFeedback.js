@@ -23,7 +23,6 @@ const UserFeedback=()=>{
                     Will be back definitely!</p>
                 </div>
             </div>
-
             <div className="UserFeedback">
                 <div className="UserAvatar">
                     <div className="Frame">
@@ -38,7 +37,6 @@ const UserFeedback=()=>{
                         I had a Margarita. The service was excellent!</p>
                 </div>
             </div>
-
             <div className="UserFeedback">
                 <div className="UserAvatar">
                     <div className="Frame">
@@ -68,7 +66,6 @@ const UserFeedback=()=>{
                 </div>
             </div>
         </Carousel>
-        
     )
 }
 export default UserFeedback

@@ -1,11 +1,23 @@
 import './middleBanner.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import React from 'react';
 
 
 const MiddleBanner = () => {
+    React.useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, [])
     return (
         <div className="MiddleBanner">
             <div className="LeftSideTags">
-                <div className="TagItem TagOne">
+                <div
+                    className="TagItem TagOne"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-duration="1000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>01</p></div>
                         <div className="TagContent">
@@ -15,7 +27,12 @@ const MiddleBanner = () => {
                         </div>
                     </div>
                 </div>
-                <div className="TagItem TagTwo">
+                <div 
+                    className="TagItem TagTwo"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-duration="1000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>02</p></div>
                         <div className="TagContent">
@@ -25,7 +42,12 @@ const MiddleBanner = () => {
                         </div>
                     </div>
                 </div>
-                <div className="TagItem">
+                <div 
+                    className="TagItem"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-duration="1000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>03</p></div>
                         <div className="TagContent">
@@ -38,7 +60,12 @@ const MiddleBanner = () => {
             </div>
 
             <div className="RightSideTags">
-                <div className="TagItem">
+                <div 
+                    className="TagItem" 
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-duration="2000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>04</p></div>
                         <div className="TagContent">
@@ -48,7 +75,12 @@ const MiddleBanner = () => {
                         </div>
                     </div>
                 </div>
-                <div className="TagItem TagFive">
+                <div 
+                    className="TagItem TagFive"
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-duration="2000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>05</p></div>
                         <div className="TagContent">
@@ -58,7 +90,12 @@ const MiddleBanner = () => {
                         </div>
                     </div>
                 </div>
-                <div className="TagItem">
+                <div 
+                    className="TagItem"
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-duration="2000"
+                >
                     <div className="Tag">
                         <div className="TagNumb"><p>06</p></div>
                         <div className="TagContent">

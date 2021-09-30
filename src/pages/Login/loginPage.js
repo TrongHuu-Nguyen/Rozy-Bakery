@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getUserAPI, addUserAPI } from '../../slice/userSlice'
 import { message } from 'antd'
 import _ from 'lodash'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const LoginPage = () => {
     const dispatch = useDispatch();
@@ -17,6 +19,11 @@ const LoginPage = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(getUserAPI());
+        AOS.init({
+            duration: 2000,
+            offset: 50
+        });
+        AOS.refresh();
     }, [dispatch]);
 
     //input ref
@@ -98,9 +105,9 @@ const LoginPage = () => {
             localStorage.setItem("currentUser", JSON.stringify(account));
             clearAll();
             setIsShow(false);
-            message.loading({ content: 'Registing...',key});
+            message.loading({ content: 'Registing...', key });
             setTimeout(() => {
-                message.success({ content: 'You have successfully registered!',key, duration: 2 });
+                message.success({ content: 'You have successfully registered!', key, duration: 2 });
                 history.replace("/");
             }, 2000);
         }
@@ -141,9 +148,9 @@ const LoginPage = () => {
             const key = 'updatable';
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
             clearAll();
-            message.loading({ content: 'Logging in...',key});
+            message.loading({ content: 'Logging in...', key });
             setTimeout(() => {
-                message.success({ content: 'successful login!',key, duration: 2 });
+                message.success({ content: 'successful login!', key, duration: 2 });
                 history.replace("/");
             }, 1000);
         }
@@ -164,12 +171,14 @@ const LoginPage = () => {
     return (
         <div className="LoginPage">
             <div className="LoginBox">
-                <div className="LoginImage">
+                <div className="LoginImage" data-aos="zoom-in-right">
                     <img src={loginImage} alt="login" />
                 </div>
-                <div className='LoginForm'>
-                    <h2><b>JOIN WITH US</b></h2>
-                    <p style={{ color: "gray" }}>
+                <div className='LoginForm' data-aos="zoom-out">
+                    <h2 data-aos="fade-right">
+                        <b>JOIN WITH US</b>
+                    </h2>
+                    <p style={{ color: "gray" }} data-aos="fade-left">
                         Don't have an account? <span className="CreateAccount" onClick={ShowRegisterBox}>Create an account</span>
                     </p>
                     <div className="InputID">
