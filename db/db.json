@@ -6,8 +6,9 @@
       "id": "nafvuocs868",
       "userOrder": [],
       "userWish": [
-        "2",
-        "28"
+        "22",
+        "22",
+        "22"
       ],
       "userCart": []
     }
@@ -324,7 +325,16 @@
       "description": "Magnam perferendis pariatur mauris consectetur, imperdiet, netus diam hymenaeos irure commodi mus consectetuer magnam, adipisci consequatur.",
       "rate": 4,
       "price": "4",
-      "comments": []
+      "comments": [
+        {
+          "id": "pxv808lnxl",
+          "userName": "nguyentrong",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 5,
+          "comment": "món này rất ngon",
+          "moment": "2021-09-30T09:54:25.056Z"
+        }
+      ]
     },
     {
       "type": "sandwich",

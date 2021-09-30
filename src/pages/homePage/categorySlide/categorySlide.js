@@ -30,63 +30,63 @@ const CategorySlide=()=>{
             </div>
             
             <div 
-            class="slider" 
+            className="slider" 
             data-aos="zoom-out" 
             data-aos-offset="150"
             >
-                <div class="slide-track">
-                    <div class="slide">
+                <div className="slide-track">
+                    <div className="slide">
                         <img src={hamburger} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={chicken} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={coffee} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={burger} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={meat} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={hotdog} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={soda} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={fastFood} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={pizza} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={hamburger} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={chicken} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={coffee} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={burger} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={meat} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={hotdog} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={soda} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={fastFood} height="100" width="100" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src={pizza} height="100" width="100" alt="" />
                     </div>
                 </div>
