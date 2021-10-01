@@ -84,6 +84,11 @@
   overflow-y: auto;
 }
 
+.ProductCart .ProductCartItems img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .ProductCart .ProductCartItems::-webkit-scrollbar {
   display: none;
 }

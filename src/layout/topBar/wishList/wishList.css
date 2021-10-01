@@ -3,7 +3,7 @@
   height: 400px;
   background-color: white;
   position: fixed;
-  top: 20%;
+  top: 15%;
   right: -100vw;
   z-index: 1000;
   -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
@@ -67,8 +67,13 @@
   display: none;
 }
 
+.WishList .WishListContainer img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .showWishList {
-  right: 100px;
+  right: 24px;
   opacity: 1;
   visibility: visible;
   -webkit-transition: 1s;
@@ -80,11 +85,13 @@
     width: 100%;
     height: 100vh;
     top: 0;
-    right: 0;
   }
   .WishList .WishListContainer {
     width: 100%;
     height: calc(100%-40px);
+  }
+  .showWishList {
+    right: 0;
   }
 }
 /*# sourceMappingURL=wishList.css.map */

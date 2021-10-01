@@ -7,11 +7,10 @@
       "userOrder": [
         {
           "listItem": [
-            "12",
-            "14"
+            "29"
           ],
-          "cost": 11.7,
-          "id": "e6nn3cckpco",
+          "cost": 7,
+          "id": "lpl89rah2l8",
           "status": "processing",
           "firstName": "Trọng",
           "lastName": "Nguyễn",
@@ -20,9 +19,7 @@
           "phone": "1264845131"
         }
       ],
-      "userWish": [
-        "46"
-      ],
+      "userWish": [],
       "userCart": []
     }
   ],
