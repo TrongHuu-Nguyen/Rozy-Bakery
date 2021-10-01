@@ -29,3 +29,9 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #803224; 
 }
+
+@media screen and (max-width: 576px){
+  ::-webkit-scrollbar {
+    display:none;
+  }
+}

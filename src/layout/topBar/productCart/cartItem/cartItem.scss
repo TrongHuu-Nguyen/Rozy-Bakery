@@ -32,10 +32,11 @@
         height: 80px;
         margin: 0 5px;
         h3 {
+            border:1px solid;
             width: 120px;
+            white-space: nowrap; 
             overflow: hidden;
-            text-overflow: ellipsis;
-            word-wrap: none;
+            text-overflow: ellipsis; 
             display: block;
             margin: 0 10px;
             color: white;

@@ -55,10 +55,11 @@
 }
 
 .CartItem .Detail h3 {
+  border: 1px solid;
   width: 120px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: none;
   display: block;
   margin: 0 10px;
   color: white;

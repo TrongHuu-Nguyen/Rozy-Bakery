@@ -107,7 +107,7 @@ const Delivery = () => {
                 <div
                     className="CupsOfCoffee"
                     data-aos="zoom-out"
-                    data-aos-offset="50"
+                    
                 >
                     <p>350+</p>
                     <h2>Cups of Coffee</h2>
@@ -115,7 +115,7 @@ const Delivery = () => {
                 <div
                     className="OrdersEveryday"
                     data-aos="zoom-out"
-                    data-aos-offset="100"
+                    
                 >
                     <p>2,678+</p>
                     <h2>Orders Everyday</h2>
@@ -123,7 +123,8 @@ const Delivery = () => {
                 <div
                     className="SkilledProfessionals"
                     data-aos="zoom-out"
-                    data-aos-offset="150"
+                    
+                    
                 >
                     <p>60</p>
                     <h2>Skilled Professionals</h2>
@@ -131,7 +132,8 @@ const Delivery = () => {
                 <div
                     className="SandwichsPerHour"
                     data-aos="zoom-out"
-                    data-aos-offset="200"
+                    
+                    
                 >
                     <p>30</p>
                     <h2>Sandwichs at Hour</h2>

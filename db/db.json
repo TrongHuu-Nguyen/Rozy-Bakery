@@ -4,11 +4,24 @@
       "userId": "nguyentrong",
       "userPass": "123123123",
       "id": "nafvuocs868",
-      "userOrder": [],
+      "userOrder": [
+        {
+          "listItem": [
+            "12",
+            "14"
+          ],
+          "cost": 11.7,
+          "id": "e6nn3cckpco",
+          "status": "processing",
+          "firstName": "Trọng",
+          "lastName": "Nguyễn",
+          "address": "K140/26 Thanh Long. DaNang city",
+          "email": "Beenguyentrong@gmail.com",
+          "phone": "1264845131"
+        }
+      ],
       "userWish": [
-        "22",
-        "22",
-        "22"
+        "46"
       ],
       "userCart": []
     }
@@ -367,7 +380,24 @@
       "description": " Habitasse, hic fringilla? Integer, dignissim maxime molestias at blandit sit fames dictumst molestiae, nostra quo habitasse similique voluptatem.",
       "rate": 4,
       "price": "9",
-      "comments": []
+      "comments": [
+        {
+          "id": "62cwfj8o2u",
+          "userName": "nguyentrong",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 5,
+          "comment": "good",
+          "moment": "2021-10-01T12:14:15.812Z"
+        },
+        {
+          "id": "10nbc4n0odg",
+          "userName": "nguyentrong",
+          "userAvatar": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+          "rate": 5,
+          "comment": "verry good",
+          "moment": "2021-10-01T12:21:32.943Z"
+        }
+      ]
     },
     {
       "type": "sandwich",

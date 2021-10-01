@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { useLocation, useHistory } from "react-router-dom"
-import { Image, Rate, Radio, Tabs, notification,BackTop } from 'antd';
+import { Image, Rate, Radio, Tabs, notification,BackTop,Spin } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import './productDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -13,13 +13,18 @@ import Header from '../../../layout/header/header.js'
 import TopBar from '../../../layout/topBar/topBar.js'
 import Shipping from './shipping/shipping'
 
-
-
-// import 'react-lazy-load-image-component/src/effects/blur.css';
 import { setCartUserAPI, setWishUserAPI } from '../../../slice/userSlice'
 import { setItem, wishItem } from '../../../slice/cartSlice'
 
 const { TabPane } = Tabs;
+
+const warning = type => {
+    notification.warning({
+        message: 'Warning !',
+        description:
+            'You must be login to do this.',
+    });
+};
 
 const addWish = type => {
     notification.success({
@@ -57,7 +62,7 @@ const ProductDetail = () => {
     React.useEffect(() => {
         window.scrollTo(0, 200);
         dispatch(getProductAPI());
-    }, [dispatch])
+    }, [dispatch,itemId])
 
     React.useEffect(() => {
         if (listProduct && listProduct.length && itemId) {
@@ -91,11 +96,12 @@ const ProductDetail = () => {
     };
 
     const addToCart = () => {
-        addCart();
+        
         for (let i = 0; i < count; i++) {
         const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        if (!currentUser) return;
+        if (!currentUser) return warning();
         if (currentUser) {
+                addCart();
                 currentUser.userCart.push(itemId);
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
                 const payload = {
@@ -109,10 +115,10 @@ const ProductDetail = () => {
     }
 
     const addToWish = () => {
-        addWish();
         const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        if (!currentUser) return;
+        if (!currentUser) return warning();
         if (currentUser) {
+            addWish();
             currentUser.userWish.push(itemId);
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
             const payload = {
@@ -125,7 +131,9 @@ const ProductDetail = () => {
     }
 
     if (isLoading) return (
-        <h2>Loading...</h2>
+        <div className = "LoadingPage">
+            <Spin size="large" />
+        </div>
     )
     return (
         <div className="ProductDetail">

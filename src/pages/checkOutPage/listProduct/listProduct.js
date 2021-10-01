@@ -8,40 +8,40 @@ import { setTotalCart } from '../../../slice/cartSlice'
 import calculateDiscount from '../../..//layout/topBar/services/calculateDiscount'
 import emtyCart from '../../../asset/emtyCart-2.png'
 
-
-
-
 const ListProduct = (props) => {
     const dispatch = useDispatch();
     const Cart = useSelector(state => state.cart.cart);
-
     const userCartType = _.countBy(Cart, Math.floor);
     const listProduct = useSelector(state => state.cart.list);
     const total = useSelector(state => state.cart.total);
-
-    const [discountValue, setDiscountValue] = React.useState(0); //Discount
+    const [discountPercent, setDiscountPercent] = React.useState(0); //discountPercent
+    const [discountValue, setDiscountValue] = React.useState(0); //discountValue
     const [invoice, setInvoice] = React.useState(0); //Discount
 
-    let sum = 0;
-    let count = 0;
+
     React.useEffect(() => {
         dispatch(getProductCartAPI());
     }, []);
 
     React.useEffect(() => {
+        let sum = 0;
+        let count = 0;
         if (Cart.length === 0) {
             setDiscountValue(() => 0)
+            setDiscountPercent(() => 0)
             setInvoice(() => 0)
             dispatch(setTotalCart(0));
         }
-        if (Cart.length > 0 && listProduct.length > 0) {
+        if (Cart.length > 0 && !!listProduct.length) {
             Cart.map((id) => {
                 sum += parseInt(listProduct.find(item => item.id === id).price);
-                count += 1;
+                count++;
                 return sum
             });
             setInvoice(() => sum)
             const discount = (sum * calculateDiscount(count)).toFixed(2);
+            const percent = calculateDiscount(count) * 100;
+            setDiscountPercent(() => percent);
             setDiscountValue(() => discount)
             const finalTotal = sum - discount;
             dispatch(setTotalCart(finalTotal));
@@ -52,16 +52,16 @@ const ListProduct = (props) => {
         <div className="ListProductContainer" >
             <div className="ListProduct" >
                 <div className="CartItems" >
-                    {!!listProduct.length && userCartType.length?Object.entries(userCartType).map(([key, value]) => {
+                    {!!listProduct.length && Cart.length ? Object.entries(userCartType).map(([key, value]) => {
                         return <CartItem
                             key={key}
                             item={listProduct.find(item => item.id === key)}
                             countItem={value}
                         />
-                    }):<img 
-                    src={emtyCart} 
-                    alt="emty-cart"
-                    style={{marginTop:"50px"}}
+                    }) : <img
+                        src={emtyCart}
+                        alt="emty-cart"
+                        style={{ marginTop: "50px" }}
                     />
                     }
                 </div>
@@ -70,7 +70,7 @@ const ListProduct = (props) => {
                         <p>bill invoice</p> <h2>${invoice}</h2>
                     </div>
                     <div>
-                        <p>Discount percentage</p> <h2>{calculateDiscount(count) * 100}%</h2>
+                        <p>Discount percentage</p> <h2>{discountPercent}%</h2>
                     </div>
                     <div>
                         <p>Discount value</p> <h2>${discountValue}</h2>
