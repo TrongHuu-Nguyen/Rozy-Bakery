@@ -57,7 +57,7 @@
   width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: none;
+  white-space: nowrap;
   display: block;
   margin: 0 10px;
   font-size: 14px;
